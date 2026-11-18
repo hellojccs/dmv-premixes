@@ -71,9 +71,13 @@ Como esa condición es más específica que "Todo el sitio", **solo esa página*
 
 ## 5. Revisa
 Abre la página *Prueba hero* (con tu sesión iniciada) en computadora y en celular:
-- Barra flotante con efecto vidrio sobre el hero azul.
-- Símbolo DMV a la izquierda, menú, botón **WhatsApp** verde (gris al pasar el mouse) y **Contáctanos**.
-- En celular: símbolo, WhatsApp y menú hamburguesa.
+- Barra flotante con efecto vidrio sobre el hero azul, con el **logo completo** y textos del menú en blanco.
+- Al pasar el mouse por el menú: fondo **Royal Blue al 50%**.
+- Al hacer scroll: el logo se reduce al **símbolo en círculo azul** y la barra se vuelve **Carbon Black** translúcida.
+- Botón **WhatsApp** verde (gris al pasar el mouse) y **Contáctanos**.
+- En celular: logo, WhatsApp y menú hamburguesa.
+
+> Si ya habías importado una versión anterior del header, borra la anterior en *Plantillas guardadas* e importa esta.
 
 ## Cuando lo apruebes
 En las condiciones del header nuevo cambia la condición a **Todo el sitio**, y en el header viejo elimina su condición (o muévelo a borrador).

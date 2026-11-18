@@ -66,35 +66,45 @@ p{margin:0;text-wrap:pretty}
 
 /* ---------- Navegación ---------- */
 .nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:50;padding:0 var(--gutter);pointer-events:none}
-.nav{pointer-events:auto;max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 10px;border-radius:999px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);box-shadow:0 8px 30px rgba(25,93,228,.12);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s}
-.nav.scrolled{background:rgba(255,255,255,.82);box-shadow:0 8px 30px rgba(28,27,23,.12)}
-.nav-mark{width:38px;height:38px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;flex:none}
+/* Arriba: vidrio claro sobre el hero azul · Al hacer scroll: vidrio Carbon Black (el texto blanco sigue legible sobre secciones claras) */
+.nav{pointer-events:auto;max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 12px;border-radius:999px;background:rgba(246,247,242,.14);border:1px solid rgba(246,247,242,.35);box-shadow:0 8px 30px rgba(28,27,23,.10);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s,border-color .3s,max-width .35s ease}
+.nav.scrolled{max-width:700px;background:rgba(28,27,23,.84);border-color:rgba(246,247,242,.12);box-shadow:0 8px 30px rgba(28,27,23,.20)}
+/* Logo: completo arriba, solo símbolo al hacer scroll */
+.nav-brand{position:relative;display:block;height:38px;width:150px;flex:none;transition:width .35s ease}
+.nav-logo-full{position:absolute;left:4px;top:50%;width:142px;height:auto;color:var(--white-sand);transform:translateY(-50%);transition:opacity .25s,transform .35s}
+.nav-mark{position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s}
 .nav-mark svg{width:20px;height:auto}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;font-size:14px}
-.nav-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;color:var(--carbon-black);transition:color .2s,background-color .2s}
-.nav-links a:hover{color:var(--royal-blue)}
-.nav-links .current{border:1px solid var(--cool-swell)}
+.nav.scrolled .nav-brand{width:38px}
+.nav.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
+.nav.scrolled .nav-mark{opacity:1;transform:none}
+/* Enlaces: blancos; hover con fondo Royal Blue al 50% */
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;font-size:14px}
+.nav-links a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;color:var(--white-sand);transition:background-color .2s}
+.nav-links a:hover,.nav-dd:focus-within>a{background:rgba(25,93,228,.5);color:var(--white-sand)}
 .nav-links .icon{font-size:12px}
 .nav-dd{position:relative}
 .nav-dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:200px;padding:8px;border-radius:var(--radius-sm);background:var(--white);box-shadow:var(--shadow-lg);list-style:none;margin:0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s}
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:none}
-.nav-dd-menu a{display:block;border-radius:8px}
-.nav-dd-menu a:hover{background:var(--white-sand)}
-.nav-cta{padding:11px 20px}
+.nav-dd-menu a{display:block;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
+.nav-dd-menu a:hover{background:rgba(25,93,228,.12);color:var(--carbon-black)}
+.nav-cta{padding:11px 20px;border-color:var(--white-sand)}
+.nav.scrolled .nav-cta{border-color:transparent}
 .nav-actions{display:flex;align-items:center;gap:8px}
 .nav-wa{width:40px;height:40px;border-radius:50%;background:var(--whatsapp-green);color:var(--white);display:grid;place-items:center;flex:none;transition:background-color .2s,box-shadow .2s}
 .nav-wa:hover{background:var(--taupe-grey);box-shadow:0 8px 20px rgba(28,27,23,.22)}
 .nav-wa .icon{font-size:20px;fill:currentColor;stroke:none}
-.nav-toggle{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--cool-swell);background:transparent;cursor:pointer;place-items:center}
+.nav-toggle{display:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(246,247,242,.5);background:transparent;color:var(--white-sand);cursor:pointer;place-items:center;transition:background-color .2s}
+.nav-toggle:hover{background:rgba(25,93,228,.5)}
 .nav-toggle .icon{font-size:20px}
 .mobile-menu{display:none}
 @media (max-width:760px){
   .nav-links,.nav .nav-cta{display:none}
   .nav-toggle{display:grid}
-  .mobile-menu{pointer-events:auto;display:block;max-width:680px;margin:8px auto 0;padding:12px;border-radius:var(--radius);background:rgba(255,255,255,.96);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
+  .mobile-menu{pointer-events:auto;display:block;max-width:780px;margin:8px auto 0;padding:12px;border-radius:var(--radius);background:rgba(255,255,255,.96);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
   .mobile-menu.open{opacity:1;visibility:visible;transform:none}
   .mobile-menu a{display:block;padding:12px 14px;border-radius:10px;font-size:16px}
-  .mobile-menu a:hover{background:var(--white-sand)}
+  .mobile-menu a:hover{background:rgba(25,93,228,.12)}
+  .nav-brand{width:132px}.nav-logo-full{width:124px}
   .mobile-menu .btn{display:inline-flex;margin:8px 14px 6px}
 }
 
@@ -272,10 +282,13 @@ p{margin:0;text-wrap:pretty}
 <!-- ============ NAVEGACIÓN ============ -->
 <header class="nav-wrap">
   <nav class="nav" id="nav" aria-label="Principal">
-    <a href="#inicio" class="nav-mark" aria-label="DMV Premixes — Inicio"><svg viewBox="0 0 248.1 207.64"><use href="#dmv-mark"/></svg></a>
+    <a href="#inicio" class="nav-brand" aria-label="DMV Premixes — Inicio">
+      <svg class="nav-logo-full" viewBox="0 0 1049.08 207.64" aria-hidden="true"><use href="#dmv-logo"/></svg>
+      <span class="nav-mark"><svg viewBox="0 0 248.1 207.64" aria-hidden="true"><use href="#dmv-mark"/></svg></span>
+    </a>
     <ul class="nav-links">
       <li class="nav-dd">
-        <a href="#nosotros" class="current">Nosotros <svg class="icon"><use href="#i-chev-down"/></svg></a>
+        <a href="#nosotros">Nosotros <svg class="icon"><use href="#i-chev-down"/></svg></a>
         <ul class="nav-dd-menu">
           <li><a href="#nosotros">Quiénes somos</a></li>
           <li><a href="#por-que">¿Por qué DMV Premixes?</a></li>
