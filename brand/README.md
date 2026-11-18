@@ -22,7 +22,7 @@
 | Carbon Black | `#1C1B17` | `--dmv-carbon-black` |
 | White Sand | `#F6F7F2` | `--dmv-white-sand` |
 
-Referencia visual: `paleta-referencia.png`. Pantone/CMYK: pendiente de recibir.
+Referencia visual: `paleta-referencia.png`. Estos HEX son los valores oficiales de la paleta (confirmados por el cliente como su referencia "Pantone").
 
 ## Tipografía
 
