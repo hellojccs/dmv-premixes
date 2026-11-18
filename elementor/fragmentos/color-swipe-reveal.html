@@ -4,14 +4,14 @@
      Uso en Elementor: Elementor → Código personalizado → pegar todo → Ubicación: Fin del <body>.
      Luego, en el widget de texto: Avanzado → Clases CSS → dmv-reveal -->
 <style>
-.dmv-reveal .dmv-w{transition:color .6s ease,filter .6s ease,opacity .6s ease;}
-.dmv-reveal .dmv-w:not(.on){color:var(--dmv-tint) !important;filter:blur(3px);opacity:.8;}
+.dmv-reveal .dmv-w{transition:color .9s ease,filter .9s ease;}
+.dmv-reveal .dmv-w:not(.on){color:var(--dmv-tint) !important;filter:blur(1.2px);}
 </style>
 <script>
 (function(){
   if (window.__dmvReveal) return; window.__dmvReveal = true;
   // Tonos de la paleta para las palabras aún no reveladas: Royal Blue → Cool Swell
-  var A=[25,93,228,.55], B=[135,152,178,.75];
+  var A=[25,93,228,.42], B=[135,152,178,.6];
   function tint(t){ var c=A.map(function(v,i){return i<3?Math.round(v+(B[i]-v)*t):(v+(B[i]-v)*t).toFixed(2)}); return 'rgba('+c.join(',')+')'; }
 
   function split(root){
