@@ -328,7 +328,7 @@
                 },
                 "width_mobile": {
                   "unit": "%",
-                  "size": 44,
+                  "size": 40,
                   "sizes": []
                 },
                 "flex_direction": "column",
@@ -502,6 +502,7 @@
                     },
                     "text_color": "#E9E6DF",
                     "text_color_hover": "#FFFFFF",
+                    "custom_css": "selector .elementor-icon-list-text{overflow-wrap:anywhere;}",
                     "icon_typography_typography": "custom",
                     "icon_typography_font_family": "Archivo",
                     "icon_typography_font_weight": "400",
@@ -535,7 +536,7 @@
                 },
                 "width_mobile": {
                   "unit": "%",
-                  "size": 44,
+                  "size": 52,
                   "sizes": []
                 },
                 "flex_direction": "column",
@@ -639,6 +640,7 @@
                     },
                     "text_color": "#E9E6DF",
                     "text_color_hover": "#FFFFFF",
+                    "custom_css": "selector .elementor-icon-list-text{overflow-wrap:anywhere;}",
                     "icon_typography_typography": "custom",
                     "icon_typography_font_family": "Archivo",
                     "icon_typography_font_weight": "400",

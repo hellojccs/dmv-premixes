@@ -272,6 +272,7 @@ def link_list(items):
                        "link": {"url": url, "is_external": "on" if url.startswith("http") else "", "nofollow": "", "custom_attributes": ""}}
                       for text, url in items],
         "space_between": px(10), "text_color": SG, "text_color_hover": "#FFFFFF",
+        "custom_css": "selector .elementor-icon-list-text{overflow-wrap:anywhere;}",
         **typo("icon_typography", "Archivo", 14, None, 1.5),
     })
 
@@ -314,7 +315,7 @@ def footer():
         }),
     ], inner=True)
     explora = container({
-        "_title": "Explora", "content_width": "full", "width": px(20, "%"), "width_mobile": px(44, "%"),
+        "_title": "Explora", "content_width": "full", "width": px(20, "%"), "width_mobile": px(40, "%"),
         "flex_direction": "column", "padding": box(0, 0, 0, 0)}, [
         heading4("Explora"),
         link_list([("Nosotros", "/nosotros/"), ("Soluciones", "/soluciones/"), ("Industrias", "/industrias/"),
@@ -322,7 +323,7 @@ def footer():
                    ("Política de Privacidad", "#"), ("Ubicación", "#")]),
     ], inner=True)
     contacto = container({
-        "_title": "Contacto", "content_width": "full", "width": px(26, "%"), "width_mobile": px(44, "%"),
+        "_title": "Contacto", "content_width": "full", "width": px(26, "%"), "width_mobile": px(52, "%"),
         "flex_direction": "column", "padding": box(0, 0, 0, 0)}, [
         heading4("Contacto"),
         link_list([("contacto@dmvpremixes.com", "mailto:contacto@dmvpremixes.com"),
