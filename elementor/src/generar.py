@@ -35,11 +35,14 @@ def widget(kind, settings): return {"id": rid(kind), "elType": "widget", "widget
 def container(settings, elements, inner=False):
     return {"id": rid("con"), "elType": "container", "isInner": inner, "settings": settings, "elements": elements}
 
+RINTER_SHIFT = 0.143   # em: Rinter se ve 0.143em arriba del centro; se compensa con padding (sin tocar la fuente)
+
 def button(text, url, *, outline_white=False, size=15, pad=(14, 40), extra=None):
+    d = round(size * RINTER_SHIFT)
     s = {"text": text, "link": {"url": url, "is_external": "", "nofollow": "", "custom_attributes": ""},
          "button_text_color": WS, "background_color": RB,
          "button_background_background": "classic", "button_background_color": RB,
-         "border_radius": radius(999), "text_padding": box(pad[0], pad[1], pad[0], pad[1])}
+         "border_radius": radius(999), "text_padding": box(pad[0] + d, pad[1], pad[0] - d, pad[1])}
     if outline_white:
         s.update({"hover_color": RB, "button_background_hover_background": "classic", "button_background_hover_color": WS,
                   "border_border": "solid", "border_width": radius(1), "border_color": WS})
@@ -118,22 +121,28 @@ body.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border
 LEFT_CSS = GLASS_CSS + """
 
 /* Logo completo arriba, solo el símbolo al hacer scroll */
-selector .dmv-brand{position:relative;display:block;height:38px;width:150px;transition:width .35s ease;}
-selector .dmv-logo-full{position:absolute;left:4px;top:50%;width:142px;height:auto;transform:translateY(-50%);transition:opacity .25s,transform .35s;}
-selector .dmv-mark{position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:#195DE4;display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s;}
+selector .dmv-brand{position:relative;display:block;height:40px;width:158px;transition:width .35s ease;}
+selector .dmv-logo-full{position:absolute;left:12px;top:50%;width:142px;height:auto;transform:translateY(-50%);transition:opacity .25s,transform .35s;}
+selector .dmv-mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:#195DE4;display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s;}
 selector .dmv-mark svg{width:20px;height:auto;}
-body.dmv-scrolled selector .dmv-brand{width:38px;}
+body.dmv-scrolled selector .dmv-brand{width:40px;}
 body.dmv-scrolled selector .dmv-logo-full{opacity:0;transform:translateY(-50%) scale(.92);}
 body.dmv-scrolled selector .dmv-mark{opacity:1;transform:none;}
-@media (max-width:767px){selector .dmv-brand{width:132px;}selector .dmv-logo-full{width:124px;}}
+@media (max-width:767px){selector .dmv-brand{width:140px;}selector .dmv-logo-full{width:124px;}}
 
 /* Menú: texto blanco; hover con fondo Royal Blue al 50% */
-selector .elementor-nav-menu--main .elementor-item{border-radius:12px;transition:background-color .2s;}
+selector .elementor-nav-menu--main .elementor-item{height:40px;display:flex;align-items:center;padding-top:0;padding-bottom:0;border-radius:12px;transition:background-color .2s;}
 selector .elementor-nav-menu--main .elementor-item:hover,
 selector .elementor-nav-menu--main .elementor-item:focus,
 selector .elementor-nav-menu--main .elementor-item.highlighted{background-color:rgba(25,93,228,.5);color:#F6F7F2;}
 selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
 selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
+
+/* Botón ⋮ / hamburguesa: círculo perfecto de 40px */
+selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
+selector .elementor-menu-toggle:hover,selector .elementor-menu-toggle.elementor-active{background-color:rgba(25,93,228,.5);}
+selector .elementor-menu-toggle svg{width:20px;height:20px;}
+selector .elementor-menu-toggle i{font-size:20px;}
 
 /* Panel del menú: debajo de la barra, alineado a su borde izquierdo */
 selector .elementor-widget-nav-menu,selector .elementor-widget-nav-menu .elementor-widget-container{position:static;}
@@ -146,13 +155,17 @@ selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{position:ab
   body.dmv-scrolled selector .elementor-menu-toggle{display:flex;}
   body.dmv-scrolled selector .elementor-nav-menu--dropdown{display:block;}
   body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active) .elementor-menu-toggle__icon--open{display:none;}
-  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active)::before{content:"\u22ee";font-size:22px;line-height:1;color:#F6F7F2;}
+  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active)::before{content:"";display:block;width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F6F7F2'%3E%3Ccircle cx='12' cy='5' r='1.8'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3Ccircle cx='12' cy='19' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat;}
 }"""
 
 RIGHT_CSS = GLASS_CSS + """
 
 /* Botón Contáctanos: borde blanco arriba, sin borde al hacer scroll */
-selector .elementor-button{border:1px solid #F6F7F2;}
+selector .elementor-icon-wrapper{display:flex;line-height:0;}
+selector .elementor-icon{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;}
+selector .elementor-icon svg{width:20px;height:20px;}
+/* Rinter: +2px arriba / -2px abajo para centrar el texto */
+selector .elementor-button{height:40px;padding:2px 22px 0;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}
 body.dmv-scrolled selector .elementor-button{border-color:transparent;}"""
 
 def glass(title, pad, css, elements):
@@ -172,7 +185,7 @@ def glass(title, pad, css, elements):
     }, elements, inner=True)
 
 def header():
-    left = glass("Barra izquierda: logo + menú", box(8, 8, 8, 12), LEFT_CSS, [
+    left = glass("Barra izquierda: logo + menú", box(6, 6, 6, 6), LEFT_CSS, [
         widget("html", {"_title": "Logo DMV (completo / símbolo)", "html": brand_html()}),
         widget("nav-menu", {
             "_title": "Menú",
@@ -182,14 +195,14 @@ def header():
             "dropdown": "mobile", "toggle": "burger", "toggle_align": "right", "full_width": "",
             **typo("menu_typography", "Archivo", 14),
             "color_menu_item": WS, "color_menu_item_hover": WS, "color_menu_item_active": WS,
-            "padding_horizontal_menu_item": px(14), "padding_vertical_menu_item": px(9),
+            "padding_horizontal_menu_item": px(14), "padding_vertical_menu_item": px(0),
             "menu_space_between": px(2),
             "color_dropdown_item": CB, "background_color_dropdown_item": "#FFFFFF",
             "color_dropdown_item_hover": CB, "background_color_dropdown_item_hover": "rgba(25,93,228,0.12)",
             **typo("dropdown_typography", "Archivo", 14),
             "toggle_color": WS, "toggle_color_hover": WS,
-            "toggle_background_color": "rgba(0,0,0,0)", "toggle_background_color_hover": "rgba(25,93,228,0.5)",
-            "toggle_border_width": px(1), "toggle_border_radius": px(999),
+            "toggle_background_color": "rgba(246,247,242,0.12)", "toggle_background_color_hover": "rgba(25,93,228,0.5)",
+            "toggle_border_width": px(0), "toggle_border_radius": px(999), "toggle_size": px(20),
         }),
     ])
     right = glass("Barra derecha: WhatsApp + Contáctanos", box(6, 6, 6, 6), RIGHT_CSS, [

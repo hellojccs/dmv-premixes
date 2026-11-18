@@ -9,7 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap" rel="stylesheet">
 <style>
 /* Rinter (brand/fonts) — se incrusta al generar el prototipo */
-@font-face{font-family:"Rinter";src:url("{{RINTER_WOFF2}}") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+/* ascent/descent-override centran las mayúsculas en la caja de texto (la fuente queda igual; solo se ajusta su posición vertical) */
+@font-face{font-family:"Rinter";src:url("{{RINTER_WOFF2}}") format("woff2");font-weight:400;font-style:normal;font-display:swap;ascent-override:85.7%;descent-override:14.3%;line-gap-override:0%}
 
 :root{
   /* Paleta autorizada — no modificar */
@@ -71,21 +72,21 @@ p{margin:0;text-wrap:pretty}
 /* Arriba: vidrio claro sobre el hero azul · Al hacer scroll: vidrio Carbon Black (el texto blanco sigue legible sobre secciones claras) */
 .glass{pointer-events:auto;display:flex;align-items:center;border-radius:999px;background:rgba(246,247,242,.14);border:1px solid rgba(246,247,242,.35);box-shadow:0 8px 30px rgba(28,27,23,.10);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s,border-color .3s}
 .nav-wrap.scrolled .glass{background:rgba(28,27,23,.84);border-color:rgba(246,247,242,.12);box-shadow:0 8px 30px rgba(28,27,23,.20)}
-.nav{gap:0;padding:8px 8px 8px 12px}
-.nav-side{gap:8px;padding:6px}
+.nav{gap:0;padding:6px}
+.nav-side{gap:6px;padding:6px}
 /* Logo: completo arriba, solo símbolo al hacer scroll */
-.nav-brand{position:relative;display:block;height:38px;width:150px;flex:none;transition:width .35s ease}
-.nav-logo-full{position:absolute;left:4px;top:50%;width:142px;height:auto;color:var(--white-sand);transform:translateY(-50%);transition:opacity .25s,transform .35s}
-.nav-mark{position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s}
+.nav-brand{position:relative;display:block;height:40px;width:158px;flex:none;transition:width .35s ease}
+.nav-logo-full{position:absolute;left:12px;top:50%;width:142px;height:auto;color:var(--white-sand);transform:translateY(-50%);transition:opacity .25s,transform .35s}
+.nav-mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s}
 .nav-mark svg{width:20px;height:auto}
-.nav-wrap.scrolled .nav-brand{width:38px}
+.nav-wrap.scrolled .nav-brand{width:40px}
 .nav-wrap.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
 .nav-wrap.scrolled .nav-mark{opacity:1;transform:none}
 /* Enlaces: blancos; hover con fondo Royal Blue al 50% */
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0 0 0 16px;padding:0;font-size:14px;max-width:640px;white-space:nowrap;transition:max-width .4s ease,opacity .25s,margin .4s ease}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0 0 0 10px;padding:0;font-size:14px;max-width:640px;white-space:nowrap;transition:max-width .4s ease,opacity .25s,margin .4s ease}
 /* Al hacer scroll los enlaces se ocultan y aparece el botón ⋮ (referencia Butter) */
 .nav-wrap.scrolled .nav-links{max-width:0;opacity:0;margin-left:0;overflow:hidden;pointer-events:none}
-.nav-links a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;color:var(--white-sand);transition:background-color .2s}
+.nav-links a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:12px;color:var(--white-sand);transition:background-color .2s}
 .nav-links a:hover,.nav-dd:focus-within>a{background:rgba(25,93,228,.5);color:var(--white-sand)}
 .nav-links .icon{font-size:12px}
 .nav-dd{position:relative}
@@ -93,13 +94,13 @@ p{margin:0;text-wrap:pretty}
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:none}
 .nav-dd-menu a{display:block;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
 .nav-dd-menu a:hover{background:rgba(25,93,228,.12);color:var(--carbon-black)}
-.nav-cta{padding:11px 20px;border-color:var(--white-sand)}
+.nav-cta{height:40px;padding:0 22px;border-color:var(--white-sand)}
 .nav-wrap.scrolled .nav-cta{border-color:transparent}
 .nav-wa{width:40px;height:40px;border-radius:50%;background:var(--whatsapp-green);color:var(--white);display:grid;place-items:center;flex:none;transition:background-color .2s,box-shadow .2s}
 .nav-wa:hover{background:var(--taupe-grey);box-shadow:0 8px 20px rgba(28,27,23,.22)}
 .nav-wa .icon{font-size:20px;fill:currentColor;stroke:none}
-.nav-toggle{display:grid;place-items:center;width:0;height:38px;margin-left:0;padding:0;border:0;border-radius:50%;background:transparent;color:var(--white-sand);cursor:pointer;opacity:0;overflow:hidden;pointer-events:none;transition:width .35s ease,margin .35s ease,opacity .25s,background-color .2s}
-.nav-wrap.scrolled .nav-toggle{width:38px;margin-left:8px;opacity:1;pointer-events:auto}
+.nav-toggle{display:grid;place-items:center;width:0;height:40px;margin-left:0;padding:0;border:0;border-radius:50%;background:rgba(246,247,242,.12);color:var(--white-sand);cursor:pointer;opacity:0;overflow:hidden;pointer-events:none;transition:width .35s ease,margin .35s ease,opacity .25s,background-color .2s}
+.nav-wrap.scrolled .nav-toggle{width:40px;margin-left:6px;opacity:1;pointer-events:auto}
 .nav-toggle:hover,.nav-toggle[aria-expanded="true"]{background:rgba(25,93,228,.5)}
 .nav-toggle .icon{font-size:20px}
 .nav-toggle .i-burger{display:none}
@@ -112,14 +113,14 @@ p{margin:0;text-wrap:pretty}
 .menu-panel .btn{display:none}
 @media (max-width:760px){
   .nav-links,.nav-cta{display:none}
-  .nav-toggle,.nav-wrap.scrolled .nav-toggle{width:38px;margin-left:10px;opacity:1;pointer-events:auto;border:1px solid rgba(246,247,242,.5)}
+  .nav-toggle,.nav-wrap.scrolled .nav-toggle{width:40px;margin-left:6px;opacity:1;pointer-events:auto}
   .nav-toggle .i-dots{display:none}
   .nav-toggle .i-burger{display:block}
   .menu-panel{right:var(--gutter);width:auto}
   .menu-panel a{font-size:16px;padding:12px 14px}
   .menu-panel a.btn{display:inline-flex;margin:8px 14px 6px;color:var(--white)}
   .menu-panel a.btn:hover{background:#1450c6}
-  .nav-brand{width:132px}.nav-logo-full{width:124px}
+  .nav-brand{width:140px}.nav-logo-full{width:124px}
 }
 
 /* ---------- Hero (basado en el hero actual de WordPress) ---------- */

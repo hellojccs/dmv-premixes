@@ -247,9 +247,9 @@
                 },
                 "text_padding": {
                   "unit": "px",
-                  "top": "14",
+                  "top": "16",
                   "right": "40",
-                  "bottom": "14",
+                  "bottom": "12",
                   "left": "40",
                   "isLinked": false
                 },
@@ -305,9 +305,9 @@
                 },
                 "text_padding": {
                   "unit": "px",
-                  "top": "14",
+                  "top": "16",
                   "right": "40",
-                  "bottom": "14",
+                  "bottom": "12",
                   "left": "40",
                   "isLinked": false
                 },
