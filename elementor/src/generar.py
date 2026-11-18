@@ -139,7 +139,10 @@ selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overfl
 selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
 
 /* Botón ⋮ / hamburguesa: círculo perfecto de 40px */
-selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
+selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);align-items:center;justify-content:center;box-sizing:border-box;}
+/* Solo se muestra en celular, o en escritorio al hacer scroll (regla de abajo); arriba en escritorio queda oculto */
+@media (min-width:768px){selector .elementor-menu-toggle{display:none;}}
+@media (max-width:767px){selector .elementor-menu-toggle{display:flex;}}
 selector .elementor-menu-toggle:hover,selector .elementor-menu-toggle.elementor-active{background-color:rgba(25,93,228,.5);}
 selector .elementor-menu-toggle svg{width:20px;height:20px;}
 selector .elementor-menu-toggle i{font-size:20px;}
