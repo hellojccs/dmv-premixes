@@ -233,16 +233,6 @@
                   "nofollow": "",
                   "custom_attributes": ""
                 },
-                "selected_icon": {
-                  "value": "fas fa-arrow-right",
-                  "library": "fa-solid"
-                },
-                "icon_align": "right",
-                "icon_indent": {
-                  "unit": "px",
-                  "size": 12,
-                  "sizes": []
-                },
                 "button_text_color": "#F6F7F2",
                 "background_color": "#195DE4",
                 "button_background_background": "classic",
@@ -300,16 +290,6 @@
                   "is_external": "",
                   "nofollow": "",
                   "custom_attributes": ""
-                },
-                "selected_icon": {
-                  "value": "fas fa-arrow-right",
-                  "library": "fa-solid"
-                },
-                "icon_align": "right",
-                "icon_indent": {
-                  "unit": "px",
-                  "size": 12,
-                  "sizes": []
                 },
                 "button_text_color": "#F6F7F2",
                 "background_color": "#195DE4",

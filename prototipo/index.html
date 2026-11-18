@@ -51,9 +51,7 @@ p{margin:0;text-wrap:pretty}
 :focus-visible{outline:2px solid var(--royal-blue);outline-offset:3px}
 
 /* ---------- Botones ---------- */
-.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-heading);font-size:14px;line-height:1;padding:12px 16px 12px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s;white-space:nowrap}
-.btn .icon{font-size:16px;transition:transform .2s}
-.btn:hover .icon{transform:translate(2px,-2px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;font-family:var(--font-heading);font-size:14px;line-height:1;padding:13px 24px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s;white-space:nowrap}
 .btn-primary{background:var(--royal-blue);color:var(--white)}
 .btn-primary:hover{background:#1450c6;box-shadow:0 8px 20px rgba(25,93,228,.28)}
 .btn-outline{border-color:var(--cool-swell);color:var(--carbon-black);background:rgba(255,255,255,.6)}
@@ -82,7 +80,7 @@ p{margin:0;text-wrap:pretty}
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:none}
 .nav-dd-menu a{display:block;border-radius:8px}
 .nav-dd-menu a:hover{background:var(--white-sand)}
-.nav-cta{padding:10px 14px 10px 18px}
+.nav-cta{padding:11px 20px}
 .nav-actions{display:flex;align-items:center;gap:8px}
 .nav-wa{width:40px;height:40px;border-radius:50%;background:var(--whatsapp-green);color:var(--white);display:grid;place-items:center;flex:none;transition:background-color .2s,box-shadow .2s}
 .nav-wa:hover{background:var(--taupe-grey);box-shadow:0 8px 20px rgba(28,27,23,.22)}
@@ -200,7 +198,7 @@ p{margin:0;text-wrap:pretty}
 .post p{font-size:13px;color:var(--taupe-grey);line-height:1.55;padding-bottom:16px;border-bottom:1px solid var(--soft-grey)}
 .post-meta{display:flex;align-items:center;gap:16px;margin-top:14px;font-size:12px;color:var(--cool-swell)}
 .chip{background:var(--cool-swell);color:var(--white);padding:4px 14px;border-radius:999px}
-.post-meta a{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--taupe-grey)}
+.post-meta a{margin-left:auto;color:var(--taupe-grey);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--soft-grey)}
 .post-meta a:hover{color:var(--royal-blue)}
 .blog-cta{margin-top:40px}
 @media (max-width:700px){.posts{grid-template-columns:1fr}}
@@ -222,7 +220,6 @@ p{margin:0;text-wrap:pretty}
 .contact-card>.icon{font-size:22px;color:var(--taupe-grey)}
 .contact-card small{display:block;font-size:12px;color:var(--cool-swell)}
 .contact-card b{font-weight:400;font-size:15px}
-.contact-card .go{margin-left:auto;color:var(--taupe-grey)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}.contact-copy{order:-1}}
 
 /* ---------- Footer ---------- */
@@ -253,7 +250,6 @@ p{margin:0;text-wrap:pretty}
   <defs>
     <symbol id="dmv-mark" viewBox="0 0 248.1 207.64" fill="currentColor"><path d="M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z"/><path d="M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z"/><path d="M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z"/></symbol>
     <symbol id="dmv-logo" viewBox="0 0 1049.08 207.64" fill="currentColor"><path d="M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z"/><path d="M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z"/><path d="M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z"/><path d="M353.73,62.08h28.17c25.3,0,39.44,12.76,39.44,39.1s-12.07,43.01-39.44,43.01h-28.17V62.08ZM364.65,134.98h18.17c7.47,0,27.6-2.07,27.6-32.31,0-19.55-7.24-31.39-27.37-31.39h-18.4v63.71Z"/><path d="M511.61,62.08v82.1h-10.92v-72.91h-3.68l-17.82,72.91h-17.59l-17.71-72.91h-3.79v72.91h-10.92V62.08h22.65l17.82,72.9h1.49l17.82-72.9h22.65Z"/><path d="M563.93,144.18h-17.48l-31.51-82.1h11.73l26.79,72.9h3.68l25.64-72.9h11.27l-30.13,82.1Z"/><path d="M623.27,62.08h29.32c18.4,0,31.85,6.67,31.85,26.1s-13.45,26.22-31.85,26.22h-18.4v29.78h-10.92V62.08ZM634.19,105.2h16.67c14.83,0,22.65-4.25,22.65-17.02s-7.02-16.79-22.65-16.9h-16.67v33.92Z"/><path d="M723.77,93.36h-23.23v50.83h-9.77v-59.45h9.77v6.44h3.68c3.56-5.98,5.06-6.44,19.55-6.44v8.62Z"/><path d="M777.7,117.39h-44.85c.69,11.96,6.78,19.55,17.48,19.55,7.02,0,14.6-3.79,16.21-11.61h10c-2.19,12.76-13.8,20.24-26.22,20.24-16.67,0-27.37-12.07-27.37-31.16s10.69-31.05,27.37-31.05,27.37,11.61,27.37,30.36v3.68ZM767.7,108.77c-1.15-7.93-5.98-16.79-17.36-16.79-9.89,0-15.75,6.44-17.25,16.79h34.61Z"/><path d="M866.02,144.18h-9.66v-39.79c0-5.17-.57-12.3-11.27-12.3-8.39,0-10.81,5.4-11.84,7.7h-3.79v44.39h-9.66v-39.79c0-5.17-.58-12.3-11.27-12.3-8.39,0-10.81,5.4-11.84,7.7h-3.79v44.39h-9.66v-59.34h9.66v7.82h3.79c1.84-5.06,7.24-9.31,13.57-9.31,7.13,0,13.45,2.42,16.79,9.31h3.68c3.1-4.94,8.28-9.31,16.1-9.31,10.58,0,19.2,5.29,19.2,22.19v38.64Z"/><path d="M885.45,74.04h-9.77v-11.96h9.77v11.96ZM875.67,84.73h9.77v59.45h-9.77v-59.45Z"/><path d="M943.52,84.73l-19.78,27.37,22.31,32.08h-12.19l-14.95-22.77h-3.91l-14.95,22.77h-11.5l21.62-31.28-20.01-28.17h12.19l12.76,19.2h3.79l13.22-19.2h11.38Z"/><path d="M997.33,117.39h-44.85c.69,11.96,6.78,19.55,17.48,19.55,7.02,0,14.6-3.79,16.21-11.61h10c-2.19,12.76-13.8,20.24-26.22,20.24-16.67,0-27.37-12.07-27.37-31.16s10.69-31.05,27.37-31.05,27.37,11.61,27.37,30.36v3.68ZM987.33,108.77c-1.15-7.93-5.98-16.79-17.36-16.79-9.89,0-15.75,6.44-17.25,16.79h34.61Z"/><path d="M1008.37,125.44c.35,8.74,8.05,11.5,15.98,11.5,6.09,0,14.72-1.38,14.72-8.85,0-15.29-39.21-4.94-39.21-27.83,0-11.96,11.73-16.9,22.19-16.9,13.34,0,23.46,4.14,24.38,18.63h-9.77c-.57-7.59-7.47-10-13.8-10-5.86,0-12.99,1.61-12.99,7.59,0,6.9,10.69,8.28,19.78,10.35,9.77,2.18,19.43,5.52,19.43,16.9,0,14.26-13.22,18.74-25.3,18.74-13.34,0-24.61-5.4-25.18-20.12h9.77Z"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
     <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
@@ -293,7 +289,7 @@ p{margin:0;text-wrap:pretty}
     <div class="nav-actions">
       <!-- WhatsApp: +52 55 4357 7104 -->
       <a href="https://wa.me/525543577104" class="nav-wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" title="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
-      <a href="#contacto" class="btn btn-primary nav-cta">Contáctanos <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a href="#contacto" class="btn btn-primary nav-cta">Contáctanos</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú"><svg class="icon"><use href="#i-menu"/></svg></button>
     </div>
   </nav>
@@ -303,7 +299,7 @@ p{margin:0;text-wrap:pretty}
     <a href="#industrias">Industrias</a>
     <a href="#" title="Página interna (pendiente)">Calidad</a>
     <a href="#blog">Blog</a>
-    <a href="#contacto" class="btn btn-primary">Contáctanos <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a href="#contacto" class="btn btn-primary">Contáctanos</a>
   </div>
 </header>
 
@@ -315,8 +311,8 @@ p{margin:0;text-wrap:pretty}
     <h1>Precisión en cada formulación</h1>
     <p class="hero-copy">DMV Premixes es una marca especializada en el desarrollo y suministro de premezclas nutricionales personalizadas para las industrias de alimentos, bebidas y nutrición animal.</p>
     <div class="btn-row">
-      <a href="#soluciones" class="btn btn-hero">Ver Soluciones <svg class="icon"><use href="#i-arrow"/></svg></a>
-      <a href="#contacto" class="btn btn-hero">Consulta una asesoría <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a href="#soluciones" class="btn btn-hero">Ver Soluciones</a>
+      <a href="#contacto" class="btn btn-hero">Consulta una asesoría</a>
     </div>
   </div>
   <div class="marquee" aria-label="Logos de clientes (de ejemplo)">
@@ -340,7 +336,7 @@ p{margin:0;text-wrap:pretty}
       <div class="pillar"><svg class="icon"><use href="#i-cap"/></svg>Capacitación<br>Especializada</div>
       <div class="pillar"><svg class="icon"><use href="#i-headset"/></svg>Atención<br>Cercana</div>
     </div>
-    <div class="center"><a href="#contacto" class="btn btn-primary">Solicita una evaluación técnica <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    <div class="center"><a href="#contacto" class="btn btn-primary">Solicita una evaluación técnica</a></div>
   </div>
 </section>
 
@@ -355,15 +351,15 @@ p{margin:0;text-wrap:pretty}
     <div class="carousel">
       <button class="arrow" id="prev" aria-label="Anterior"><svg class="icon"><use href="#i-chev-left"/></svg></button>
       <div class="track" id="track">
-        <article class="card"><div class="card-num">01</div><h3>Premezclas y<br>Fortificación</h3><p>Vitaminas, minerales, aminoácidos y formulaciones personalizadas.</p><a href="#" class="btn btn-primary">Ver Premezclas <svg class="icon"><use href="#i-arrow"/></svg></a></article>
-        <article class="card"><div class="card-num">02</div><h3>Enzimas y<br>Mejorantes</h3><p>Aplicaciones en harinas, panificación y procesos alimentarios.</p><a href="#" class="btn btn-primary">Ver Enzimas <svg class="icon"><use href="#i-arrow"/></svg></a></article>
-        <article class="card"><div class="card-num">03</div><h3>Aditivos e<br>Ingredientes</h3><p>Ingredientes funcionales según la aplicación.</p><a href="#" class="btn btn-primary">Ver Ingredientes <svg class="icon"><use href="#i-arrow"/></svg></a></article>
-        <article class="card"><div class="card-num">04</div><h3>Nutrición<br>Animal</h3><p>Texto de ejemplo: premezclas para alimento balanceado y suplementación.</p><a href="#" class="btn btn-primary">Ver Nutrición <svg class="icon"><use href="#i-arrow"/></svg></a></article>
-        <article class="card"><div class="card-num">05</div><h3>Servicios<br>Técnicos</h3><p>Texto de ejemplo: formulación, pruebas piloto y acompañamiento en planta.</p><a href="#" class="btn btn-primary">Ver Servicios <svg class="icon"><use href="#i-arrow"/></svg></a></article>
+        <article class="card"><div class="card-num">01</div><h3>Premezclas y<br>Fortificación</h3><p>Vitaminas, minerales, aminoácidos y formulaciones personalizadas.</p><a href="#" class="btn btn-primary">Ver Premezclas</a></article>
+        <article class="card"><div class="card-num">02</div><h3>Enzimas y<br>Mejorantes</h3><p>Aplicaciones en harinas, panificación y procesos alimentarios.</p><a href="#" class="btn btn-primary">Ver Enzimas</a></article>
+        <article class="card"><div class="card-num">03</div><h3>Aditivos e<br>Ingredientes</h3><p>Ingredientes funcionales según la aplicación.</p><a href="#" class="btn btn-primary">Ver Ingredientes</a></article>
+        <article class="card"><div class="card-num">04</div><h3>Nutrición<br>Animal</h3><p>Texto de ejemplo: premezclas para alimento balanceado y suplementación.</p><a href="#" class="btn btn-primary">Ver Nutrición</a></article>
+        <article class="card"><div class="card-num">05</div><h3>Servicios<br>Técnicos</h3><p>Texto de ejemplo: formulación, pruebas piloto y acompañamiento en planta.</p><a href="#" class="btn btn-primary">Ver Servicios</a></article>
       </div>
       <button class="arrow" id="next" aria-label="Siguiente"><svg class="icon"><use href="#i-chev-right"/></svg></button>
     </div>
-    <div class="center sol-cta"><a href="#contacto" class="btn btn-primary">Habla con un especialista <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    <div class="center sol-cta"><a href="#contacto" class="btn btn-primary">Habla con un especialista</a></div>
   </div>
 </section>
 
@@ -429,8 +425,8 @@ p{margin:0;text-wrap:pretty}
           </figcaption>
         </figure>
         <div class="btn-row">
-          <a href="#soluciones" class="btn btn-primary">Ver Soluciones <svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a href="#contacto" class="btn btn-outline">Solicita Asesoría <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#soluciones" class="btn btn-primary">Ver Soluciones</a>
+          <a href="#contacto" class="btn btn-outline">Solicita Asesoría</a>
         </div>
       </div>
     </div>
@@ -467,16 +463,16 @@ p{margin:0;text-wrap:pretty}
         <div class="post-img"><span>Imagen del artículo</span></div>
         <h3>Las enzimas en los procesos de panificación</h3>
         <p>Conoce cómo las enzimas pueden intervenir en distintas etapas del proceso y qué factores deben evaluarse al seleccionar una solución.</p>
-        <div class="post-meta"><span class="chip">Artículo</span><span>10 de abril de 2026</span><a href="#">Leer más <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <div class="post-meta"><span class="chip">Artículo</span><span>10 de abril de 2026</span><a href="#">Leer más</a></div>
       </article>
       <article class="post">
         <div class="post-img"><span>Imagen del artículo</span></div>
         <h3>Selección de premezclas nutricionales</h3>
         <p>Identifica los factores de formulación, aplicación y especificación técnica que conviene considerar antes de elegir una premezcla.</p>
-        <div class="post-meta"><span class="chip">Artículo</span><span>21 de mayo de 2026</span><a href="#">Leer más <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+        <div class="post-meta"><span class="chip">Artículo</span><span>21 de mayo de 2026</span><a href="#">Leer más</a></div>
       </article>
     </div>
-    <div class="center blog-cta"><a href="#" class="btn btn-primary">Ver todas las publicaciones <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    <div class="center blog-cta"><a href="#" class="btn btn-primary">Ver todas las publicaciones</a></div>
   </div>
 </section>
 
@@ -490,14 +486,14 @@ p{margin:0;text-wrap:pretty}
         <div class="field"><label for="f-mail">Correo Electrónico</label><input id="f-mail" type="email" placeholder="correo@empresa.com" autocomplete="email"></div>
         <div class="field"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" placeholder="+52 00 0000 0000" autocomplete="tel"></div>
         <div class="field"><label for="f-msg">Cuéntanos sobre tu requerimiento</label><textarea id="f-msg" placeholder="Describe tu aplicación, proceso o necesidad"></textarea></div>
-        <button class="btn btn-primary" type="submit">Enviar <svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button class="btn btn-primary" type="submit">Enviar</button>
         <p class="form-msg" id="formMsg" role="status"></p>
       </form>
       <div class="contact-copy">
         <h2 class="h2">Convierte tus necesidades en soluciones.</h2>
         <p class="lead">¿Buscas ingredientes, una premezcla o asesoría para una aplicación específica? Cuéntanos qué necesitas y nuestro equipo revisará tu solicitud y te orientará sobre las soluciones disponibles.</p>
-        <a href="mailto:contacto@dmvpremixes.com" class="contact-card"><svg class="icon"><use href="#i-mail"/></svg><div><small>Correo Electrónico</small><b>contacto@dmvpremixes.com</b></div><svg class="icon go"><use href="#i-arrow"/></svg></a>
-        <a href="tel:+520000000000" class="contact-card"><svg class="icon"><use href="#i-headset"/></svg><div><small>Teléfono</small><b>+52 00 0000 0000</b></div><svg class="icon go"><use href="#i-arrow"/></svg></a>
+        <a href="mailto:contacto@dmvpremixes.com" class="contact-card"><svg class="icon"><use href="#i-mail"/></svg><div><small>Correo Electrónico</small><b>contacto@dmvpremixes.com</b></div></a>
+        <a href="tel:+520000000000" class="contact-card"><svg class="icon"><use href="#i-headset"/></svg><div><small>Teléfono</small><b>+52 00 0000 0000</b></div></a>
       </div>
     </div>
   </div>
@@ -514,7 +510,7 @@ p{margin:0;text-wrap:pretty}
         <form class="newsletter" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='¡Gracias! (prototipo)';">
           <label class="sr-only" for="nl">Correo</label>
           <input id="nl" type="email" placeholder="Escribe tu correo">
-          <button class="btn btn-primary" type="submit">Suscríbete <svg class="icon"><use href="#i-arrow"/></svg></button>
+          <button class="btn btn-primary" type="submit">Suscríbete</button>
         </form>
       </div>
       <div>

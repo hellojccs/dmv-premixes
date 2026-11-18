@@ -236,16 +236,6 @@
                   "nofollow": "",
                   "custom_attributes": ""
                 },
-                "selected_icon": {
-                  "value": "fas fa-arrow-right",
-                  "library": "fa-solid"
-                },
-                "icon_align": "right",
-                "icon_indent": {
-                  "unit": "px",
-                  "size": 12,
-                  "sizes": []
-                },
                 "button_text_color": "#F6F7F2",
                 "background_color": "#195DE4",
                 "button_background_background": "classic",
@@ -261,9 +251,9 @@
                 "text_padding": {
                   "unit": "px",
                   "top": "11",
-                  "right": "18",
+                  "right": "20",
                   "bottom": "11",
-                  "left": "18",
+                  "left": "20",
                   "isLinked": false
                 },
                 "hover_color": "#F6F7F2",

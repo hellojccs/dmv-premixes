@@ -37,7 +37,6 @@ def container(settings, elements, inner=False):
 
 def button(text, url, *, outline_white=False, size=15, pad=(14, 40), extra=None):
     s = {"text": text, "link": {"url": url, "is_external": "", "nofollow": "", "custom_attributes": ""},
-         "selected_icon": {"value": "fas fa-arrow-right", "library": "fa-solid"}, "icon_align": "right", "icon_indent": px(12),
          "button_text_color": WS, "background_color": RB,
          "button_background_background": "classic", "button_background_color": RB,
          "border_radius": radius(999), "text_padding": box(pad[0], pad[1], pad[0], pad[1])}
@@ -162,7 +161,7 @@ def header():
             "size": px(20), "icon_padding": px(10),
             "link": {"url": WHATSAPP, "is_external": "on", "nofollow": "", "custom_attributes": ""},
         }),
-        button("Contáctanos", "/contactanos/", size=14, pad=(11, 18), extra={"hide_mobile": "hidden-mobile"}),
+        button("Contáctanos", "/contactanos/", size=14, pad=(11, 20), extra={"hide_mobile": "hidden-mobile"}),
     ], inner=True)])]
 
 if __name__ == "__main__":
