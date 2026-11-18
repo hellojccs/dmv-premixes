@@ -73,7 +73,7 @@ Como esa condición es más específica que "Todo el sitio", **solo esa página*
 Abre la página *Prueba hero* (con tu sesión iniciada) en computadora y en celular:
 - **Dos barras flotantes** con efecto vidrio: a la izquierda el **logo completo** y el menú (texto blanco); a la derecha **WhatsApp + Contáctanos**.
 - Al pasar el mouse por el menú: fondo **Royal Blue al 50%**.
-- Al hacer scroll: el logo se reduce al **símbolo en círculo azul** y ambas barras se vuelven **Carbon Black** translúcidas.
+- Al hacer scroll: el logo se reduce al **símbolo en círculo azul**, los enlaces del menú se ocultan y aparece un botón **⋮** que abre el menú; ambas barras se vuelven **Carbon Black** translúcidas.
 - Botón **WhatsApp** verde (gris al pasar el mouse).
 - En celular: izquierda logo + menú hamburguesa; derecha WhatsApp.
 

@@ -133,7 +133,21 @@ selector .elementor-nav-menu--main .elementor-item:hover,
 selector .elementor-nav-menu--main .elementor-item:focus,
 selector .elementor-nav-menu--main .elementor-item.highlighted{background-color:rgba(25,93,228,.5);color:#F6F7F2;}
 selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
-selector .elementor-nav-menu--dropdown a{white-space:nowrap;}"""
+selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
+
+/* Panel del menú: debajo de la barra, alineado a su borde izquierdo */
+selector .elementor-widget-nav-menu,selector .elementor-widget-nav-menu .elementor-widget-container{position:static;}
+selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:280px;z-index:20;}
+@media (max-width:767px){selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{width:calc(100vw - 32px);}}
+
+/* Al hacer scroll (escritorio): se ocultan los enlaces y aparece el botón ⋮ (referencia Butter) */
+@media (min-width:768px){
+  body.dmv-scrolled selector .elementor-nav-menu--main{display:none;}
+  body.dmv-scrolled selector .elementor-menu-toggle{display:flex;}
+  body.dmv-scrolled selector .elementor-nav-menu--dropdown{display:block;}
+  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active) .elementor-menu-toggle__icon--open{display:none;}
+  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active)::before{content:"\u22ee";font-size:22px;line-height:1;color:#F6F7F2;}
+}"""
 
 RIGHT_CSS = GLASS_CSS + """
 
