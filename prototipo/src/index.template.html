@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap" rel="stylesheet">
 <style>
-/* Rinter: subir los archivos a /brand/fonts. Mientras tanto se usa Archivo como respaldo. */
-@font-face{font-family:"Rinter";src:local("Rinter"),local("Rinter Regular"),url("../brand/fonts/Rinter-Regular.woff2") format("woff2"),url("../brand/fonts/Rinter-Regular.woff") format("woff");font-weight:400;font-display:swap}
+/* Rinter (brand/fonts) — se incrusta al generar el prototipo */
+@font-face{font-family:"Rinter";src:url("{{RINTER_WOFF2}}") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 
 :root{
   /* Paleta autorizada — no modificar */

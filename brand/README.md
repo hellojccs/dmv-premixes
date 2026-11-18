@@ -34,6 +34,6 @@ Referencia visual: `paleta-referencia.png`. Estos HEX son los valores oficiales 
 Referencia visual: `tipografia-referencia.png`.
 
 - **Archivo** está en Google Fonts (y en Elementor).
-- **Rinter** no está en Google Fonts: hay que subir los archivos (`.woff2`/`.woff`/`.ttf`) a `fonts/` y en WordPress vía *Elementor → Custom Fonts*.
+- **Rinter** no está en Google Fonts. Archivos en `fonts/` (`Rinter-Regular` en `.woff2`, `.woff`, `.ttf`, `.otf`). En WordPress se sube en *Elementor → Custom Fonts* (WOFF2 + WOFF + TTF).
 
 Tokens listos para usar en `tokens.css`.
