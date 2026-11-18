@@ -59,13 +59,41 @@ def save(name, title, kind, content):
     print("OK", name)
 
 # ------------------------------------------------------------------ HERO
+MARQUEE_CSS = """<style>
+.dmv-marquee{position:relative;width:100vw;margin:110px 0 0 calc(50% - 50vw);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.dmv-marquee-track{display:flex;width:max-content;animation:dmv-marquee 32s linear infinite;}
+.dmv-marquee:hover .dmv-marquee-track{animation-play-state:paused;}
+.dmv-marquee-item{flex:none;width:250px;display:flex;align-items:center;justify-content:center;color:#F6F7F2;opacity:.82;transition:opacity .2s;}
+.dmv-marquee-item:hover{opacity:1;}
+.dmv-marquee-item svg{height:46px;width:auto;max-width:200px;}
+@keyframes dmv-marquee{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.dmv-marquee-track{animation:none;}}
+@media (max-width:767px){.dmv-marquee{margin-top:72px;}.dmv-marquee-item{width:200px;}.dmv-marquee-item svg{height:38px;}}
+</style>"""
+
+def marquee_html():
+    """Franja animada con logos de clientes. Hoy: marcas FICTICIAS de ejemplo (brand/clientes-ejemplo)."""
+    logos = sorted((ROOT / "brand/clientes-ejemplo").glob("*.svg"))
+    def items(hidden):
+        out = []
+        for f in logos:
+            svg = re.sub(r'\s(xmlns|role|aria-label)="[^"]*"', "", f.read_text().strip())
+            label = f.stem.replace("-", " ").title()
+            svg = svg.replace("<svg", '<svg aria-hidden="true"' if hidden else f'<svg role="img" aria-label="{label}"', 1)
+            out.append(f'<div class="dmv-marquee-item">{svg}</div>')
+        return "\n".join(out)
+    return (MARQUEE_CSS + "\n<!-- Logos de clientes: marcas de EJEMPLO. Reemplazar por los logos reales. -->\n"
+            '<div class="dmv-marquee" aria-label="Clientes"><div class="dmv-marquee-track">\n'
+            + items(False) + "\n<!-- copia para el desplazamiento continuo -->\n" + items(True) + "\n</div></div>")
+
 def hero():
     return [container({
         "_title": "Hero",
         "content_width": "boxed", "boxed_width": px(1120),
         "flex_direction": "column", "flex_justify_content": "center", "flex_align_items": "center",
         "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
-        "padding": box(170, 24, 80, 24), "padding_mobile": box(130, 16, 64, 16),
+        "padding": box(170, 24, 64, 24), "padding_mobile": box(130, 16, 56, 16),
+        "overflow": "hidden",
         "background_background": "classic", "background_color": RB,
         "background_overlay_background": "gradient",
         "background_overlay_color": "rgba(28,27,23,0.28)", "background_overlay_color_stop": px(0, "%"),
@@ -93,6 +121,7 @@ def hero():
             [button("Ver Soluciones", "#soluciones", outline_white=True, extra={"align_mobile": "justify"}),
              button("Consulta una asesoría", "#contacto", outline_white=True, extra={"align_mobile": "justify"})],
             inner=True),
+        widget("html", {"_title": "Franja de logos de clientes", "_element_width": "inherit", "html": marquee_html()}),
     ])]
 
 # ------------------------------------------------------------------ HEADER
@@ -230,6 +259,108 @@ def header():
         "custom_css": HEADER_CSS_OUTER,
     }, [left, right])]
 
+# ------------------------------------------------------------------ FOOTER
+def heading4(text):
+    return widget("heading", {"title": text, "header_size": "h4", "title_color": WS,
+                              "_margin": box(0, 0, 18, 0), **typo("typography", "Rinter", 17, None, 1.2)})
+
+def link_list(items):
+    return widget("icon-list", {
+        "view": "traditional",
+        "icon_list": [{"_id": rid("li"), "text": text,
+                       "selected_icon": {"value": "", "library": ""},
+                       "link": {"url": url, "is_external": "on" if url.startswith("http") else "", "nofollow": "", "custom_attributes": ""}}
+                      for text, url in items],
+        "space_between": px(10), "text_color": SG, "text_color_hover": "#FFFFFF",
+        **typo("icon_typography", "Archivo", 14, None, 1.5),
+    })
+
+FORM_CSS = """selector .elementor-field-group .elementor-field{height:46px;padding:0 18px;border-radius:999px;}
+selector .elementor-field::placeholder{color:#8798B2;opacity:1;}
+selector .elementor-field:focus{border-color:#F6F7F2 !important;box-shadow:none;}
+selector .elementor-message{color:#F6F7F2;font-size:14px;}"""
+
+def footer():
+    newsletter = container({
+        "_title": "Newsletter", "content_width": "full",
+        "width": px(46, "%"), "width_mobile": px(100, "%"),
+        "flex_direction": "column", "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
+        "padding": box(0, 0, 0, 0)}, [
+        heading4("Suscríbete a nuestro Newsletter"),
+        widget("text-editor", {"editor": "<p>Recibe novedades, artículos técnicos y lanzamientos de DMV Premixes.</p>",
+                               "text_color": SG, "_element_width": "initial", "_element_custom_width": px(380),
+                               "_element_custom_width_mobile": px(100, "%"),
+                               **typo("typography", "Archivo", 14, None, 1.6)}),
+        widget("form", {
+            "_title": "Formulario newsletter",
+            "form_name": "Newsletter",
+            "form_fields": [{"_id": rid("f"), "custom_id": "email", "field_type": "email",
+                             "field_label": "Correo", "placeholder": "Escribe tu correo",
+                             "required": "true", "width": "100"}],
+            "show_labels": "", "button_text": "Suscríbete", "button_width": "", "button_align": "start",
+            "success_message": "¡Gracias! Te suscribiste correctamente.",
+            "column_gap": px(0), "row_gap": px(14),
+            "field_text_color": WS, "field_background_color": "rgba(0,0,0,0)",
+            "field_border_color": CS, "field_border_width": radius(1), "field_border_radius": radius(999),
+            **typo("field_typography", "Archivo", 14),
+            "button_background_color": RB, "button_text_color": WS,
+            "button_background_hover_color": "#1450C6", "button_hover_color": WS,
+            "button_border_radius": radius(999),
+            "button_text_padding": box(11 + 2, 22, 11 - 2, 22),   # +2/-2: centra Rinter
+            **typo("button_typography", "Rinter", 14),
+            "_element_width": "initial", "_element_custom_width": px(380), "_element_custom_width_mobile": px(100, "%"),
+            "_margin": box(26, 0, 0, 0),
+            "custom_css": FORM_CSS,
+        }),
+    ], inner=True)
+    explora = container({
+        "_title": "Explora", "content_width": "full", "width": px(20, "%"), "width_mobile": px(44, "%"),
+        "flex_direction": "column", "padding": box(0, 0, 0, 0)}, [
+        heading4("Explora"),
+        link_list([("Nosotros", "/nosotros/"), ("Soluciones", "/soluciones/"), ("Industrias", "/industrias/"),
+                   ("Calidad", "/calidad/"), ("Blog", "#"), ("Certificaciones", "#"),
+                   ("Política de Privacidad", "#"), ("Ubicación", "#")]),
+    ], inner=True)
+    contacto = container({
+        "_title": "Contacto", "content_width": "full", "width": px(26, "%"), "width_mobile": px(44, "%"),
+        "flex_direction": "column", "padding": box(0, 0, 0, 0)}, [
+        heading4("Contacto"),
+        link_list([("contacto@dmvpremixes.com", "mailto:contacto@dmvpremixes.com"),
+                   ("WhatsApp +52 55 4357 7104", WHATSAPP),
+                   ("Solicitar Asesoría", "/contactanos/")]),
+    ], inner=True)
+    top = container({
+        "_title": "Columnas", "content_width": "full", "width": px(100, "%"),
+        "flex_direction": "row", "flex_wrap": "nowrap", "flex_wrap_mobile": "wrap",
+        "flex_justify_content": "space-between", "flex_align_items": "flex-start",
+        "flex_gap": {"column": "40", "row": "40", "isLinked": True, "unit": "px", "size": 40},
+        "flex_gap_mobile": {"column": "24", "row": "40", "isLinked": False, "unit": "px", "size": 24},
+        "padding": box(0, 0, 0, 0)}, [newsletter, explora, contacto], inner=True)
+    bottom = container({
+        "_title": "Logo y derechos", "content_width": "full", "width": px(100, "%"),
+        "flex_direction": "row", "flex_direction_mobile": "column",
+        "flex_justify_content": "flex-start", "flex_align_items": "center", "flex_align_items_mobile": "flex-start",
+        "flex_gap": {"column": "40", "row": "20", "isLinked": False, "unit": "px", "size": 40},
+        "margin": box(64, 0, 0, 0), "padding": box(0, 0, 0, 0)}, [
+        container({"_title": "Logo", "content_width": "full", "width": px(46, "%"), "width_mobile": px(100, "%"),
+                   "padding": box(0, 0, 0, 0)}, [
+            widget("image", {"image": {"url": LOGO_WHITE, "id": "", "alt": "DMV Premixes", "source": "library", "size": ""},
+                             "image_size": "full", "align": "left", "width": px(160)})], inner=True),
+        widget("text-editor", {"editor": "<p>© 2026 DMV Premixes. Todos los derechos reservados.</p>",
+                               "text_color": CS, **typo("typography", "Archivo", 13, None, 1.5)}),
+    ], inner=True)
+    return [container({
+        "_title": "Footer",
+        "content_width": "boxed", "boxed_width": px(1120),
+        "flex_direction": "column",
+        "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
+        "padding": box(72, 24, 36, 24), "padding_mobile": box(56, 16, 32, 16),
+        "margin": box(72, 0, 0, 0),
+        "background_background": "classic", "background_color": CB,
+        "border_radius": {"unit": "px", "top": "28", "right": "28", "bottom": "0", "left": "0", "isLinked": False},
+    }, [top, bottom])]
+
 if __name__ == "__main__":
-    save("01-hero-prueba.json", "DMV - Hero (prueba)", "container", hero())
+    save("01-hero.json", "DMV - Hero", "container", hero())
     save("02-header.json", "DMV - Header", "header", header())
+    save("03-footer.json", "DMV - Footer", "footer", footer())

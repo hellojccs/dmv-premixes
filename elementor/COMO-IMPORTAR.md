@@ -1,6 +1,8 @@
-# Cómo importar una plantilla en Elementor (prueba: Hero)
+# Cómo importar las plantillas en Elementor
 
-Archivo: `plantillas/01-hero-prueba.json`
+## Prueba 1: Hero
+
+Archivo: `plantillas/01-hero.json` (incluye la franja animada de logos de clientes)
 
 **Esto no cambia tu sitio publicado.** La plantilla se guarda en tu biblioteca y la usamos en una página en borrador.
 
@@ -12,13 +14,13 @@ Si no lo haces, el título se verá con otra fuente; el resto funciona igual.
 ## 1. Importar la plantilla
 1. En el panel de WordPress ve a **Plantillas → Plantillas guardadas** (en algunas versiones: *Elementor → Plantillas*).
 2. Clic en **Importar plantillas** (botón arriba).
-3. Elige el archivo `01-hero-prueba.json` → **Importar ahora**.
-4. Aparecerá en la lista como **"DMV - Hero (prueba)"**.
+3. Elige el archivo `01-hero.json` → **Importar ahora**.
+4. Aparecerá en la lista como **"DMV - Hero"**.
 
 ## 2. Usarla en una página de prueba
 1. **Páginas → Añadir nueva**. Título: `Prueba hero`.
 2. Clic en **Editar con Elementor**.
-3. En el lienzo, clic en el ícono de **carpeta** (Añadir plantilla) → pestaña **Mis plantillas** → **DMV - Hero (prueba)** → **Insertar**.
+3. En el lienzo, clic en el ícono de **carpeta** (Añadir plantilla) → pestaña **Mis plantillas** → **DMV - Hero** → **Insertar**.
    Si pregunta si quieres importar la configuración del documento → **No**.
 4. Guarda como **borrador**: flecha junto a *Publicar* → *Guardar borrador*.
 5. Clic en el ícono del **ojo** (Vista previa) para verla como visitante.
@@ -38,7 +40,17 @@ Mándame una captura de cómo se ve y qué fue distinto al prototipo. Con eso aj
 
 ## Qué incluye esta prueba (y qué no)
 - ✅ Fondo azul degradado, logo, título, texto, 2 botones; versión móvil.
-- ⏳ La franja animada de logos de clientes y el **header** vienen en la siguiente prueba (el header se monta con *Theme Builder* de Elementor Pro).
+- ✅ Franja animada de logos de clientes (marcas **ficticias de ejemplo**, ver `brand/clientes-ejemplo/`).
+
+### Actualizar el hero que ya importaste
+1. En *Plantillas guardadas* borra "DMV - Hero (prueba)" e importa `01-hero.json`.
+2. En la página *Prueba hero* → Editar con Elementor → clic derecho sobre el hero → **Eliminar**.
+3. Ícono de carpeta → *Mis plantillas* → **DMV - Hero** → **Insertar** → **Actualizar**.
+4. ⚙️ *Configuración de página* → activa **Ocultar título** (si no lo habías hecho).
+
+### Cambiar los logos de clientes (cuando lleguen los reales)
+Por ahora la franja es un widget **HTML**. Cuando tengas los logos reales mándamelos y te genero la versión final
+(o una con widget de *Carrusel de imágenes* para que puedas cambiarlos tú desde la biblioteca de medios).
 
 ---
 
@@ -86,3 +98,32 @@ En las condiciones del header nuevo cambia la condición a **Todo el sitio**, y 
 - WhatsApp abre el chat con **+52 55 4357 7104**. Para cambiarlo: clic en el ícono → *Enlace*.
 - En celular el botón "Contáctanos" se oculta; si quieres que aparezca dentro del menú hamburguesa, agrega la página *Contáctanos* a tu menú de WordPress.
 - El header flota encima del contenido. En páginas sin hero azul lo ajustaremos al diseñar las páginas internas.
+
+---
+
+# Prueba 3: Footer (`plantillas/03-footer.json`)
+
+Igual que el header, el footer se monta con **Theme Builder** para que aparezca en todas las páginas.
+
+## 1. Importa
+*Plantillas → Plantillas guardadas → Importar plantillas* → `03-footer.json` → **Importar ahora**.
+Aparece como **"DMV - Footer"** (tipo *Footer*).
+
+## 2. Muéstralo solo en la página de prueba
+*Plantillas → Theme Builder → Footer* → "DMV - Footer" → **Editar con Elementor** → **Publicar** →
+**Añadir condición** → *Incluir* → *Singular* → *Páginas* → **Prueba hero** → **Guardar y cerrar**.
+
+## 3. Revisa en la página *Prueba hero*
+- Fondo **Carbon Black** con esquinas superiores redondeadas.
+- **Newsletter**: título, texto, campo de correo redondeado y botón **Suscríbete**.
+- **Explora** y **Contacto** (correo, WhatsApp +52 55 4357 7104, Solicitar Asesoría).
+- Abajo: logo blanco y "© 2026 DMV Premixes. Todos los derechos reservados."
+- En celular: Newsletter arriba a todo lo ancho; Explora y Contacto lado a lado.
+
+## Notas
+- **Newsletter:** por defecto envía un correo al administrador de WordPress con cada suscripción.
+  Para cambiarlo: clic en el formulario → *Acciones después de enviar* (puedes conectar Mailchimp u otro).
+  Haz una prueba suscribiendo tu correo.
+- **Enlaces:** Explora usa tus páginas (/nosotros/, /soluciones/, /industrias/, /calidad/). Blog, Certificaciones,
+  Política de Privacidad y Ubicación quedan en `#` hasta que existan; se cambian con clic en la lista → cada elemento → *Enlace*.
+- El correo **contacto@dmvpremixes.com** es de ejemplo: confírmame el real.
