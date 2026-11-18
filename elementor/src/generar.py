@@ -364,3 +364,7 @@ if __name__ == "__main__":
     save("01-hero.json", "DMV - Hero", "container", hero())
     save("02-header.json", "DMV - Header", "header", header())
     save("03-footer.json", "DMV - Footer", "footer", footer())
+    # Fragmento suelto: código de la franja de logos para pegar en un widget HTML
+    frag = ROOT / "elementor/fragmentos"; frag.mkdir(parents=True, exist_ok=True)
+    (frag / "franja-logos.html").write_text(marquee_html() + "\n")
+    print("OK fragmentos/franja-logos.html")
