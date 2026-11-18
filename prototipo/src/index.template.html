@@ -65,18 +65,22 @@ p{margin:0;text-wrap:pretty}
 .lead{color:var(--taupe-grey);font-size:16px}
 
 /* ---------- Navegación ---------- */
-.nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:50;padding:0 var(--gutter);pointer-events:none}
+.nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:50;pointer-events:none}
+/* Dos barras flotantes (referencia Butter): izquierda logo + menú · derecha acciones */
+.nav-bar{max-width:calc(var(--container) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:12px}
 /* Arriba: vidrio claro sobre el hero azul · Al hacer scroll: vidrio Carbon Black (el texto blanco sigue legible sobre secciones claras) */
-.nav{pointer-events:auto;max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 12px;border-radius:999px;background:rgba(246,247,242,.14);border:1px solid rgba(246,247,242,.35);box-shadow:0 8px 30px rgba(28,27,23,.10);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s,border-color .3s,max-width .35s ease}
-.nav.scrolled{max-width:700px;background:rgba(28,27,23,.84);border-color:rgba(246,247,242,.12);box-shadow:0 8px 30px rgba(28,27,23,.20)}
+.glass{pointer-events:auto;display:flex;align-items:center;border-radius:999px;background:rgba(246,247,242,.14);border:1px solid rgba(246,247,242,.35);box-shadow:0 8px 30px rgba(28,27,23,.10);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s,border-color .3s}
+.nav-wrap.scrolled .glass{background:rgba(28,27,23,.84);border-color:rgba(246,247,242,.12);box-shadow:0 8px 30px rgba(28,27,23,.20)}
+.nav{gap:16px;padding:8px 8px 8px 12px}
+.nav-side{gap:8px;padding:6px}
 /* Logo: completo arriba, solo símbolo al hacer scroll */
 .nav-brand{position:relative;display:block;height:38px;width:150px;flex:none;transition:width .35s ease}
 .nav-logo-full{position:absolute;left:4px;top:50%;width:142px;height:auto;color:var(--white-sand);transform:translateY(-50%);transition:opacity .25s,transform .35s}
 .nav-mark{position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s}
 .nav-mark svg{width:20px;height:auto}
-.nav.scrolled .nav-brand{width:38px}
-.nav.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
-.nav.scrolled .nav-mark{opacity:1;transform:none}
+.nav-wrap.scrolled .nav-brand{width:38px}
+.nav-wrap.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
+.nav-wrap.scrolled .nav-mark{opacity:1;transform:none}
 /* Enlaces: blancos; hover con fondo Royal Blue al 50% */
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;font-size:14px}
 .nav-links a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;color:var(--white-sand);transition:background-color .2s}
@@ -88,8 +92,7 @@ p{margin:0;text-wrap:pretty}
 .nav-dd-menu a{display:block;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
 .nav-dd-menu a:hover{background:rgba(25,93,228,.12);color:var(--carbon-black)}
 .nav-cta{padding:11px 20px;border-color:var(--white-sand)}
-.nav.scrolled .nav-cta{border-color:transparent}
-.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-wrap.scrolled .nav-cta{border-color:transparent}
 .nav-wa{width:40px;height:40px;border-radius:50%;background:var(--whatsapp-green);color:var(--white);display:grid;place-items:center;flex:none;transition:background-color .2s,box-shadow .2s}
 .nav-wa:hover{background:var(--taupe-grey);box-shadow:0 8px 20px rgba(28,27,23,.22)}
 .nav-wa .icon{font-size:20px;fill:currentColor;stroke:none}
@@ -98,9 +101,10 @@ p{margin:0;text-wrap:pretty}
 .nav-toggle .icon{font-size:20px}
 .mobile-menu{display:none}
 @media (max-width:760px){
-  .nav-links,.nav .nav-cta{display:none}
+  .nav-links,.nav-cta{display:none}
+  .nav{gap:10px}
   .nav-toggle{display:grid}
-  .mobile-menu{pointer-events:auto;display:block;max-width:780px;margin:8px auto 0;padding:12px;border-radius:var(--radius);background:rgba(255,255,255,.96);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
+  .mobile-menu{pointer-events:auto;display:block;margin:8px var(--gutter) 0;padding:12px;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
   .mobile-menu.open{opacity:1;visibility:visible;transform:none}
   .mobile-menu a{display:block;padding:12px 14px;border-radius:10px;font-size:16px}
   .mobile-menu a:hover{background:rgba(25,93,228,.12)}
@@ -280,8 +284,9 @@ p{margin:0;text-wrap:pretty}
 </svg>
 
 <!-- ============ NAVEGACIÓN ============ -->
-<header class="nav-wrap">
-  <nav class="nav" id="nav" aria-label="Principal">
+<header class="nav-wrap" id="navWrap">
+  <div class="nav-bar">
+  <nav class="nav glass" aria-label="Principal">
     <a href="#inicio" class="nav-brand" aria-label="DMV Premixes — Inicio">
       <svg class="nav-logo-full" viewBox="0 0 1049.08 207.64" aria-hidden="true"><use href="#dmv-logo"/></svg>
       <span class="nav-mark"><svg viewBox="0 0 248.1 207.64" aria-hidden="true"><use href="#dmv-mark"/></svg></span>
@@ -299,13 +304,14 @@ p{margin:0;text-wrap:pretty}
       <li><a href="#industrias">Industrias</a></li>
       <li><a href="#" title="Página interna (pendiente)">Calidad</a></li>
     </ul>
-    <div class="nav-actions">
-      <!-- WhatsApp: +52 55 4357 7104 -->
-      <a href="https://wa.me/525543577104" class="nav-wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" title="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
-      <a href="#contacto" class="btn btn-primary nav-cta">Contáctanos</a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú"><svg class="icon"><use href="#i-menu"/></svg></button>
-    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú"><svg class="icon"><use href="#i-menu"/></svg></button>
   </nav>
+  <div class="nav-side glass">
+    <!-- WhatsApp: +52 55 4357 7104 -->
+    <a href="https://wa.me/525543577104" class="nav-wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" title="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
+    <a href="#contacto" class="btn btn-primary nav-cta">Contáctanos</a>
+  </div>
+  </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#nosotros">Nosotros</a>
     <a href="#soluciones">Soluciones</a>
@@ -560,7 +566,7 @@ p{margin:0;text-wrap:pretty}
 <script>
 (function(){
   // Sombra del menú al hacer scroll
-  var nav=document.getElementById('nav');
+  var nav=document.getElementById('navWrap');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>40)};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 

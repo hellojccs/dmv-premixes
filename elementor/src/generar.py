@@ -106,15 +106,16 @@ def brand_html():
         '<script>(function(){function u(){document.body.classList.toggle("dmv-scrolled",window.scrollY>40)}'
         'window.addEventListener("scroll",u,{passive:true});u();})();</script>')
 
-HEADER_CSS_OUTER = """/* Header flotante sobre el contenido */
+HEADER_CSS_OUTER = """/* Header flotante: dos barras (izquierda logo + menú · derecha acciones) */
 selector{position:fixed;top:0;left:0;right:0;z-index:999;pointer-events:none;}
 body.admin-bar selector{top:32px;}
 @media (max-width:782px){body.admin-bar selector{top:46px;}}"""
 
-HEADER_CSS_PILL = """/* Barra: vidrio claro arriba; vidrio Carbon Black al hacer scroll */
-selector{pointer-events:auto;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);transition:background-color .3s,border-color .3s;}
-body.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border-color:rgba(246,247,242,.12) !important;}
-@media (min-width:768px){body.dmv-scrolled selector{--width:700px;}}
+GLASS_CSS = """/* Vidrio claro arriba; vidrio Carbon Black al hacer scroll */
+selector{pointer-events:auto;--width:auto;width:auto;flex:0 0 auto;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);transition:background-color .3s,border-color .3s;}
+body.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border-color:rgba(246,247,242,.12) !important;}"""
+
+LEFT_CSS = GLASS_CSS + """
 
 /* Logo completo arriba, solo el símbolo al hacer scroll */
 selector .dmv-brand{position:relative;display:block;height:38px;width:150px;transition:width .35s ease;}
@@ -131,41 +132,40 @@ selector .elementor-nav-menu--main .elementor-item{border-radius:12px;transition
 selector .elementor-nav-menu--main .elementor-item:hover,
 selector .elementor-nav-menu--main .elementor-item:focus,
 selector .elementor-nav-menu--main .elementor-item.highlighted{background-color:rgba(25,93,228,.5);color:#F6F7F2;}
-selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
+selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
+selector .elementor-nav-menu--dropdown a{white-space:nowrap;}"""
+
+RIGHT_CSS = GLASS_CSS + """
 
 /* Botón Contáctanos: borde blanco arriba, sin borde al hacer scroll */
 selector .elementor-button{border:1px solid #F6F7F2;}
 body.dmv-scrolled selector .elementor-button{border-color:transparent;}"""
 
-def header():
-    return [container({
-        "_title": "Header (fijo)",
+def glass(title, pad, css, elements):
+    return container({
+        "_title": title,
         "content_width": "full",
-        "flex_direction": "row", "flex_justify_content": "center", "flex_align_items": "center",
-        "padding": box(16, 24, 0, 24), "padding_mobile": box(16, 16, 0, 16),
-        "custom_css": HEADER_CSS_OUTER,
-    }, [container({
-        "_title": "Barra (vidrio)",
-        "content_width": "full", "width": px(780), "width_mobile": px(100, "%"),
-        "flex_direction": "row", "flex_justify_content": "space-between", "flex_align_items": "center",
+        "flex_direction": "row", "flex_justify_content": "flex-start", "flex_align_items": "center",
         "flex_wrap": "nowrap",
-        "flex_gap": {"column": "8", "row": "8", "isLinked": True, "unit": "px", "size": 8},
-        "padding": box(8, 8, 8, 12),
+        "flex_gap": {"column": "12", "row": "8", "isLinked": False, "unit": "px", "size": 12},
+        "padding": pad,
         "background_background": "classic", "background_color": "rgba(246,247,242,0.14)",
         "border_border": "solid", "border_width": radius(1), "border_color": "rgba(246,247,242,0.35)",
         "border_radius": radius(999),
         "box_shadow_box_shadow_type": "yes",
         "box_shadow_box_shadow": {"horizontal": 0, "vertical": 8, "blur": 30, "spread": 0, "color": "rgba(28,27,23,0.10)"},
-        "custom_css": HEADER_CSS_PILL,
-    }, [
+        "custom_css": css,
+    }, elements, inner=True)
+
+def header():
+    left = glass("Barra izquierda: logo + menú", box(8, 8, 8, 12), LEFT_CSS, [
         widget("html", {"_title": "Logo DMV (completo / símbolo)", "html": brand_html()}),
         widget("nav-menu", {
             "_title": "Menú",
             "menu": "",                       # elegir tu menú en el panel
             "layout": "horizontal", "align_items": "center", "pointer": "none",
             "submenu_icon": {"value": "fas fa-chevron-down", "library": "fa-solid"},
-            "dropdown": "mobile", "toggle": "burger", "toggle_align": "right", "full_width": "yes",
-            "_flex_size": "grow",
+            "dropdown": "mobile", "toggle": "burger", "toggle_align": "right", "full_width": "",
             **typo("menu_typography", "Archivo", 14),
             "color_menu_item": WS, "color_menu_item_hover": WS, "color_menu_item_active": WS,
             "padding_horizontal_menu_item": px(14), "padding_vertical_menu_item": px(9),
@@ -173,11 +173,12 @@ def header():
             "color_dropdown_item": CB, "background_color_dropdown_item": "#FFFFFF",
             "color_dropdown_item_hover": CB, "background_color_dropdown_item_hover": "rgba(25,93,228,0.12)",
             **typo("dropdown_typography", "Archivo", 14),
-            "dropdown_border_radius": radius(12),
             "toggle_color": WS, "toggle_color_hover": WS,
             "toggle_background_color": "rgba(0,0,0,0)", "toggle_background_color_hover": "rgba(25,93,228,0.5)",
             "toggle_border_width": px(1), "toggle_border_radius": px(999),
         }),
+    ])
+    right = glass("Barra derecha: WhatsApp + Contáctanos", box(6, 6, 6, 6), RIGHT_CSS, [
         widget("icon", {
             "_title": "WhatsApp",
             "selected_icon": {"value": "fab fa-whatsapp", "library": "fa-brands"},
@@ -188,7 +189,16 @@ def header():
             "link": {"url": WHATSAPP, "is_external": "on", "nofollow": "", "custom_attributes": ""},
         }),
         button("Contáctanos", "/contactanos/", size=14, pad=(11, 20), extra={"hide_mobile": "hidden-mobile"}),
-    ], inner=True)])]
+    ])
+    return [container({
+        "_title": "Header (fijo)",
+        "content_width": "boxed", "boxed_width": px(1120),
+        "flex_direction": "row", "flex_justify_content": "space-between", "flex_align_items": "center",
+        "flex_wrap": "nowrap",
+        "flex_gap": {"column": "12", "row": "12", "isLinked": True, "unit": "px", "size": 12},
+        "padding": box(16, 24, 0, 24), "padding_mobile": box(16, 16, 0, 16),
+        "custom_css": HEADER_CSS_OUTER,
+    }, [left, right])]
 
 if __name__ == "__main__":
     save("01-hero-prueba.json", "DMV - Hero (prueba)", "container", hero())

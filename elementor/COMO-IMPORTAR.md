@@ -71,11 +71,11 @@ Como esa condición es más específica que "Todo el sitio", **solo esa página*
 
 ## 5. Revisa
 Abre la página *Prueba hero* (con tu sesión iniciada) en computadora y en celular:
-- Barra flotante con efecto vidrio sobre el hero azul, con el **logo completo** y textos del menú en blanco.
+- **Dos barras flotantes** con efecto vidrio: a la izquierda el **logo completo** y el menú (texto blanco); a la derecha **WhatsApp + Contáctanos**.
 - Al pasar el mouse por el menú: fondo **Royal Blue al 50%**.
-- Al hacer scroll: el logo se reduce al **símbolo en círculo azul** y la barra se vuelve **Carbon Black** translúcida.
-- Botón **WhatsApp** verde (gris al pasar el mouse) y **Contáctanos**.
-- En celular: logo, WhatsApp y menú hamburguesa.
+- Al hacer scroll: el logo se reduce al **símbolo en círculo azul** y ambas barras se vuelven **Carbon Black** translúcidas.
+- Botón **WhatsApp** verde (gris al pasar el mouse).
+- En celular: izquierda logo + menú hamburguesa; derecha WhatsApp.
 
 > Si ya habías importado una versión anterior del header, borra la anterior en *Plantillas guardadas* e importa esta.
 
