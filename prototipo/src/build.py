@@ -16,6 +16,7 @@ def items(hidden):
         out.append(f'<div class="marquee-item">{svg}</div>')
     return "".join(out)
 out = (tpl.replace("{{CLIENT_LOGOS}}", items(False)).replace("{{CLIENT_LOGOS_COPY}}", items(True))
+          .replace("{{REVEAL}}", (root / "elementor/fragmentos/color-swipe-reveal.html").read_text())
           .replace("{{MARK}}", mark).replace("{{WORD}}", word)
           .replace("{{RINTER_WOFF2}}", "data:font/woff2;base64," + font))
 (root / "prototipo/index.html").write_text(out)

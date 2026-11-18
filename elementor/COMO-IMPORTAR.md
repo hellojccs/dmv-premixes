@@ -127,3 +127,27 @@ Aparece como **"DMV - Footer"** (tipo *Footer*).
 - **Enlaces:** Explora usa tus páginas (/nosotros/, /soluciones/, /industrias/, /calidad/). Blog, Certificaciones,
   Política de Privacidad y Ubicación quedan en `#` hasta que existan; se cambian con clic en la lista → cada elemento → *Enlace*.
 - El correo **contacto@dmvpremixes.com** es de ejemplo: confírmame el real.
+
+---
+
+# Efecto "Color Swipe Reveal" (texto que se revela al hacer scroll)
+
+Archivo: `fragmentos/color-swipe-reveal.html`. Se instala **una sola vez** y sirve para cualquier texto.
+
+## 1. Instala el código (una vez)
+1. *Elementor → Código personalizado* (Custom Code) → **Añadir nuevo**.
+2. Título: `Color Swipe Reveal`.
+3. Abre `color-swipe-reveal.html` con un editor de texto, copia **todo** y pégalo.
+4. **Ubicación:** *Fin del body* (`</body> - End`).
+5. **Publicar** → condición **Todo el sitio** → **Guardar y cerrar**.
+
+## 2. Activa el efecto en un texto
+1. Edita la página con Elementor y selecciona el widget del texto (Título o Editor de texto).
+2. *Avanzado → Clases CSS* → escribe `dmv-reveal`.
+3. **Actualizar**.
+
+## 3. Revisa
+El efecto se ve en la **página publicada / vista previa**, no dentro del editor (ahí el texto se ve normal y lo puedes editar como siempre).
+Al bajar, cada palabra pasa de azul translúcido desenfocado a su color final.
+
+> Si alguien tiene activada la opción "reducir movimiento" en su dispositivo, el texto se muestra normal, sin animación.
