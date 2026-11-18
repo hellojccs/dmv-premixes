@@ -39,3 +39,46 @@ Mándame una captura de cómo se ve y qué fue distinto al prototipo. Con eso aj
 ## Qué incluye esta prueba (y qué no)
 - ✅ Fondo azul degradado, logo, título, texto, 2 botones; versión móvil.
 - ⏳ La franja animada de logos de clientes y el **header** vienen en la siguiente prueba (el header se monta con *Theme Builder* de Elementor Pro).
+
+---
+
+# Prueba 2: Header (`plantillas/02-header.json`)
+
+El header se monta con **Theme Builder** (Elementor Pro) para que aparezca en todas las páginas.
+En esta prueba **solo se mostrará en la página "Prueba hero"**; el resto de tu sitio sigue con el header actual.
+
+## 1. Revisa tu menú de WordPress
+*Apariencia → Menús* (o *Apariencia → Editor → Navegación*): confirma que tu menú principal tiene **Nosotros, Soluciones, Industrias, Calidad**.
+Opcional: para el desplegable de "Nosotros", arrastra páginas un poco a la derecha, debajo de "Nosotros".
+
+## 2. Importa el header
+*Plantillas → Plantillas guardadas → Importar plantillas* → `02-header.json` → **Importar ahora**.
+
+## 3. Elige tu menú
+1. *Plantillas → Theme Builder* → **Header** → "DMV - Header" → **Editar con Elementor**.
+2. Clic en el menú (al centro de la barra) → en el panel izquierdo, campo **Menú** → elige tu menú principal.
+3. **Actualizar** / **Publicar**.
+
+> En el editor el header puede verse "pegado" arriba del lienzo: es normal, es porque es flotante.
+
+## 4. Muéstralo solo en la página de prueba
+1. Abre la página **Prueba hero** en WordPress → en *Visibilidad* elige **Privada** → **Publicar**.
+   (Privada = solo tú la ves con tu sesión iniciada.)
+2. Vuelve al header en Elementor → flecha junto a *Publicar* → **Condiciones de visualización** →
+   **Añadir condición** → *Incluir* → *Singular* → *Páginas* → **Prueba hero** → **Guardar y cerrar**.
+
+Como esa condición es más específica que "Todo el sitio", **solo esa página** usa el header nuevo.
+
+## 5. Revisa
+Abre la página *Prueba hero* (con tu sesión iniciada) en computadora y en celular:
+- Barra flotante con efecto vidrio sobre el hero azul.
+- Símbolo DMV a la izquierda, menú, botón **WhatsApp** verde (gris al pasar el mouse) y **Contáctanos**.
+- En celular: símbolo, WhatsApp y menú hamburguesa.
+
+## Cuando lo apruebes
+En las condiciones del header nuevo cambia la condición a **Todo el sitio**, y en el header viejo elimina su condición (o muévelo a borrador).
+
+## Notas
+- WhatsApp abre el chat con **+52 55 4357 7104**. Para cambiarlo: clic en el ícono → *Enlace*.
+- En celular el botón "Contáctanos" se oculta; si quieres que aparezca dentro del menú hamburguesa, agrega la página *Contáctanos* a tu menú de WordPress.
+- El header flota encima del contenido. En páginas sin hero azul lo ajustaremos al diseñar las páginas internas.
