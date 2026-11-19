@@ -199,7 +199,12 @@ selector .elementor-icon{width:40px;height:40px;padding:0;display:flex;align-ite
 selector .elementor-icon svg{width:20px;height:20px;}
 /* Botón Contáctanos: Archivo 14, alto 40px */
 selector .elementor-button{height:40px;padding:0 22px;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}
-body.dmv-scrolled selector .elementor-button{border-color:transparent;}"""
+body.dmv-scrolled selector .elementor-button{border-color:transparent;}
+
+/* Contáctanos: mismo hover que el menú (píldora con borde White Sand y fondo blanco suave) */
+selector .elementor-button{transition:border-color .2s,background-color .2s,color .2s;}
+selector .elementor-button:hover,
+selector .elementor-button:focus{background-color:rgba(246,247,242,.10) !important;border-color:#F6F7F2 !important;color:#F6F7F2 !important;}"""
 
 def glass(title, pad, css, elements):
     return container({
