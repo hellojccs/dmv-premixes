@@ -152,7 +152,7 @@ LEFT_CSS = GLASS_CSS + """
 
 /* Logo completo arriba, solo el símbolo al hacer scroll */
 selector .dmv-brand{position:relative;display:block;height:40px;width:158px;transition:width .35s ease;}
-selector .dmv-logo-full{position:absolute;left:12px;top:50%;width:142px;height:auto;transform:translateY(-50%);transition:opacity .25s,transform .35s;}
+selector .dmv-logo-full{pointer-events:none;position:absolute;left:12px;top:50%;width:142px;height:auto;transform:translateY(-50%);transition:opacity .25s,transform .35s;}
 selector .dmv-mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:#195DE4;display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s;}
 selector .dmv-mark svg{width:20px;height:auto;}
 body.dmv-scrolled selector .dmv-brand{width:40px;}
@@ -167,6 +167,24 @@ selector .elementor-nav-menu--main .elementor-item:focus,
 selector .elementor-nav-menu--main .elementor-item.highlighted{border-color:#F6F7F2;background-color:rgba(246,247,242,.10);color:#F6F7F2;}
 selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
 selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
+
+/* Pantallas muy chicas (iPhone SE, Android compactos): solo el símbolo, para que quepa el carrito */
+@media (max-width:374px){
+  selector .dmv-brand{width:40px;}
+  selector .dmv-logo-full{opacity:0;}
+  selector .dmv-mark{opacity:1;transform:none;}
+}
+
+/* Menú desplegable con el estilo del header */
+@media (max-width:767px){
+  selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{top:calc(100% + 10px);border-radius:24px;padding:8px;background:#FFFFFF;box-shadow:0 2px 4px rgba(28,27,23,.06),0 24px 56px rgba(28,27,23,.18);}
+  selector .elementor-nav-menu--dropdown li + li{border-top:1px solid #E9E6DF;}
+  selector .elementor-nav-menu--dropdown a.elementor-item{padding:14px 18px !important;font-size:17px !important;line-height:1.3;color:#1C1B17 !important;border-radius:14px;background:transparent;}
+  selector .elementor-nav-menu--dropdown a.elementor-item:hover,
+  selector .elementor-nav-menu--dropdown a.elementor-item:focus,
+  selector .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{background:rgba(25,93,228,.08) !important;color:#195DE4 !important;}
+  selector .elementor-nav-menu--dropdown .sub-arrow{color:#8798B2;}
+}
 
 /* Botón ⋮ / hamburguesa: círculo perfecto de 40px */
 selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);align-items:center;justify-content:center;box-sizing:border-box;}
