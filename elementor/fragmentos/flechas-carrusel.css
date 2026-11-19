@@ -1,0 +1,20 @@
+/* Flechas del carrusel: círculo Royal Blue de 40px (como el símbolo del header al hacer scroll), por fuera de las tarjetas.
+   Uso: widget Carrusel anidado → Avanzado → CSS personalizado → pegar todo. */
+selector .elementor-swiper-button{width:40px !important;height:40px !important;border-radius:50%;background:#195DE4;color:#F6F7F2;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(25,93,228,.25);transition:background-color .2s,opacity .2s;z-index:2;}
+selector .elementor-swiper-button svg{width:16px;height:16px;fill:#F6F7F2;}
+selector .elementor-swiper-button i{font-size:16px;color:#F6F7F2;}
+selector .elementor-swiper-button:hover{background:#1450C6;}
+selector .elementor-swiper-button.swiper-button-disabled{opacity:.35;cursor:default;}
+
+/* Computadora: a los lados, fuera de las tarjetas */
+@media (min-width:1025px){
+  selector .elementor-swiper-button-prev{left:-56px !important;inset-inline-start:-56px !important;}
+  selector .elementor-swiper-button-next{right:-56px !important;inset-inline-end:-56px !important;left:auto !important;inset-inline-start:auto !important;}
+}
+/* Tablet y celular: centradas debajo de las tarjetas (no hay espacio a los lados) */
+@media (max-width:1024px){
+  selector{padding-bottom:44px !important;}
+  selector .elementor-swiper-button{top:auto !important;bottom:0 !important;transform:none !important;}
+  selector .elementor-swiper-button-prev{left:calc(50% - 48px) !important;inset-inline-start:calc(50% - 48px) !important;}
+  selector .elementor-swiper-button-next{left:calc(50% + 8px) !important;inset-inline-start:calc(50% + 8px) !important;right:auto !important;inset-inline-end:auto !important;}
+}

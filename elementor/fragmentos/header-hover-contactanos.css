@@ -1,0 +1,4 @@
+/* Contáctanos: mismo hover que el menú (píldora con borde White Sand y fondo blanco suave) */
+selector .elementor-button{transition:border-color .2s,background-color .2s,color .2s;}
+selector .elementor-button:hover,
+selector .elementor-button:focus{background-color:rgba(246,247,242,.10) !important;border-color:#F6F7F2 !important;color:#F6F7F2 !important;}

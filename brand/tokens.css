@@ -1,0 +1,18 @@
+/* DMV Premixes — tokens de marca (branding autorizado, NO modificar) */
+:root {
+  /* Paleta */
+  --dmv-royal-blue:   #195de4;
+  --dmv-soft-grey:    #e9e6df;
+  --dmv-cool-swell:   #8798b2;
+  --dmv-taupe-grey:   #5a5154;
+  --dmv-carbon-black: #1c1b17;
+  --dmv-white-sand:   #f6f7f2;
+
+  /* Tipografía */
+  --dmv-font-heading: "Rinter", "Archivo", sans-serif;  /* Títulos y botones — Regular */
+  --dmv-font-body:    "Archivo", sans-serif;            /* Subtítulos y texto — Thin, Regular, Bold */
+
+  --dmv-weight-thin:    100;
+  --dmv-weight-regular: 400;
+  --dmv-weight-bold:    700;
+}

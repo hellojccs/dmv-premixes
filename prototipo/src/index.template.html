@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMV Premixes — Prototipo Inicio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap" rel="stylesheet">
+<style>
+/* Rinter (brand/fonts) — se incrusta al generar el prototipo */
+/* ascent/descent-override centran las mayúsculas en la caja de texto (la fuente queda igual; solo se ajusta su posición vertical) */
+@font-face{font-family:"Rinter";src:url("{{RINTER_WOFF2}}") format("woff2");font-weight:400;font-style:normal;font-display:swap;ascent-override:85.7%;descent-override:14.3%;line-gap-override:0%}
+
+:root{
+  /* Paleta autorizada — no modificar */
+  --royal-blue:#195de4;
+  --soft-grey:#e9e6df;
+  --cool-swell:#8798b2;
+  --taupe-grey:#5a5154;
+  --carbon-black:#1c1b17;
+  --white-sand:#f6f7f2;
+  --white:#ffffff;
+  /* Excepción aprobada: verde oficial de WhatsApp (solo para su botón) */
+  --whatsapp-green:#25d366;
+
+  --font-heading:"Rinter","Archivo",system-ui,sans-serif;
+  --font-body:"Archivo",system-ui,sans-serif;
+
+  --line:rgba(25,93,228,.28);
+  --radius-sm:12px;
+  --radius:18px;
+  --radius-lg:24px;
+  --shadow:0 1px 2px rgba(28,27,23,.04),0 8px 24px rgba(28,27,23,.06);
+  --shadow-lg:0 2px 4px rgba(28,27,23,.04),0 20px 48px rgba(28,27,23,.10);
+  --container:1120px;
+  --gutter:24px;
+}
+@media (max-width:640px){:root{--gutter:16px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overscroll-behavior-y:none}
+body{margin:0;background:var(--white);color:var(--carbon-black);font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:400;margin:0;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.container{width:100%;max-width:calc(var(--container) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter)}
+.icon{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:2px solid var(--royal-blue);outline-offset:3px}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;font-family:var(--font-body);font-weight:400;font-size:14px;line-height:1;padding:13px 24px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s;white-space:nowrap}
+.btn-primary{background:var(--royal-blue);color:var(--white)}
+.btn-primary:hover{background:#1450c6;box-shadow:0 8px 20px rgba(25,93,228,.28)}
+.btn-outline{border-color:var(--cool-swell);color:var(--carbon-black);background:rgba(255,255,255,.6)}
+.btn-outline:hover{border-color:var(--royal-blue);color:var(--royal-blue)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- Encabezado de sección (eyebrow) ---------- */
+.section{padding:72px 0}
+.eyebrow{border-top:1px solid var(--line);padding-top:14px;margin-bottom:48px;font-size:13px;color:var(--royal-blue)}
+.h2{font-size:clamp(28px,3.4vw,38px);color:var(--carbon-black)}
+.lead{color:var(--taupe-grey);font-size:16px}
+
+/* ---------- Navegación ---------- */
+.nav-wrap{position:fixed;top:16px;left:0;right:0;z-index:50;pointer-events:none}
+/* Dos barras flotantes (referencia Butter): izquierda logo + menú · derecha acciones */
+.nav-bar{position:relative;max-width:calc(var(--container) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* Arriba: vidrio claro sobre el hero azul · Al hacer scroll: vidrio Carbon Black (el texto blanco sigue legible sobre secciones claras) */
+.glass{pointer-events:auto;display:flex;align-items:center;border-radius:999px;background:rgba(246,247,242,.14);border:1px solid rgba(246,247,242,.35);box-shadow:0 8px 30px rgba(28,27,23,.10);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:box-shadow .3s,background-color .3s,border-color .3s}
+.nav-wrap.scrolled .glass{background:rgba(28,27,23,.84);border-color:rgba(246,247,242,.12);box-shadow:0 8px 30px rgba(28,27,23,.20)}
+.nav{gap:0;padding:6px}
+.nav-side{gap:6px;padding:6px}
+/* Logo: completo arriba, solo símbolo al hacer scroll */
+.nav-brand{position:relative;display:block;height:40px;width:158px;flex:none;transition:width .35s ease}
+.nav-logo-full{pointer-events:none;position:absolute;left:12px;top:50%;width:142px;height:auto;color:var(--white-sand);transform:translateY(-50%);transition:opacity .25s,transform .35s}
+.nav-mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--royal-blue);color:var(--white-sand);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s}
+.nav-mark svg{width:20px;height:auto}
+.nav-wrap.scrolled .nav-brand{width:40px}
+.nav-wrap.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
+.nav-wrap.scrolled .nav-mark{opacity:1;transform:none}
+/* Enlaces: blancos; hover encerrado en una píldora con borde White Sand (como "Contáctanos") */
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0 0 0 10px;padding:0;font-size:14px;max-width:640px;white-space:nowrap;transition:max-width .4s ease,opacity .25s,margin .4s ease}
+/* Al hacer scroll los enlaces se ocultan y aparece el botón ⋮ (referencia Butter) */
+.nav-wrap.scrolled .nav-links{max-width:0;opacity:0;margin-left:0;overflow:hidden;pointer-events:none}
+.nav-links a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border:1px solid transparent;border-radius:999px;color:var(--white-sand);transition:border-color .2s,background-color .2s}
+.nav-links a:hover,.nav-dd:focus-within>a{border-color:var(--white-sand);background:rgba(246,247,242,.10);color:var(--white-sand)}
+.nav-links .icon{font-size:12px}
+.nav-dd{position:relative}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:200px;padding:8px;border-radius:var(--radius-sm);background:var(--white);box-shadow:var(--shadow-lg);list-style:none;margin:0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:none}
+.nav-dd-menu a{display:block;height:auto;padding:9px 14px;border:0;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
+.nav-dd-menu a:hover{background:rgba(25,93,228,.12);color:var(--carbon-black)}
+.nav-cta{height:40px;padding:0 22px;border-color:var(--white-sand)}
+.nav-wrap.scrolled .nav-cta{border-color:transparent}
+.nav-cta:hover,.nav-cta:focus-visible{background:rgba(246,247,242,.10);border-color:var(--white-sand);color:var(--white-sand);box-shadow:none}
+.nav-wa{width:40px;height:40px;border-radius:50%;background:var(--whatsapp-green);color:var(--white);display:grid;place-items:center;flex:none;transition:background-color .2s,box-shadow .2s}
+.nav-wa:hover{background:var(--taupe-grey);box-shadow:0 8px 20px rgba(28,27,23,.22)}
+.nav-wa .icon{font-size:20px;fill:currentColor;stroke:none}
+/* Carrito: mismo formato que WhatsApp; Cool Swell con ícono White Sand; hover Taupe Grey */
+.nav-cart{width:40px;height:40px;border-radius:50%;background:var(--cool-swell);color:var(--white-sand);display:grid;place-items:center;flex:none;transition:background-color .2s,color .2s}
+.nav-cart:hover,.nav-cart:focus-visible{background:var(--taupe-grey);color:var(--white-sand)}
+.nav-cart .icon{font-size:19px;stroke-width:2}
+.nav-toggle{display:grid;place-items:center;width:0;height:40px;margin-left:0;padding:0;border:0;border-radius:50%;background:rgba(246,247,242,.12);color:var(--white-sand);cursor:pointer;opacity:0;overflow:hidden;pointer-events:none;transition:width .35s ease,margin .35s ease,opacity .25s,background-color .2s}
+.nav-wrap.scrolled .nav-toggle{width:40px;margin-left:6px;opacity:1;pointer-events:auto}
+.nav-toggle:hover,.nav-toggle[aria-expanded="true"]{background:rgba(25,93,228,.5)}
+.nav-toggle .icon{font-size:20px}
+.nav-toggle .i-burger{display:none}
+/* Panel del menú (⋮ en escritorio al hacer scroll · hamburguesa en celular) */
+.menu-panel{position:absolute;top:calc(100% + 8px);left:var(--gutter);width:280px;pointer-events:auto;padding:10px;border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s}
+.menu-panel.open{opacity:1;visibility:visible;transform:none}
+.menu-panel a{display:block;padding:11px 14px;border-radius:10px;font-size:15px;color:var(--carbon-black)}
+.menu-panel a:hover{background:rgba(25,93,228,.12)}
+.menu-panel a.sub{padding-left:28px;font-size:14px;color:var(--taupe-grey)}
+.menu-panel .btn{display:none;font-size:14px}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .nav-toggle,.nav-wrap.scrolled .nav-toggle{width:40px;margin-left:6px;opacity:1;pointer-events:auto}
+  .nav-toggle .i-dots{display:none}
+  .nav-toggle .i-burger{display:block}
+  .menu-panel{right:var(--gutter);width:auto}
+  .menu-panel a{font-size:16px;padding:12px 14px}
+  .menu-panel a.btn{display:inline-flex;margin:8px 14px 6px;color:var(--white)}
+  .menu-panel a.btn:hover{background:#1450c6}
+  .nav-brand{width:140px}.nav-logo-full{width:124px}
+}
+
+/* ---------- Hero (basado en el hero actual de WordPress) ---------- */
+.hero{position:relative;overflow:hidden;padding:170px 0 64px;text-align:center;color:var(--white-sand);background:
+  radial-gradient(60% 45% at 58% 0%,rgba(28,27,23,.30),rgba(28,27,23,0) 72%),
+  radial-gradient(50% 60% at 0% 55%,rgba(246,247,242,.16),rgba(246,247,242,0) 70%),
+  linear-gradient(180deg,rgba(246,247,242,0) 25%,rgba(246,247,242,.24) 100%),
+  var(--royal-blue)}
+.hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.hero-logo{width:min(500px,78vw);color:var(--white-sand);margin-bottom:48px}
+.hero h1{font-size:clamp(36px,5.2vw,64px);color:var(--white-sand);max-width:900px}
+.hero-copy{max-width:800px;margin:22px auto 40px;font-size:18px;color:var(--white-sand);opacity:.95}
+.hero .btn-row{justify-content:center;gap:20px}
+.btn-hero{background:var(--royal-blue);color:var(--white-sand);border-color:var(--white-sand);min-width:224px;justify-content:center}
+.btn-hero:hover{background:var(--white-sand);color:var(--royal-blue);box-shadow:0 8px 24px rgba(28,27,23,.18)}
+.marquee{position:relative;z-index:1;margin-top:110px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{flex:none;width:250px;display:flex;align-items:center;justify-content:center;color:var(--white-sand);opacity:.82;transition:opacity .2s}
+.marquee-item:hover{opacity:1}
+.marquee-item svg{height:46px;width:auto;max-width:200px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}html{scroll-behavior:auto}}
+@media (max-width:560px){.hero{padding-top:130px}.hero .btn-row{flex-direction:column;align-self:stretch}.btn-hero{width:100%}.marquee{margin-top:72px}.marquee-item{width:200px}.marquee-item svg{height:38px}}
+
+/* ---------- Nosotros ---------- */
+.about-statement{max-width:780px;margin:0 auto;text-align:center;font-family:var(--font-heading);font-size:clamp(22px,2.8vw,30px);line-height:1.35;color:var(--taupe-grey);letter-spacing:-.01em}
+.about-statement strong{color:var(--carbon-black);font-weight:400}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:720px;margin:56px auto 44px}
+.pillar{text-align:center;color:var(--royal-blue);font-size:14px;line-height:1.35}
+.pillar .icon{font-size:32px;margin:0 auto 14px;color:var(--taupe-grey);stroke-width:1.25}
+.center{display:flex;justify-content:center}
+@media (max-width:640px){.pillars{grid-template-columns:repeat(2,1fr);row-gap:32px}}
+
+/* ---------- Soluciones ---------- */
+.solutions{position:relative;overflow:hidden}
+.solutions::before{content:"";position:absolute;left:50%;top:58%;width:900px;height:520px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(25,93,228,.28),rgba(25,93,228,.08) 60%,rgba(25,93,228,0));pointer-events:none}
+.solutions .container{position:relative}
+.sol-head{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:start;margin-bottom:48px}
+.carousel{position:relative;display:flex;align-items:center;gap:16px}
+.track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:12px 4px 28px;flex:1;scroll-padding:4px}
+.track::-webkit-scrollbar{display:none}
+.card{scroll-snap-align:start;flex:0 0 calc((100% - 44px)/3);min-height:330px;display:flex;flex-direction:column;padding:22px;border-radius:var(--radius);background:var(--white);border:1px solid var(--soft-grey);box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,background .25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);background:linear-gradient(160deg,var(--white) 0%,var(--white-sand) 55%,var(--soft-grey) 100%)}
+.card-num{font-size:12px;color:var(--cool-swell);margin-bottom:22px}
+.card h3{font-size:20px;color:var(--royal-blue);margin-bottom:10px}
+.card p{font-size:14px;color:var(--taupe-grey);line-height:1.5}
+.card .btn{margin-top:auto;align-self:center}
+.arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--cool-swell);background:var(--white);color:var(--taupe-grey);display:grid;place-items:center;cursor:pointer;flex:none;transition:color .2s,border-color .2s,opacity .2s}
+.arrow:hover{color:var(--royal-blue);border-color:var(--royal-blue)}
+.arrow:disabled{opacity:.35;cursor:default}
+.arrow .icon{font-size:18px}
+.sol-cta{margin-top:20px}
+@media (max-width:900px){.card{flex-basis:calc((100% - 22px)/2)}}
+@media (max-width:640px){.sol-head{grid-template-columns:1fr;gap:16px}.card{flex-basis:84%}.arrow{display:none}}
+
+/* ---------- Industrias: tarjetas apiladas (referencia Rezon Bio) ---------- */
+.ind-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.ind-head .lead{margin-top:14px}
+.dmv-stack{display:flex;flex-direction:column;gap:180px;--dmv-stack-top:112px}
+.ind-card{display:grid;grid-template-columns:1.25fr 1fr;height:540px;padding:14px;border-radius:32px;background:var(--white);border:1px solid var(--soft-grey);box-shadow:var(--shadow)}
+.ind-card.ind-reverse{grid-template-columns:1fr 1.25fr}
+.ind-card.ind-reverse .ind-media{order:2}
+.ind-card.dmv-dark{background:var(--royal-blue);border-color:var(--royal-blue);color:var(--white-sand)}
+.ind-media{position:relative;border-radius:24px;background:var(--white-sand);display:grid;place-items:center;overflow:hidden}
+.dmv-dark .ind-media{background:rgba(246,247,242,.14)}
+.ind-media .dmv-shape{width:min(78%,440px);aspect-ratio:248.1/207.64}
+.ind-media .dmv-shape-fill{width:100%;height:100%}
+.ind-content{display:flex;flex-direction:column;padding:56px 44px 36px}
+.ind-content h3{font-size:clamp(30px,3.2vw,44px);color:var(--royal-blue);margin-bottom:16px}
+.ind-content p{color:var(--taupe-grey);font-size:16px;max-width:380px}
+.dmv-dark .ind-content h3{color:var(--white-sand)}
+.dmv-dark .ind-content p{color:rgba(246,247,242,.86)}
+.btn-soft{align-self:flex-start;margin-top:28px;background:rgba(25,93,228,.08);color:var(--royal-blue)}
+.btn-soft:hover{background:rgba(25,93,228,.16)}
+.dmv-dark .btn-soft{background:var(--white-sand);color:var(--royal-blue)}
+.dmv-dark .btn-soft:hover{background:var(--white)}
+@media (max-width:767px){
+  .ind-head{margin-bottom:32px}
+  .dmv-stack{gap:16px}
+  .ind-card,.ind-card.ind-reverse{grid-template-columns:1fr;height:auto;padding:10px;border-radius:24px}
+  .ind-card.ind-reverse .ind-media{order:0}
+  .ind-media{height:240px;border-radius:18px}
+  .ind-media .dmv-shape{width:auto;height:76%}
+  .ind-content{padding:24px 18px 20px}
+}
+
+/* ---------- Split (Por qué) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split .h2{margin-bottom:16px}
+.industries{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;max-width:420px}
+.industry{text-align:center;color:var(--royal-blue);font-size:14px;line-height:1.35}
+.industry .icon{font-size:28px;margin:0 auto 10px;color:var(--taupe-grey);stroke-width:1.25}
+.media{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1;box-shadow:var(--shadow)}
+.media svg{width:100%;height:100%}
+.media-photo{position:relative;background:
+  radial-gradient(60% 50% at 70% 30%,rgba(135,152,178,.55),rgba(135,152,178,0)),
+  linear-gradient(150deg,var(--soft-grey) 0%,var(--cool-swell) 45%,var(--taupe-grey) 80%,var(--carbon-black) 100%);display:grid;place-items:center;color:var(--white-sand)}
+.media-photo .icon{width:96px;height:96px;stroke-width:.9;opacity:.85}
+.media-label{position:absolute;left:16px;bottom:16px;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(28,27,23,.45);color:var(--white-sand);backdrop-filter:blur(6px)}
+.quote{margin:26px 0 28px;padding:22px;border-radius:var(--radius);background:var(--white-sand);border:1px solid var(--soft-grey)}
+.quote blockquote{margin:0 0 18px;font-size:14px;color:var(--taupe-grey);line-height:1.6}
+.quote-foot{display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--soft-grey);color:var(--taupe-grey);display:grid;place-items:center;font-family:var(--font-heading);font-size:14px;flex:none}
+.quote-who{font-size:13px;line-height:1.35}
+.quote-who b{display:block;font-weight:700;color:var(--carbon-black)}
+.quote-who span{color:var(--cool-swell)}
+.signature{margin-left:auto;width:96px;color:var(--royal-blue)}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:36px}.split.reverse .media{order:-1}.media{aspect-ratio:4/3}}
+
+/* ---------- FAQ ---------- */
+.faq-head{text-align:center;max-width:520px;margin:0 auto 40px}
+.faq-head .lead{margin-top:14px}
+.faq{max-width:640px;margin:0 auto;display:grid;gap:12px}
+.faq details{border-radius:var(--radius-sm);background:var(--white-sand);border:1px solid var(--soft-grey);transition:background .25s,box-shadow .25s}
+.faq details[open]{background:linear-gradient(100deg,var(--white) 0%,var(--white-sand) 50%,var(--soft-grey) 100%);box-shadow:var(--shadow)}
+.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;cursor:pointer;font-size:15px;color:var(--royal-blue)}
+.faq details[open] summary{color:var(--carbon-black)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .icon{font-size:20px;color:var(--cool-swell);transition:transform .25s}
+.faq details[open] summary .icon{transform:rotate(45deg)}
+.faq .answer{padding:0 22px 20px;font-size:14px;color:var(--taupe-grey)}
+
+/* ---------- Blog ---------- */
+.blog-head{margin-bottom:28px}
+.blog-head .lead{margin-top:14px;max-width:460px}
+.posts{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.post-img{aspect-ratio:16/10;border-radius:var(--radius);background:var(--white-sand);border:1px solid var(--soft-grey);box-shadow:var(--shadow);display:grid;place-items:center;color:var(--cool-swell);font-size:13px;margin-bottom:20px;transition:transform .25s}
+.post:hover .post-img{transform:translateY(-3px)}
+.post h3{font-family:var(--font-body);font-size:16px;color:var(--royal-blue);letter-spacing:0;margin-bottom:10px}
+.post p{font-size:13px;color:var(--taupe-grey);line-height:1.55;padding-bottom:16px;border-bottom:1px solid var(--soft-grey)}
+.post-meta{display:flex;align-items:center;gap:16px;margin-top:14px;font-size:12px;color:var(--cool-swell)}
+.chip{background:var(--cool-swell);color:var(--white);padding:4px 14px;border-radius:999px}
+.post-meta a{margin-left:auto;color:var(--taupe-grey);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--soft-grey)}
+.post-meta a:hover{color:var(--royal-blue)}
+.blog-cta{margin-top:40px}
+@media (max-width:700px){.posts{grid-template-columns:1fr}}
+
+/* ---------- Contacto ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.form{padding:28px;border-radius:var(--radius);background:var(--white-sand);border:1px solid var(--soft-grey);box-shadow:var(--shadow);display:grid;gap:14px}
+.field label{display:block;font-size:12px;margin-bottom:6px;color:var(--carbon-black)}
+.field input,.field textarea{width:100%;padding:11px 16px;border-radius:999px;border:1px solid var(--cool-swell);background:var(--white);font-size:14px;transition:border-color .2s,box-shadow .2s}
+.field textarea{border-radius:var(--radius-sm);min-height:90px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:var(--cool-swell)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--royal-blue);box-shadow:0 0 0 3px rgba(25,93,228,.15)}
+.form .btn{justify-self:start;margin-top:4px}
+.form-msg{font-size:13px;color:var(--royal-blue);min-height:1em}
+.contact-copy .h2{margin-bottom:16px}
+.contact-copy .lead{margin-bottom:26px}
+.contact-card{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--radius);background:var(--white-sand);border:1px solid var(--soft-grey);box-shadow:var(--shadow);margin-bottom:14px;transition:transform .2s,border-color .2s}
+.contact-card:hover{transform:translateY(-2px);border-color:var(--cool-swell)}
+.contact-card>.icon{font-size:22px;color:var(--taupe-grey)}
+.contact-card small{display:block;font-size:12px;color:var(--cool-swell)}
+.contact-card b{font-weight:400;font-size:15px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}.contact-copy{order:-1}}
+
+/* ---------- Footer ---------- */
+.footer{margin-top:72px;background:var(--carbon-black);color:var(--white-sand);border-radius:28px 28px 0 0;padding:72px 0 36px}
+.footer-grid{display:grid;grid-template-columns:1.6fr .7fr .9fr;gap:40px}
+.footer h4{font-size:17px;margin-bottom:18px}
+.footer p{font-size:14px;color:var(--soft-grey);max-width:380px}
+.newsletter{display:grid;gap:14px;margin-top:26px;max-width:380px}
+.newsletter input{width:100%;padding:12px 18px;border-radius:999px;border:1px solid var(--cool-swell);background:transparent;color:var(--white-sand);font-size:14px}
+.newsletter input::placeholder{color:var(--cool-swell)}
+.newsletter input:focus{outline:none;border-color:var(--white-sand)}
+.newsletter .btn{justify-self:start}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:14px;color:var(--soft-grey)}
+.footer ul a:hover{color:var(--white)}
+.footer-bottom{display:grid;grid-template-columns:1.6fr .7fr .9fr;gap:40px;align-items:center;margin-top:64px;font-size:13px;color:var(--cool-swell)}
+.footer-logo{width:160px;color:var(--white-sand)}
+.footer-bottom span{grid-column:2/-1}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>:first-child{grid-column:1/-1}.footer-bottom{grid-template-columns:1fr;gap:20px}.footer-bottom span{grid-column:auto}}
+
+/* ---------- Distintivo de prototipo ---------- */
+.proto-badge{position:fixed;right:16px;bottom:16px;z-index:60;font-size:11px;padding:6px 12px;border-radius:999px;background:var(--carbon-black);color:var(--white-sand);opacity:.85}
+</style>
+</head>
+<body>
+
+<!-- ============ Sprite: logo autorizado + íconos ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="dmv-mark" viewBox="0 0 248.1 207.64" fill="currentColor">{{MARK}}</symbol>
+    <symbol id="dmv-logo" viewBox="0 0 1049.08 207.64" fill="currentColor">{{MARK}}{{WORD}}</symbol>
+    <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 448 512"><!-- Font Awesome Free 6.5.2 (CC BY 4.0) --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2Z"/><path d="M3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2Z"/><path d="M19 17v1a3 3 0 0 1-3 3h-3"/></symbol>
+    <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9c-2.6 0-4.2-1.6-4.2-4.2 2.6 0 4.2 1.6 4.2 4.2Z"/><path d="M12 9c2.6 0 4.2-1.6 4.2-4.2-2.6 0-4.2 1.6-4.2 4.2Z"/><path d="M12 14.5c-2.6 0-4.2-1.6-4.2-4.2 2.6 0 4.2 1.6 4.2 4.2Z"/><path d="M12 14.5c2.6 0 4.2-1.6 4.2-4.2-2.6 0-4.2 1.6-4.2 4.2Z"/><path d="M12 5V2"/></symbol>
+    <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 2h4v4l2 3v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3V2Z"/><path d="M8 13h8M8 17h8"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="6.5" cy="10" r="1.7"/><circle cx="10" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/><circle cx="18" cy="10" r="1.7"/><path d="M12.2 11c-2.6 0-5.2 3.6-5.2 6.1 0 1.6 1 2.6 2.6 2.6 1 0 1.8-.5 2.6-.5s1.6.5 2.6.5c1.6 0 2.6-1 2.6-2.6 0-2.5-2.6-6.1-5.2-6.1Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 2h6M10 2v6.5L4.5 19A2 2 0 0 0 6.3 22h11.4a2 2 0 0 0 1.8-3L14 8.5V2"/><path d="M7 15h10"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAVEGACIÓN ============ -->
+<header class="nav-wrap" id="navWrap">
+  <div class="nav-bar">
+  <nav class="nav glass" aria-label="Principal">
+    <a href="#inicio" class="nav-brand" aria-label="DMV Premixes — Inicio">
+      <svg class="nav-logo-full" viewBox="0 0 1049.08 207.64" aria-hidden="true"><use href="#dmv-logo"/></svg>
+      <span class="nav-mark"><svg viewBox="0 0 248.1 207.64" aria-hidden="true"><use href="#dmv-mark"/></svg></span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dd">
+        <a href="#nosotros">Nosotros <svg class="icon"><use href="#i-chev-down"/></svg></a>
+        <ul class="nav-dd-menu">
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#por-que">¿Por qué DMV Premixes?</a></li>
+          <li><a href="#blog">Blog y noticias</a></li>
+        </ul>
+      </li>
+      <li><a href="#soluciones">Soluciones</a></li>
+      <li><a href="#industrias">Industrias</a></li>
+      <li><a href="#" title="Página interna (pendiente)">Calidad</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menuPanel" aria-label="Abrir menú"><svg class="icon i-dots"><use href="#i-dots"/></svg><svg class="icon i-burger"><use href="#i-menu"/></svg></button>
+  </nav>
+  <div class="nav-side glass">
+    <!-- WhatsApp: +52 55 4357 7104 -->
+    <a href="https://wa.me/525543577104" class="nav-wa" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" title="WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg></a>
+    <!-- Tienda: enlace provisional /tienda/ -->
+    <a href="#" class="nav-cart" aria-label="Tienda" title="Tienda"><svg class="icon"><use href="#i-cart"/></svg></a>
+    <a href="#contacto" class="btn dmv-fx btn-primary nav-cta">Contáctanos</a>
+  </div>
+  <div class="menu-panel" id="menuPanel">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#nosotros" class="sub">Quiénes somos</a>
+    <a href="#por-que" class="sub">¿Por qué DMV Premixes?</a>
+    <a href="#soluciones">Soluciones</a>
+    <a href="#industrias">Industrias</a>
+    <a href="#" title="Página interna (pendiente)">Calidad</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto" class="btn dmv-fx btn-primary">Contáctanos</a>
+  </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="container hero-inner">
+    <svg class="hero-logo" viewBox="0 0 1049.08 207.64" role="img" aria-label="DMV Premixes"><use href="#dmv-logo"/></svg>
+    <h1>Precisión en cada formulación</h1>
+    <p class="hero-copy">DMV Premixes es una marca especializada en el desarrollo y suministro de premezclas nutricionales personalizadas para las industrias de alimentos, bebidas y nutrición animal.</p>
+    <div class="btn-row">
+      <a href="#soluciones" class="btn dmv-fx btn-hero">Ver Soluciones</a>
+      <a href="#contacto" class="btn dmv-fx btn-hero">Consulta una asesoría</a>
+    </div>
+  </div>
+  <!-- Logos de clientes: marcas FICTICIAS de ejemplo (brand/clientes-ejemplo) -->
+  <div class="marquee" aria-label="Clientes">
+    <div class="marquee-track">
+      {{CLIENT_LOGOS}}
+      <!-- copia para el desplazamiento continuo -->
+      {{CLIENT_LOGOS_COPY}}
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOSOTROS ============ -->
+<section class="section" id="nosotros">
+  <div class="container">
+    <div class="eyebrow">Nosotros</div>
+    <p class="about-statement dmv-reveal">En <strong>DMV Premixes</strong> combinamos conocimiento técnico, experiencia y atención cercana para desarrollar premezclas e ingredientes a la medida de cada cliente.</p>
+    <div class="pillars">
+      <div class="pillar"><svg class="icon"><use href="#i-layers"/></svg>Conocimiento<br>Técnico</div>
+      <div class="pillar"><svg class="icon"><use href="#i-sliders"/></svg>Soluciones a<br>la Medida</div>
+      <div class="pillar"><svg class="icon"><use href="#i-cap"/></svg>Capacitación<br>Especializada</div>
+      <div class="pillar"><svg class="icon"><use href="#i-headset"/></svg>Atención<br>Cercana</div>
+    </div>
+    <div class="center"><a href="#contacto" class="btn dmv-fx btn-primary">Solicita una evaluación técnica</a></div>
+  </div>
+</section>
+
+<!-- ============ SOLUCIONES ============ -->
+<section class="section solutions" id="soluciones">
+  <div class="container">
+    <div class="eyebrow">Soluciones</div>
+    <div class="sol-head">
+      <h2 class="h2">Conoce nuestro<br>portafolio</h2>
+      <p class="lead">Un portafolio para distintas necesidades de formulación y procesamiento industrial, con respaldo técnico en cada etapa.</p>
+    </div>
+    <div class="carousel">
+      <button class="arrow" id="prev" aria-label="Anterior"><svg class="icon"><use href="#i-chev-left"/></svg></button>
+      <div class="track" id="track">
+        <article class="card"><div class="card-num">01</div><h3>Premezclas y<br>Fortificación</h3><p>Vitaminas, minerales, aminoácidos y formulaciones personalizadas.</p><a href="#" class="btn dmv-fx btn-primary">Ver Premezclas</a></article>
+        <article class="card"><div class="card-num">02</div><h3>Enzimas y<br>Mejorantes</h3><p>Aplicaciones en harinas, panificación y procesos alimentarios.</p><a href="#" class="btn dmv-fx btn-primary">Ver Enzimas</a></article>
+        <article class="card"><div class="card-num">03</div><h3>Aditivos e<br>Ingredientes</h3><p>Ingredientes funcionales según la aplicación.</p><a href="#" class="btn dmv-fx btn-primary">Ver Ingredientes</a></article>
+        <article class="card"><div class="card-num">04</div><h3>Nutrición<br>Animal</h3><p>Texto de ejemplo: premezclas para alimento balanceado y suplementación.</p><a href="#" class="btn dmv-fx btn-primary">Ver Nutrición</a></article>
+        <article class="card"><div class="card-num">05</div><h3>Servicios<br>Técnicos</h3><p>Texto de ejemplo: formulación, pruebas piloto y acompañamiento en planta.</p><a href="#" class="btn dmv-fx btn-primary">Ver Servicios</a></article>
+      </div>
+      <button class="arrow" id="next" aria-label="Siguiente"><svg class="icon"><use href="#i-chev-right"/></svg></button>
+    </div>
+    <div class="center sol-cta"><a href="#contacto" class="btn dmv-fx btn-primary">Habla con un especialista</a></div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIAS (tarjetas apiladas · referencia Rezon Bio) ============ -->
+<section class="section" id="industrias">
+  <div class="container">
+    <div class="eyebrow">Industrias y Aplicaciones</div>
+    <div class="ind-head">
+      <h2 class="h2">Soluciones para cada industria</h2>
+      <p class="lead">Cada proceso productivo tiene requerimientos específicos. Te ayudamos a elegir los ingredientes y las soluciones técnicas que mejor se adaptan a tu aplicación.</p>
+    </div>
+    <div class="dmv-stack">
+      <article class="ind-card dmv-stack-card">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(140deg,#e9e6df 0%,#c9b99a 45%,#8798b2 100%)"></div></div><span class="media-label">Foto: panificación (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Alimentos y<br>Panificación</h3>
+          <p>Premezclas, enzimas y mejorantes que aportan consistencia, volumen y vida de anaquel a harinas, pan y productos de panificación.</p>
+          <a href="#contacto" class="btn dmv-fx btn-soft">Conoce más</a>
+        </div>
+      </article>
+      <article class="ind-card dmv-stack-card dmv-dark ind-reverse">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(150deg,#f6f7f2 0%,#8798b2 50%,#195de4 100%)"></div></div><span class="media-label">Foto: bebidas (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Bebidas</h3>
+          <p>Fortificación con vitaminas y minerales estables y de fácil dispersión para bebidas listas para tomar, polvos y concentrados.</p>
+          <a href="#contacto" class="btn dmv-fx btn-soft">Conoce más</a>
+        </div>
+      </article>
+      <article class="ind-card dmv-stack-card">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(140deg,#e9e6df 0%,#8798b2 55%,#5a5154 100%)"></div></div><span class="media-label">Foto: nutrición animal (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Nutrición<br>Animal</h3>
+          <p>Premezclas vitamínicas y minerales a la medida para alimento balanceado de aves, cerdos, rumiantes y mascotas.</p>
+          <a href="#contacto" class="btn dmv-fx btn-soft">Conoce más</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ¿POR QUÉ DMV? ============ -->
+<section class="section" id="por-que">
+  <div class="container">
+    <div class="eyebrow">¿Por qué DMV Premixes?</div>
+    <div class="split reverse">
+      <div class="media media-photo">
+        <svg class="icon"><use href="#i-flask"/></svg>
+        <span class="media-label">Fotografía de laboratorio (provisional)</span>
+      </div>
+      <div>
+        <h2 class="h2">Más que ingredientes, acompañamiento al proceso</h2>
+        <p class="lead">Nos aseguramos de que cada solución se use correctamente, con capacitación constante para tu equipo.</p>
+        <figure class="quote">
+          <blockquote>“Construimos relaciones de largo plazo, acompañando a nuestros clientes en la selección, aplicación y seguimiento de las soluciones que forman parte de sus procesos.”</blockquote>
+          <figcaption class="quote-foot">
+            <div class="avatar">NA</div>
+            <div class="quote-who"><b>Nombre Apellido</b><span>Director General, DMV Premixes</span></div>
+            <svg class="signature" viewBox="0 0 120 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 28c6-14 12-22 14-18s-6 22-2 22 10-16 14-16-2 14 2 14 8-10 12-10 0 8 4 8 10-14 16-14-4 16 2 16 14-10 20-12 10 2 16-2"/><path d="M40 34c20-3 44-4 70-6"/></svg>
+          </figcaption>
+        </figure>
+        <div class="btn-row">
+          <a href="#soluciones" class="btn dmv-fx btn-primary">Ver Soluciones</a>
+          <a href="#contacto" class="btn dmv-fx btn-outline">Solicita Asesoría</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq-sec">
+  <div class="container">
+    <div class="eyebrow">FAQ's</div>
+    <div class="faq-head">
+      <h2 class="h2">Preguntas Frecuentes</h2>
+      <p class="lead">Resolvemos algunas de las dudas más comunes sobre nuestras soluciones y la forma de trabajar con DMV Premixes.</p>
+    </div>
+    <div class="faq" id="faq">
+      <details open><summary>¿Qué soluciones ofrece DMV Premixes? <svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer">Texto de ejemplo. Ofrecemos premezclas vitamínicas y minerales, enzimas y mejorantes, aditivos e ingredientes funcionales, además de acompañamiento técnico en la aplicación.</div></details>
+      <details><summary>¿Cómo puedo solicitar una cotización? <svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer">Texto de ejemplo. Escríbenos desde el formulario de contacto o por correo, cuéntanos tu aplicación y un especialista te contactará.</div></details>
+      <details><summary>¿Es posible visitar sus instalaciones para conocer sus productos? <svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer">Texto de ejemplo. Sí, agenda una visita con nuestro equipo comercial.</div></details>
+      <details><summary>¿Qué certificaciones y documentación técnica tienen sus productos? <svg class="icon"><use href="#i-plus"/></svg></summary><div class="answer">Texto de ejemplo. Cada producto cuenta con ficha técnica, hoja de seguridad y certificado de análisis.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="eyebrow">Blog y Noticias</div>
+    <div class="blog-head">
+      <h2 class="h2">Contenido Técnico y Novedades</h2>
+      <p class="lead">Información, novedades y contenido técnico sobre ingredientes, premezclas y sus aplicaciones en la industria.</p>
+    </div>
+    <div class="posts">
+      <article class="post">
+        <div class="post-img"><span>Imagen del artículo</span></div>
+        <h3>Las enzimas en los procesos de panificación</h3>
+        <p>Conoce cómo las enzimas pueden intervenir en distintas etapas del proceso y qué factores deben evaluarse al seleccionar una solución.</p>
+        <div class="post-meta"><span class="chip">Artículo</span><span>10 de abril de 2026</span><a href="#">Leer más</a></div>
+      </article>
+      <article class="post">
+        <div class="post-img"><span>Imagen del artículo</span></div>
+        <h3>Selección de premezclas nutricionales</h3>
+        <p>Identifica los factores de formulación, aplicación y especificación técnica que conviene considerar antes de elegir una premezcla.</p>
+        <div class="post-meta"><span class="chip">Artículo</span><span>21 de mayo de 2026</span><a href="#">Leer más</a></div>
+      </article>
+    </div>
+    <div class="center blog-cta"><a href="#" class="btn dmv-fx btn-primary">Ver todas las publicaciones</a></div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="eyebrow">Contacto</div>
+    <div class="contact">
+      <form class="form" id="contactForm" novalidate>
+        <div class="field"><label for="f-name">Nombre completo</label><input id="f-name" type="text" placeholder="Tu nombre completo" autocomplete="name"></div>
+        <div class="field"><label for="f-mail">Correo Electrónico</label><input id="f-mail" type="email" placeholder="correo@empresa.com" autocomplete="email"></div>
+        <div class="field"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" placeholder="+52 00 0000 0000" autocomplete="tel"></div>
+        <div class="field"><label for="f-msg">Cuéntanos sobre tu requerimiento</label><textarea id="f-msg" placeholder="Describe tu aplicación, proceso o necesidad"></textarea></div>
+        <button class="btn dmv-fx btn-primary" type="submit">Enviar</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+      <div class="contact-copy">
+        <h2 class="h2">Convierte tus necesidades en soluciones.</h2>
+        <p class="lead">¿Buscas ingredientes, una premezcla o asesoría para una aplicación específica? Cuéntanos qué necesitas y nuestro equipo revisará tu solicitud y te orientará sobre las soluciones disponibles.</p>
+        <a href="mailto:contacto@dmvpremixes.com" class="contact-card"><svg class="icon"><use href="#i-mail"/></svg><div><small>Correo Electrónico</small><b>contacto@dmvpremixes.com</b></div></a>
+        <a href="tel:+520000000000" class="contact-card"><svg class="icon"><use href="#i-headset"/></svg><div><small>Teléfono</small><b>+52 00 0000 0000</b></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Suscríbete a nuestro Newsletter</h4>
+        <p>Recibe novedades, artículos técnicos y lanzamientos de DMV Premixes.</p>
+        <form class="newsletter" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('input').placeholder='¡Gracias! (prototipo)';">
+          <label class="sr-only" for="nl">Correo</label>
+          <input id="nl" type="email" placeholder="Escribe tu correo">
+          <button class="btn dmv-fx btn-primary" type="submit">Suscríbete</button>
+        </form>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#soluciones">Soluciones</a></li>
+          <li><a href="#industrias">Industrias</a></li>
+          <li><a href="#" title="Página interna (pendiente)">Calidad</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#">Certificaciones</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Ubicación</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:contacto@dmvpremixes.com">contacto@dmvpremixes.com</a></li>
+          <li><a href="https://wa.me/525543577104" target="_blank" rel="noopener">WhatsApp +52 55 4357 7104</a></li>
+          <li><a href="#contacto">Solicitar Asesoría</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <svg class="footer-logo" viewBox="0 0 1049.08 207.64" role="img" aria-label="DMV Premixes"><use href="#dmv-logo"/></svg>
+      <span>© 2026 DMV Premixes. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="proto-badge">Prototipo · textos de ejemplo</div>
+
+<script>
+(function(){
+  // Sombra del menú al hacer scroll
+  var nav=document.getElementById('navWrap');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>40)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Menú (⋮ / hamburguesa)
+  var toggle=document.getElementById('navToggle'),menu=document.getElementById('menuPanel');
+  var setMenu=function(o){menu.classList.toggle('open',o);toggle.setAttribute('aria-expanded',o)};
+  toggle.addEventListener('click',function(e){e.stopPropagation();setMenu(!menu.classList.contains('open'))});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  document.addEventListener('click',function(e){if(!menu.contains(e.target))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  // En escritorio, al volver arriba (enlaces visibles) se cierra el panel
+  window.addEventListener('scroll',function(){if(window.scrollY<=40&&window.innerWidth>760)setMenu(false)},{passive:true});
+
+  // Carrusel de soluciones
+  var track=document.getElementById('track'),prev=document.getElementById('prev'),next=document.getElementById('next');
+  var step=function(){var c=track.querySelector('.card');return c.getBoundingClientRect().width+22};
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'})});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'})});
+  var upd=function(){prev.disabled=track.scrollLeft<=2;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-2};
+  track.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // FAQ: una pregunta abierta a la vez
+  var items=document.querySelectorAll('#faq details');
+  items.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)items.forEach(function(o){if(o!==d)o.open=false})})});
+
+  // Formulario (prototipo, no envía)
+  document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').textContent='Prototipo: el formulario aún no envía datos.'});
+})();
+</script>
+<!-- Color Swipe Reveal (elementor/fragmentos/color-swipe-reveal.html) -->
+{{REVEAL}}
+<!-- Tarjetas apiladas (elementor/fragmentos/tarjetas-apiladas.html) -->
+{{STACK}}
+<!-- Hover relleno desde el cursor (elementor/fragmentos/hover-relleno-cursor.html) -->
+{{FILL}}
+</body>
+</html>

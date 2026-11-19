@@ -1,0 +1,544 @@
+{
+  "content": [
+    {
+      "id": "5c0bf8b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "Nosotros",
+        "_element_id": "nosotros",
+        "content_width": "boxed",
+        "boxed_width": {
+          "unit": "px",
+          "size": 1120,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_align_items": "stretch",
+        "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "72",
+          "right": "24",
+          "bottom": "72",
+          "left": "24",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "56",
+          "right": "16",
+          "bottom": "56",
+          "left": "16",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "background_color": "#F6F7F2"
+      },
+      "elements": [
+        {
+          "id": "5db328c",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Etiqueta: Nosotros",
+            "title": "Nosotros",
+            "header_size": "div",
+            "title_color": "#195DE4",
+            "typography_typography": "custom",
+            "typography_font_family": "Archivo",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.4,
+              "sizes": []
+            },
+            "_element_width": "inherit",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_border_color": "rgba(25,93,228,0.28)",
+            "_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "48",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_mobile": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "32",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [],
+          "isInner": false
+        },
+        {
+          "id": "7e9648a",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Frase (efecto Color Swipe Reveal)",
+            "title": "En <span style=\"color:#1C1B17\">DMV Premixes</span> combinamos conocimiento técnico, experiencia y atención cercana para desarrollar premezclas e ingredientes.",
+            "header_size": "h2",
+            "align": "center",
+            "title_color": "#5A5154",
+            "typography_typography": "custom",
+            "typography_font_family": "Rinter",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 48,
+              "sizes": []
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 28,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.25,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "px",
+              "size": -0.5,
+              "sizes": []
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 38,
+              "sizes": []
+            },
+            "_css_classes": "dmv-reveal",
+            "_element_width": "initial",
+            "_element_custom_width": {
+              "unit": "px",
+              "size": 1000,
+              "sizes": []
+            },
+            "_element_custom_width_mobile": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "_flex_align_self": "center"
+          },
+          "elements": [],
+          "isInner": false
+        },
+        {
+          "id": "0ed8ec2",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "_title": "Pilares",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_justify_content": "center",
+            "flex_align_items": "flex-start",
+            "flex_gap": {
+              "column": "24",
+              "row": "32",
+              "isLinked": false,
+              "unit": "px",
+              "size": 24
+            },
+            "flex_gap_mobile": {
+              "column": "16",
+              "row": "28",
+              "isLinked": false,
+              "unit": "px",
+              "size": 16
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "margin": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "44",
+              "left": "0",
+              "isLinked": false
+            },
+            "margin_mobile": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "36",
+              "left": "0",
+              "isLinked": false
+            },
+            "custom_css": "selector{max-width:820px;align-self:center;}"
+          },
+          "elements": [
+            {
+              "id": "18b4e6d",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "_title": "Pilar: Conocimiento Técnico",
+                "selected_icon": {
+                  "value": "fas fa-layer-group",
+                  "library": "fa-solid"
+                },
+                "position": "top",
+                "title_text": "Conocimiento Técnico",
+                "description_text": "",
+                "title_size": "div",
+                "primary_color": "#5A5154",
+                "hover_primary_color": "#195DE4",
+                "icon_size": {
+                  "unit": "px",
+                  "size": 28,
+                  "sizes": []
+                },
+                "icon_space": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_color": "#195DE4",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Archivo",
+                "title_typography_font_weight": "400",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "title_typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.35,
+                  "sizes": []
+                },
+                "text_align": "center",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 22,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 46,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "a7762c4",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "_title": "Pilar: Soluciones a la medida",
+                "selected_icon": {
+                  "value": "fas fa-sliders-h",
+                  "library": "fa-solid"
+                },
+                "position": "top",
+                "title_text": "Soluciones a la medida",
+                "description_text": "",
+                "title_size": "div",
+                "primary_color": "#5A5154",
+                "hover_primary_color": "#195DE4",
+                "icon_size": {
+                  "unit": "px",
+                  "size": 28,
+                  "sizes": []
+                },
+                "icon_space": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_color": "#195DE4",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Archivo",
+                "title_typography_font_weight": "400",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "title_typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.35,
+                  "sizes": []
+                },
+                "text_align": "center",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 22,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 46,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "5140ac7",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "_title": "Pilar: Capacitación Especializada",
+                "selected_icon": {
+                  "value": "fas fa-graduation-cap",
+                  "library": "fa-solid"
+                },
+                "position": "top",
+                "title_text": "Capacitación Especializada",
+                "description_text": "",
+                "title_size": "div",
+                "primary_color": "#5A5154",
+                "hover_primary_color": "#195DE4",
+                "icon_size": {
+                  "unit": "px",
+                  "size": 28,
+                  "sizes": []
+                },
+                "icon_space": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_color": "#195DE4",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Archivo",
+                "title_typography_font_weight": "400",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "title_typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.35,
+                  "sizes": []
+                },
+                "text_align": "center",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 22,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 46,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "f31dce1",
+              "elType": "widget",
+              "widgetType": "icon-box",
+              "settings": {
+                "_title": "Pilar: Atención Cercana",
+                "selected_icon": {
+                  "value": "fas fa-headset",
+                  "library": "fa-solid"
+                },
+                "position": "top",
+                "title_text": "Atención Cercana",
+                "description_text": "",
+                "title_size": "div",
+                "primary_color": "#5A5154",
+                "hover_primary_color": "#195DE4",
+                "icon_size": {
+                  "unit": "px",
+                  "size": 28,
+                  "sizes": []
+                },
+                "icon_space": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_color": "#195DE4",
+                "title_typography_typography": "custom",
+                "title_typography_font_family": "Archivo",
+                "title_typography_font_weight": "400",
+                "title_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "title_typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                },
+                "title_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.35,
+                  "sizes": []
+                },
+                "text_align": "center",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 22,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 46,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "59a8a0d",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "_title": "Botón",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "5279bd2",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Solicita una evaluación técnica",
+                "link": {
+                  "url": "/contactanos/",
+                  "is_external": "",
+                  "nofollow": "",
+                  "custom_attributes": ""
+                },
+                "button_text_color": "#F6F7F2",
+                "background_color": "#195DE4",
+                "button_background_background": "classic",
+                "button_background_color": "#195DE4",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "999",
+                  "right": "999",
+                  "bottom": "999",
+                  "left": "999",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "14",
+                  "right": "40",
+                  "bottom": "14",
+                  "left": "40",
+                  "isLinked": false
+                },
+                "hover_color": "#F6F7F2",
+                "button_background_hover_background": "classic",
+                "button_background_hover_color": "#1450C6",
+                "typography_typography": "custom",
+                "typography_font_family": "Archivo",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 14,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {},
+  "version": "0.4",
+  "title": "DMV - Nosotros",
+  "type": "container"
+}
