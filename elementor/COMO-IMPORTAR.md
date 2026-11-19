@@ -183,3 +183,15 @@ Al bajar, cada palabra pasa de azul translúcido desenfocado a su color final.
 ## Recomendado
 *Elementor → Configuración del sitio → Fondo* → color **White Sand (#F6F7F2)**.
 Hoy el fondo general es Royal Blue: cualquier espacio sin fondo propio se ve como una banda azul.
+
+---
+
+# Flechas del carrusel (círculos Royal Blue por fuera de las tarjetas)
+
+Archivo: `fragmentos/flechas-carrusel.css`
+1. Selecciona el widget **Carrusel anidado** → *Avanzado* → **CSS personalizado**.
+2. Pega todo el contenido del archivo → **Actualizar**.
+
+- Computadora: flechas a los lados, fuera de las tarjetas.
+- Tablet y celular: centradas debajo de las tarjetas.
+- La flecha se ve más clara cuando no hay más tarjetas en esa dirección.
