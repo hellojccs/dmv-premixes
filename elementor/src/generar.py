@@ -350,21 +350,151 @@ def footer():
         widget("text-editor", {"editor": "<p>© 2026 DMV Premixes. Todos los derechos reservados.</p>",
                                "text_color": CS, **typo("typography", "Archivo", 13, None, 1.5)}),
     ], inner=True)
+    # Envoltura White Sand: el espacio arriba del footer y sus esquinas redondeadas no muestran el fondo del sitio
     return [container({
+        "_title": "Footer (envoltura)",
+        "content_width": "full", "flex_direction": "column",
+        "padding": box(72, 0, 0, 0), "padding_mobile": box(56, 0, 0, 0),
+        "background_background": "classic", "background_color": WS,
+    }, [container({
         "_title": "Footer",
-        "content_width": "boxed", "boxed_width": px(1120),
+        "content_width": "boxed", "boxed_width": px(1120), "width": px(100, "%"),
         "flex_direction": "column",
         "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
         "padding": box(72, 24, 36, 24), "padding_mobile": box(56, 16, 32, 16),
-        "margin": box(72, 0, 0, 0),
         "background_background": "classic", "background_color": CB,
         "border_radius": {"unit": "px", "top": "28", "right": "28", "bottom": "0", "left": "0", "isLinked": False},
-    }, [top, bottom])]
+    }, [top, bottom], inner=True)])]
+
+# ------------------------------------------------------------------ SECCIONES DE INICIO
+def eyebrow(text):
+    """Etiqueta de sección con línea superior (como en la estructura del cliente)."""
+    return widget("heading", {
+        "_title": f"Etiqueta: {text}", "title": text, "header_size": "div", "title_color": RB,
+        **typo("typography", "Archivo", 13, None, 1.4),
+        "_element_width": "inherit",
+        "_border_border": "solid", "_border_width": box(1, 0, 0, 0), "_border_color": "rgba(25,93,228,0.28)",
+        "_padding": box(14, 0, 0, 0), "_margin": box(0, 0, 48, 0), "_margin_mobile": box(0, 0, 32, 0)})
+
+def section(title, anchor, elements, extra=None):
+    s = {"_title": title, "_element_id": anchor,
+         "content_width": "boxed", "boxed_width": px(1120),
+         "flex_direction": "column", "flex_align_items": "stretch",
+         "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
+         "padding": box(72, 24, 72, 24), "padding_mobile": box(56, 16, 56, 16),
+         "background_background": "classic", "background_color": WS}
+    if extra: s.update(extra)
+    return container(s, elements)
+
+PILLARS = [("Conocimiento Técnico", "fas fa-layer-group"),
+           ("Soluciones a la medida", "fas fa-sliders-h"),
+           ("Capacitación Especializada", "fas fa-graduation-cap"),
+           ("Atención Cercana", "fas fa-headset")]
+
+def nosotros():
+    pillars = [widget("icon-box", {
+        "_title": f"Pilar: {name}",
+        "selected_icon": {"value": icon, "library": "fa-solid"}, "position": "top",
+        "title_text": name, "description_text": "", "title_size": "div",
+        "primary_color": TG, "hover_primary_color": RB, "icon_size": px(28), "icon_space": px(14),
+        "title_color": RB, **typo("title_typography", "Archivo", 15, 14, 1.35),
+        "text_align": "center",
+        "_element_width": "initial", "_element_custom_width": px(22, "%"), "_element_custom_width_mobile": px(46, "%"),
+    }) for name, icon in PILLARS]
+    return [section("Nosotros", "nosotros", [
+        eyebrow("Nosotros"),
+        widget("heading", {
+            "_title": "Frase (efecto Color Swipe Reveal)",
+            "title": 'En <span style="color:#1C1B17">DMV Premixes</span> combinamos conocimiento técnico, experiencia y atención cercana para desarrollar premezclas e ingredientes.',
+            "header_size": "h2", "align": "center", "title_color": TG,
+            **typo("typography", "Rinter", 48, 28, 1.25, -0.5),
+            "typography_font_size_tablet": px(38),
+            "_css_classes": "dmv-reveal",
+            "_element_width": "initial", "_element_custom_width": px(1000), "_element_custom_width_mobile": px(100, "%"),
+            "_flex_align_self": "center"}),
+        container({
+            "_title": "Pilares", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_wrap": "wrap",
+            "flex_justify_content": "center", "flex_align_items": "flex-start",
+            "flex_gap": {"column": "24", "row": "32", "isLinked": False, "unit": "px", "size": 24},
+            "flex_gap_mobile": {"column": "16", "row": "28", "isLinked": False, "unit": "px", "size": 16},
+            "padding": box(0, 0, 0, 0), "margin": box(56, 0, 44, 0), "margin_mobile": box(40, 0, 36, 0),
+            "custom_css": "selector{max-width:820px;align-self:center;}"}, pillars, inner=True),
+        container({"_title": "Botón", "content_width": "full", "width": px(100, "%"),
+                   "flex_direction": "row", "flex_justify_content": "center", "padding": box(0, 0, 0, 0)},
+                  [button("Solicita una evaluación técnica", "/contactanos/")], inner=True),
+    ])]
+
+CARD_CSS = """/* Tarjeta: el botón siempre abajo, alineado entre tarjetas */
+selector .elementor-widget-button{margin-top:auto;}
+selector{transition:transform .25s,box-shadow .25s;}
+selector:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(28,27,23,.04),0 20px 48px rgba(28,27,23,.10);}"""
+
+SOLUTIONS = [("01", "Premezclas y<br>Fortificación", "Vitaminas, minerales, aminoácidos y formulaciones personalizadas.", "Ver Premezclas"),
+             ("02", "Enzimas y<br>Mejorantes", "Aplicaciones en harinas, panificación y procesos alimentarios.", "Ver Enzimas"),
+             ("03", "Aditivos e<br>Ingredientes", "Ingredientes funcionales según la aplicación.", "Ver Ingredientes")]
+
+def soluciones():
+    cards = [container({
+        "_title": f"Tarjeta {num}", "content_width": "full",
+        "width": px(30, "%"), "width_mobile": px(100, "%"), "_flex_size": "grow",
+        "flex_direction": "column", "flex_align_items": "flex-start",
+        "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
+        "min_height": px(320), "min_height_mobile": px(260),
+        "padding": box(24, 24, 24, 24),
+        "background_background": "classic", "background_color": "#FFFFFF",
+        "border_border": "solid", "border_width": radius(1), "border_color": SG, "border_radius": radius(18),
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {"horizontal": 0, "vertical": 8, "blur": 24, "spread": 0, "color": "rgba(28,27,23,0.06)"},
+        "custom_css": CARD_CSS,
+    }, [
+        widget("heading", {"title": num, "header_size": "div", "title_color": CS, "_margin": box(0, 0, 22, 0),
+                           **typo("typography", "Archivo", 12)}),
+        widget("heading", {"title": title, "header_size": "h3", "title_color": RB, "_margin": box(0, 0, 10, 0),
+                           **typo("typography", "Rinter", 21, 20, 1.2)}),
+        widget("text-editor", {"editor": f"<p>{desc}</p>", "align": "left", "text_color": TG, "_margin": box(0, 0, 24, 0),
+                               **typo("typography", "Archivo", 14, None, 1.5)}),
+        button(btn, "/soluciones/", size=14, pad=(12, 26)),
+    ], inner=True) for num, title, desc, btn in SOLUTIONS]
+    return [section("Soluciones", "soluciones", [
+        eyebrow("Soluciones"),
+        container({
+            "_title": "Encabezado", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_direction_mobile": "column", "flex_align_items": "flex-start",
+            "flex_gap": {"column": "40", "row": "16", "isLinked": False, "unit": "px", "size": 40},
+            "padding": box(0, 0, 0, 0), "margin": box(0, 0, 48, 0), "margin_mobile": box(0, 0, 32, 0)}, [
+            widget("heading", {"title": "Nuestro<br>portafolio", "header_size": "h2", "title_color": CB,
+                               "_element_width": "initial", "_element_custom_width": px(40, "%"),
+                               "_element_custom_width_mobile": px(100, "%"),
+                               **typo("typography", "Rinter", 38, 30, 1.12, -0.5)}),
+            widget("text-editor", {
+                "editor": "<p>En DMV Premixes desarrollamos soluciones de premezclas personalizadas que combinan conocimiento técnico, calidad de ingredientes y precisión de formulación para responder a los requerimientos nutricionales y funcionales de nuestros clientes.</p>",
+                "align": "left", "text_color": TG, "_flex_size": "grow",
+                **typo("typography", "Archivo", 16, 15, 1.6)}),
+        ], inner=True),
+        container({
+            "_title": "Tarjetas", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_direction_mobile": "column",
+            "flex_align_items": "stretch", "flex_wrap": "nowrap",
+            "flex_gap": {"column": "22", "row": "18", "isLinked": False, "unit": "px", "size": 22},
+            "padding": box(0, 0, 0, 0)}, cards, inner=True),
+        container({"_title": "Botón", "content_width": "full", "width": px(100, "%"),
+                   "flex_direction": "row", "flex_justify_content": "center",
+                   "padding": box(0, 0, 0, 0), "margin": box(40, 0, 0, 0)},
+                  [button("Habla con un especialista", "/contactanos/")], inner=True),
+    ], extra={
+        # Brillo azul suave detrás de las tarjetas (sin bandas: se desvanece a White Sand)
+        "background_background": "gradient", "background_color": "rgba(25,93,228,0.14)",
+        "background_color_stop": px(0, "%"), "background_color_b": WS, "background_color_b_stop": px(62, "%"),
+        "background_gradient_type": "radial", "background_gradient_position": "center center",
+    })]
 
 if __name__ == "__main__":
     save("01-hero.json", "DMV - Hero", "container", hero())
     save("02-header.json", "DMV - Header", "header", header())
     save("03-footer.json", "DMV - Footer", "footer", footer())
+    save("04-nosotros.json", "DMV - Nosotros", "container", nosotros())
+    save("05-soluciones.json", "DMV - Soluciones", "container", soluciones())
     # Fragmento suelto: código de la franja de logos para pegar en un widget HTML
     frag = ROOT / "elementor/fragmentos"; frag.mkdir(parents=True, exist_ok=True)
     (frag / "franja-logos.html").write_text(marquee_html() + "\n")

@@ -1,0 +1,1041 @@
+{
+  "content": [
+    {
+      "id": "ddd4aca",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "Soluciones",
+        "_element_id": "soluciones",
+        "content_width": "boxed",
+        "boxed_width": {
+          "unit": "px",
+          "size": 1120,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_align_items": "stretch",
+        "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "72",
+          "right": "24",
+          "bottom": "72",
+          "left": "24",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "56",
+          "right": "16",
+          "bottom": "56",
+          "left": "16",
+          "isLinked": false
+        },
+        "background_background": "gradient",
+        "background_color": "rgba(25,93,228,0.14)",
+        "background_color_stop": {
+          "unit": "%",
+          "size": 0,
+          "sizes": []
+        },
+        "background_color_b": "#F6F7F2",
+        "background_color_b_stop": {
+          "unit": "%",
+          "size": 62,
+          "sizes": []
+        },
+        "background_gradient_type": "radial",
+        "background_gradient_position": "center center"
+      },
+      "elements": [
+        {
+          "id": "a111d54",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Etiqueta: Soluciones",
+            "title": "Soluciones",
+            "header_size": "div",
+            "title_color": "#195DE4",
+            "typography_typography": "custom",
+            "typography_font_family": "Archivo",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.4,
+              "sizes": []
+            },
+            "_element_width": "inherit",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_border_color": "rgba(25,93,228,0.28)",
+            "_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "48",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_mobile": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "32",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [],
+          "isInner": false
+        },
+        {
+          "id": "46a22d8",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "_title": "Encabezado",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_direction_mobile": "column",
+            "flex_align_items": "flex-start",
+            "flex_gap": {
+              "column": "40",
+              "row": "16",
+              "isLinked": false,
+              "unit": "px",
+              "size": 40
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "48",
+              "left": "0",
+              "isLinked": false
+            },
+            "margin_mobile": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "32",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "abff2a5",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Nuestro<br>portafolio",
+                "header_size": "h2",
+                "title_color": "#1C1B17",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 40,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Rinter",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 38,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 30,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.12,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -0.5,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "d2ebcf2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>En DMV Premixes desarrollamos soluciones de premezclas personalizadas que combinan conocimiento técnico, calidad de ingredientes y precisión de formulación para responder a los requerimientos nutricionales y funcionales de nuestros clientes.</p>",
+                "align": "left",
+                "text_color": "#5A5154",
+                "_flex_size": "grow",
+                "typography_typography": "custom",
+                "typography_font_family": "Archivo",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.6,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        },
+        {
+          "id": "b988e3b",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "_title": "Tarjetas",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_direction_mobile": "column",
+            "flex_align_items": "stretch",
+            "flex_wrap": "nowrap",
+            "flex_gap": {
+              "column": "22",
+              "row": "18",
+              "isLinked": false,
+              "unit": "px",
+              "size": 22
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "83f569a",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "_title": "Tarjeta 01",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 30,
+                  "sizes": []
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "_flex_size": "grow",
+                "flex_direction": "column",
+                "flex_align_items": "flex-start",
+                "flex_gap": {
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 0
+                },
+                "min_height": {
+                  "unit": "px",
+                  "size": 320,
+                  "sizes": []
+                },
+                "min_height_mobile": {
+                  "unit": "px",
+                  "size": 260,
+                  "sizes": []
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "24",
+                  "right": "24",
+                  "bottom": "24",
+                  "left": "24",
+                  "isLinked": false
+                },
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "#E9E6DF",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "18",
+                  "right": "18",
+                  "bottom": "18",
+                  "left": "18",
+                  "isLinked": true
+                },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 8,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(28,27,23,0.06)"
+                },
+                "custom_css": "/* Tarjeta: el botón siempre abajo, alineado entre tarjetas */\nselector .elementor-widget-button{margin-top:auto;}\nselector{transition:transform .25s,box-shadow .25s;}\nselector:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(28,27,23,.04),0 20px 48px rgba(28,27,23,.10);}"
+              },
+              "elements": [
+                {
+                  "id": "f1acaf0",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "01",
+                    "header_size": "div",
+                    "title_color": "#8798B2",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "22",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "bd7527e",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Premezclas y<br>Fortificación",
+                    "header_size": "h3",
+                    "title_color": "#195DE4",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 21,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 20,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.2,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "861de63",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Vitaminas, minerales, aminoácidos y formulaciones personalizadas.</p>",
+                    "align": "left",
+                    "text_color": "#5A5154",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.5,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "5364c73",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Ver Premezclas",
+                    "link": {
+                      "url": "/soluciones/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "button_text_color": "#F6F7F2",
+                    "background_color": "#195DE4",
+                    "button_background_background": "classic",
+                    "button_background_color": "#195DE4",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "999",
+                      "right": "999",
+                      "bottom": "999",
+                      "left": "999",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "10",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "hover_color": "#F6F7F2",
+                    "button_background_hover_background": "classic",
+                    "button_background_hover_color": "#1450C6",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                }
+              ]
+            },
+            {
+              "id": "e771b5a",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "_title": "Tarjeta 02",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 30,
+                  "sizes": []
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "_flex_size": "grow",
+                "flex_direction": "column",
+                "flex_align_items": "flex-start",
+                "flex_gap": {
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 0
+                },
+                "min_height": {
+                  "unit": "px",
+                  "size": 320,
+                  "sizes": []
+                },
+                "min_height_mobile": {
+                  "unit": "px",
+                  "size": 260,
+                  "sizes": []
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "24",
+                  "right": "24",
+                  "bottom": "24",
+                  "left": "24",
+                  "isLinked": false
+                },
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "#E9E6DF",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "18",
+                  "right": "18",
+                  "bottom": "18",
+                  "left": "18",
+                  "isLinked": true
+                },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 8,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(28,27,23,0.06)"
+                },
+                "custom_css": "/* Tarjeta: el botón siempre abajo, alineado entre tarjetas */\nselector .elementor-widget-button{margin-top:auto;}\nselector{transition:transform .25s,box-shadow .25s;}\nselector:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(28,27,23,.04),0 20px 48px rgba(28,27,23,.10);}"
+              },
+              "elements": [
+                {
+                  "id": "0208b19",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "02",
+                    "header_size": "div",
+                    "title_color": "#8798B2",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "22",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "253dceb",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Enzimas y<br>Mejorantes",
+                    "header_size": "h3",
+                    "title_color": "#195DE4",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 21,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 20,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.2,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "b22abac",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Aplicaciones en harinas, panificación y procesos alimentarios.</p>",
+                    "align": "left",
+                    "text_color": "#5A5154",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.5,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "042921c",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Ver Enzimas",
+                    "link": {
+                      "url": "/soluciones/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "button_text_color": "#F6F7F2",
+                    "background_color": "#195DE4",
+                    "button_background_background": "classic",
+                    "button_background_color": "#195DE4",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "999",
+                      "right": "999",
+                      "bottom": "999",
+                      "left": "999",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "10",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "hover_color": "#F6F7F2",
+                    "button_background_hover_background": "classic",
+                    "button_background_hover_color": "#1450C6",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                }
+              ]
+            },
+            {
+              "id": "b4edb74",
+              "elType": "container",
+              "isInner": true,
+              "settings": {
+                "_title": "Tarjeta 03",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 30,
+                  "sizes": []
+                },
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "_flex_size": "grow",
+                "flex_direction": "column",
+                "flex_align_items": "flex-start",
+                "flex_gap": {
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 0
+                },
+                "min_height": {
+                  "unit": "px",
+                  "size": 320,
+                  "sizes": []
+                },
+                "min_height_mobile": {
+                  "unit": "px",
+                  "size": 260,
+                  "sizes": []
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "24",
+                  "right": "24",
+                  "bottom": "24",
+                  "left": "24",
+                  "isLinked": false
+                },
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "1",
+                  "bottom": "1",
+                  "left": "1",
+                  "isLinked": true
+                },
+                "border_color": "#E9E6DF",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "18",
+                  "right": "18",
+                  "bottom": "18",
+                  "left": "18",
+                  "isLinked": true
+                },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": {
+                  "horizontal": 0,
+                  "vertical": 8,
+                  "blur": 24,
+                  "spread": 0,
+                  "color": "rgba(28,27,23,0.06)"
+                },
+                "custom_css": "/* Tarjeta: el botón siempre abajo, alineado entre tarjetas */\nselector .elementor-widget-button{margin-top:auto;}\nselector{transition:transform .25s,box-shadow .25s;}\nselector:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(28,27,23,.04),0 20px 48px rgba(28,27,23,.10);}"
+              },
+              "elements": [
+                {
+                  "id": "fa60fcd",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "03",
+                    "header_size": "div",
+                    "title_color": "#8798B2",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "22",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "8a409b4",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Aditivos e<br>Ingredientes",
+                    "header_size": "h3",
+                    "title_color": "#195DE4",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 21,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 20,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.2,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "6ce9db2",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Ingredientes funcionales según la aplicación.</p>",
+                    "align": "left",
+                    "text_color": "#5A5154",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Archivo",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.5,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                },
+                {
+                  "id": "562e4f7",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Ver Ingredientes",
+                    "link": {
+                      "url": "/soluciones/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "button_text_color": "#F6F7F2",
+                    "background_color": "#195DE4",
+                    "button_background_background": "classic",
+                    "button_background_color": "#195DE4",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "999",
+                      "right": "999",
+                      "bottom": "999",
+                      "left": "999",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "10",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "hover_color": "#F6F7F2",
+                    "button_background_hover_background": "classic",
+                    "button_background_hover_color": "#1450C6",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Rinter",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [],
+                  "isInner": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4ef87fc",
+          "elType": "container",
+          "isInner": true,
+          "settings": {
+            "_title": "Botón",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "margin": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "b65e40d",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Habla con un especialista",
+                "link": {
+                  "url": "/contactanos/",
+                  "is_external": "",
+                  "nofollow": "",
+                  "custom_attributes": ""
+                },
+                "button_text_color": "#F6F7F2",
+                "background_color": "#195DE4",
+                "button_background_background": "classic",
+                "button_background_color": "#195DE4",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "999",
+                  "right": "999",
+                  "bottom": "999",
+                  "left": "999",
+                  "isLinked": true
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "40",
+                  "bottom": "12",
+                  "left": "40",
+                  "isLinked": false
+                },
+                "hover_color": "#F6F7F2",
+                "button_background_hover_background": "classic",
+                "button_background_hover_color": "#1450C6",
+                "typography_typography": "custom",
+                "typography_font_family": "Rinter",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                }
+              },
+              "elements": [],
+              "isInner": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {},
+  "version": "0.4",
+  "title": "DMV - Soluciones",
+  "type": "container"
+}

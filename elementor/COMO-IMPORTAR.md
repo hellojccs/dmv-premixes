@@ -151,3 +151,35 @@ El efecto se ve en la **página publicada / vista previa**, no dentro del editor
 Al bajar, cada palabra pasa de azul translúcido desenfocado a su color final.
 
 > Si alguien tiene activada la opción "reducir movimiento" en su dispositivo, el texto se muestra normal, sin animación.
+
+---
+
+# Secciones de la página de Inicio
+
+| Archivo | Sección |
+|---|---|
+| `04-nosotros.json` | Nosotros: etiqueta, frase con efecto **Color Swipe Reveal** (clase `dmv-reveal` ya incluida), 4 pilares y botón |
+| `05-soluciones.json` | Soluciones: etiqueta, título + texto, 3 tarjetas de igual altura con botón alineado abajo, botón final |
+
+## 1. Importa
+*Plantillas → Plantillas guardadas → Importar plantillas* → importa `04-nosotros.json` y `05-soluciones.json`.
+
+## 2. Reemplaza tus secciones actuales
+1. Abre **Inicio** → **Editar con Elementor** → abre el **Navegador** (ícono de capas o Ctrl/Cmd + I).
+2. Clic derecho sobre tu sección de **Nosotros** actual → **Eliminar**. Haz lo mismo con tu sección de **portafolio**.
+3. Debajo del hero: ícono de **carpeta** → *Mis plantillas* → **DMV - Nosotros** → **Insertar**.
+4. Repite con **DMV - Soluciones**.
+5. En el Navegador, arrastra las secciones para que el orden sea: **Hero → Nosotros → Soluciones**.
+6. **Actualizar**.
+
+> Los íconos de los pilares se cambian con clic en el pilar → *Ícono* (puedes elegir otro o subir un SVG, por ejemplo el símbolo DMV).
+> Los botones ya enlazan a /contactanos/ y /soluciones/; el hero ya enlaza a estas secciones (#soluciones).
+
+## 3. Footer actualizado
+`03-footer.json` ahora trae su propio fondo White Sand alrededor, para que **no se asome el azul** del fondo del sitio arriba del footer.
+- Opción A: borra el footer actual en *Plantillas guardadas*, importa el nuevo y vuelve a poner su condición.
+- Opción B (rápida): en tu footer actual → selecciona el contenedor principal → *Avanzado → Margen* → arriba **0**.
+
+## Recomendado
+*Elementor → Configuración del sitio → Fondo* → color **White Sand (#F6F7F2)**.
+Hoy el fondo general es Royal Blue: cualquier espacio sin fondo propio se ve como una banda azul.
