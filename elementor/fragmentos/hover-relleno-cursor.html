@@ -1,0 +1,59 @@
+<!-- DMV Premixes — Hover "relleno desde el cursor" (direction-aware / cursor-following fill) para TODOS los botones
+     Un círculo de color crece desde el punto donde entra el mouse y se retira por donde sale.
+     El círculo dibuja el texto en el color final (con CSS, sin duplicarlo), así siempre se lee bien.
+     El color se elige solo según el botón y su fondo:
+       · header, o botón azul sobre fondo oscuro  → relleno White Sand, texto Royal Blue
+       · botón azul sobre fondo claro             → relleno Carbon Black, texto White Sand
+       · botón suave o claro                       → relleno Royal Blue, texto White Sand
+     Uso en Elementor: Elementor → Código personalizado → pegar todo → Ubicación: Fin del <body> → Todo el sitio. -->
+<style>
+.dmv-fill{position:relative;overflow:hidden;isolation:isolate;}
+/* Capa del relleno: dibuja el texto en el color final (sin duplicarlo en el HTML) */
+.dmv-fill::after{content:attr(data-dmv-label);position:absolute;inset:0;z-index:2;pointer-events:none;box-sizing:border-box;
+  display:flex;align-items:center;justify-content:center;padding:var(--dmv-pad,0);border-radius:inherit;white-space:nowrap;
+  background:var(--dmv-fill);color:var(--dmv-text);
+  clip-path:circle(0px at var(--dmv-x,50%) var(--dmv-y,50%));
+  transition:clip-path .55s cubic-bezier(.65,0,.35,1);}
+.dmv-fill.dmv-on::after{clip-path:circle(var(--dmv-r,200px) at var(--dmv-x,50%) var(--dmv-y,50%));}
+@media (prefers-reduced-motion:reduce){.dmv-fill::after{transition:none;}}
+</style>
+<script>
+(function(){
+  if (window.__dmvFill) return; window.__dmvFill = true;
+  var WS='#F6F7F2', RB='#195DE4', CB='#1C1B17';
+  function rgba(c){ var m=(c||'').match(/[\d.]+/g)||[0,0,0,0]; return {r:+m[0],g:+m[1],b:+m[2],a:m.length>3?+m[3]:1}; }
+  function lum(c){ function ch(v){v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);} return .2126*ch(c.r)+.7152*ch(c.g)+.0722*ch(c.b); }
+  function areaBg(el){ for(var e=el;e&&e!==document.documentElement;e=e.parentElement){ var c=rgba(getComputedStyle(e).backgroundColor); if(c.a>=.5) return c; } return rgba(getComputedStyle(document.body).backgroundColor); }
+
+  function setup(btn){
+    if(btn.classList.contains('dmv-fill')) return;
+    var st=getComputedStyle(btn), bg=rgba(st.backgroundColor), fill, text;
+    if(btn.closest('.elementor-location-header, .nav-wrap')){ fill=WS; text=RB; }
+    else if(bg.a<.5 || lum(bg)>.6){ fill=RB; text=WS; }
+    else { var area=areaBg(btn.parentElement); if(lum(area)<.35){ fill=WS; text=RB; } else { fill=CB; text=WS; } }
+
+    // La capa del relleno usa el mismo texto y relleno interno del botón
+    btn.setAttribute('data-dmv-label',(btn.innerText||btn.textContent||'').trim().replace(/\s+/g,' '));
+    btn.style.setProperty('--dmv-pad',st.padding);
+    btn.style.setProperty('--dmv-fill',fill); btn.style.setProperty('--dmv-text',text);
+    btn.classList.add('dmv-fill');
+
+    // Mientras el relleno está activo, el botón conserva sus colores originales debajo
+    var base={bg:st.backgroundColor,border:st.borderColor,color:st.color}, timer;
+    function pos(e){ var r=btn.getBoundingClientRect();
+      var x=(e&&e.clientX!=null)?e.clientX-r.left:r.width/2, y=(e&&e.clientY!=null)?e.clientY-r.top:r.height/2;
+      btn.style.setProperty('--dmv-x',x+'px'); btn.style.setProperty('--dmv-y',y+'px');
+      btn.style.setProperty('--dmv-r',Math.ceil(Math.hypot(Math.max(x,r.width-x),Math.max(y,r.height-y)))+2+'px'); }
+    function lock(){ btn.style.setProperty('background-color',base.bg,'important'); btn.style.setProperty('border-color',base.border,'important');
+      btn.style.setProperty('color',base.color,'important'); btn.style.setProperty('box-shadow','none','important'); }
+    function unlock(){ ['background-color','border-color','color','box-shadow'].forEach(function(p){btn.style.removeProperty(p);}); }
+    function on(e){ clearTimeout(timer); pos(e); lock(); btn.classList.add('dmv-on'); }
+    function off(e){ pos(e); btn.classList.remove('dmv-on'); timer=setTimeout(unlock,600); }
+    btn.addEventListener('mouseenter',on); btn.addEventListener('mouseleave',off);
+    btn.addEventListener('focus',function(){on();}); btn.addEventListener('blur',function(){off();});
+  }
+  function init(){ document.querySelectorAll('.elementor-button, .btn.dmv-fx').forEach(setup); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  window.addEventListener('load',init);
+})();
+</script>
