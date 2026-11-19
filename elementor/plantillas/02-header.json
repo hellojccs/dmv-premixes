@@ -315,8 +315,7 @@
                   "is_external": "",
                   "nofollow": "",
                   "custom_attributes": "aria-label|Tienda"
-                },
-                "custom_css": "selector .elementor-icon{transition:background-color .2s,box-shadow .2s;}\nselector .elementor-icon:hover{box-shadow:0 0 0 1px #F6F7F2;}"
+                }
               },
               "elements": [],
               "isInner": false

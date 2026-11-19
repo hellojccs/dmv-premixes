@@ -261,7 +261,6 @@ def header():
             "hover_primary_color": TG, "hover_secondary_color": WS,
             "size": px(20), "icon_padding": px(10),
             "link": {"url": "#", "is_external": "", "nofollow": "", "custom_attributes": "aria-label|Tienda"},
-            "custom_css": "selector .elementor-icon{transition:background-color .2s,box-shadow .2s;}\nselector .elementor-icon:hover{box-shadow:0 0 0 1px #F6F7F2;}",
         }),
         button("Contáctanos", "/contactanos/", size=14, pad=(11, 20), extra={"hide_mobile": "hidden-mobile"}),
     ])
