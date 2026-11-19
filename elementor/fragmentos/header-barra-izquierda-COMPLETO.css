@@ -1,0 +1,64 @@
+/* CSS COMPLETO de la barra izquierda del header (logo + menú).
+   REEMPLAZA todo el CSS personalizado de esa barra por este contenido. */
+
+/* Vidrio claro arriba; vidrio Carbon Black al hacer scroll */
+selector{pointer-events:auto;--width:auto;width:auto;flex:0 0 auto;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);transition:background-color .3s,border-color .3s;}
+body.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border-color:rgba(246,247,242,.12) !important;}
+
+/* Logo completo arriba, solo el símbolo al hacer scroll */
+selector .dmv-brand{position:relative;display:block;height:40px;width:158px;transition:width .35s ease;}
+selector .dmv-logo-full{pointer-events:none;position:absolute;left:12px;top:50%;width:142px;height:auto;transform:translateY(-50%);transition:opacity .25s,transform .35s;}
+selector .dmv-mark{position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:#195DE4;display:grid;place-items:center;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s;}
+selector .dmv-mark svg{width:20px;height:auto;}
+body.dmv-scrolled selector .dmv-brand{width:40px;}
+body.dmv-scrolled selector .dmv-logo-full{opacity:0;transform:translateY(-50%) scale(.92);}
+body.dmv-scrolled selector .dmv-mark{opacity:1;transform:none;}
+@media (max-width:767px){selector .dmv-brand{width:140px;}selector .dmv-logo-full{width:124px;}}
+
+/* Menú: texto blanco; hover encerrado en una píldora con borde White Sand (como "Contáctanos") */
+selector .elementor-nav-menu--main .elementor-item{height:40px;display:flex;align-items:center;padding-top:0;padding-bottom:0;border:1px solid transparent;border-radius:999px;transition:border-color .2s,background-color .2s;}
+selector .elementor-nav-menu--main .elementor-item:hover,
+selector .elementor-nav-menu--main .elementor-item:focus,
+selector .elementor-nav-menu--main .elementor-item.highlighted{border-color:#F6F7F2;background-color:rgba(246,247,242,.10);color:#F6F7F2;}
+selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
+selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
+
+/* Pantallas muy chicas (iPhone SE, Android compactos): solo el símbolo, para que quepa el carrito */
+@media (max-width:374px){
+  selector .dmv-brand{width:40px;}
+  selector .dmv-logo-full{opacity:0;}
+  selector .dmv-mark{opacity:1;transform:none;}
+}
+
+/* Menú desplegable (celular y ⋮ en computadora) con el estilo del header */
+selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{top:calc(100% + 10px);border-radius:24px;padding:8px;background:#FFFFFF;box-shadow:0 2px 4px rgba(28,27,23,.06),0 24px 56px rgba(28,27,23,.18);}
+selector .elementor-nav-menu--dropdown li + li{border-top:1px solid #E9E6DF;}
+selector .elementor-nav-menu--dropdown a.elementor-item{padding:14px 18px !important;font-size:17px !important;line-height:1.3;color:#1C1B17 !important;border-radius:14px;background:transparent;}
+selector .elementor-nav-menu--dropdown a.elementor-item:hover,
+selector .elementor-nav-menu--dropdown a.elementor-item:focus,
+selector .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{background:rgba(25,93,228,.08) !important;color:#195DE4 !important;}
+selector .elementor-nav-menu--dropdown .sub-arrow{color:#8798B2;}
+
+
+/* Botón ⋮ / hamburguesa: círculo perfecto de 40px */
+selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);align-items:center;justify-content:center;box-sizing:border-box;}
+/* Solo se muestra en celular, o en escritorio al hacer scroll (regla de abajo); arriba en escritorio queda oculto */
+@media (min-width:768px){selector .elementor-menu-toggle{display:none;}}
+@media (max-width:767px){selector .elementor-menu-toggle{display:flex;}}
+selector .elementor-menu-toggle:hover,selector .elementor-menu-toggle.elementor-active{background-color:rgba(25,93,228,.5);}
+selector .elementor-menu-toggle svg{width:20px;height:20px;}
+selector .elementor-menu-toggle i{font-size:20px;}
+
+/* Panel del menú: debajo de la barra, alineado a su borde izquierdo */
+selector .elementor-widget-nav-menu,selector .elementor-widget-nav-menu .elementor-widget-container{position:static;}
+selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:280px;z-index:20;}
+@media (max-width:767px){selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{width:calc(100vw - 32px);}}
+
+/* Al hacer scroll (escritorio): se ocultan los enlaces y aparece el botón ⋮ (referencia Butter) */
+@media (min-width:768px){
+  body.dmv-scrolled selector .elementor-nav-menu--main{display:none;}
+  body.dmv-scrolled selector .elementor-menu-toggle{display:flex;}
+  body.dmv-scrolled selector .elementor-nav-menu--dropdown{display:block;}
+  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active) .elementor-menu-toggle__icon--open{display:none;}
+  body.dmv-scrolled selector .elementor-menu-toggle:not(.elementor-active)::before{content:"";display:block;width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F6F7F2'%3E%3Ccircle cx='12' cy='5' r='1.8'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3Ccircle cx='12' cy='19' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat;}
+}

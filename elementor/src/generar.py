@@ -175,16 +175,15 @@ selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
   selector .dmv-mark{opacity:1;transform:none;}
 }
 
-/* Menú desplegable con el estilo del header */
-@media (max-width:767px){
-  selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{top:calc(100% + 10px);border-radius:24px;padding:8px;background:#FFFFFF;box-shadow:0 2px 4px rgba(28,27,23,.06),0 24px 56px rgba(28,27,23,.18);}
-  selector .elementor-nav-menu--dropdown li + li{border-top:1px solid #E9E6DF;}
-  selector .elementor-nav-menu--dropdown a.elementor-item{padding:14px 18px !important;font-size:17px !important;line-height:1.3;color:#1C1B17 !important;border-radius:14px;background:transparent;}
-  selector .elementor-nav-menu--dropdown a.elementor-item:hover,
-  selector .elementor-nav-menu--dropdown a.elementor-item:focus,
-  selector .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{background:rgba(25,93,228,.08) !important;color:#195DE4 !important;}
-  selector .elementor-nav-menu--dropdown .sub-arrow{color:#8798B2;}
-}
+/* Menú desplegable (celular y ⋮ en computadora) con el estilo del header */
+selector .elementor-nav-menu__container.elementor-nav-menu--dropdown{top:calc(100% + 10px);border-radius:24px;padding:8px;background:#FFFFFF;box-shadow:0 2px 4px rgba(28,27,23,.06),0 24px 56px rgba(28,27,23,.18);}
+selector .elementor-nav-menu--dropdown li + li{border-top:1px solid #E9E6DF;}
+selector .elementor-nav-menu--dropdown a.elementor-item{padding:14px 18px !important;font-size:17px !important;line-height:1.3;color:#1C1B17 !important;border-radius:14px;background:transparent;}
+selector .elementor-nav-menu--dropdown a.elementor-item:hover,
+selector .elementor-nav-menu--dropdown a.elementor-item:focus,
+selector .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{background:rgba(25,93,228,.08) !important;color:#195DE4 !important;}
+selector .elementor-nav-menu--dropdown .sub-arrow{color:#8798B2;}
+
 
 /* Botón ⋮ / hamburguesa: círculo perfecto de 40px */
 selector .elementor-menu-toggle{width:40px;height:40px;padding:0;margin:0;border:0;border-radius:50%;background-color:rgba(246,247,242,.12);align-items:center;justify-content:center;box-sizing:border-box;}

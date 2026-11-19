@@ -41,3 +41,26 @@ Fecha: 19 nov 2026 · Revisado en computadora (1440 px), tablet (1024 px) y celu
 - [ ] Logos reales de clientes (hoy marcas **ficticias** visibles en el sitio).
 - [ ] Correo real de contacto (hoy `contacto@dmvpremixes.com` de ejemplo).
 - [ ] Textos definitivos.
+
+---
+
+## Estado al cierre (19 nov 2026)
+
+### ⚠️ Pendiente urgente
+- [ ] **Header descompuesto**: el CSS de la barra izquierda se reemplazó en lugar de agregarse.
+  Solución: *Theme Builder → Header → barra izquierda (logo + menú) → Avanzado → CSS personalizado* →
+  **borrar todo** y pegar `elementor/fragmentos/header-barra-izquierda-COMPLETO.css` → Actualizar.
+  (Probado sobre el sitio: computadora + iPhone SE, iPhone 13 y Pixel 7.)
+
+### ✅ Hecho en esta sesión
+- Fuente Rinter carga para todos (https + woff2); fuentes globales Rinter/Archivo; Roboto eliminado.
+- Botones en Archivo 14/400; hover "relleno desde el cursor" (direction-aware) sin movimiento.
+- Header: hover en píldora (menú y Contáctanos), botón de carrito (vista previa, Cool Swell → Taupe Grey).
+- Sin rebote al hacer scroll; hero con relleno en celular; correo del footer sin desbordar.
+- Industrias: tarjetas apiladas con máscara del símbolo DMV.
+
+### Siguiente
+- [ ] Sección **¿Por qué DMV Premixes?**
+- [ ] Tienda con WooCommerce (carrito real con contador).
+- [ ] Botones con destino (`#`), pilares repetidos, páginas de prueba publicadas, alt de imágenes, SEO.
+- [ ] Contenido del cliente: fotos, logos reales, correo, textos.
