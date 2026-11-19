@@ -245,7 +245,7 @@
               "spread": 0,
               "color": "rgba(28,27,23,0.10)"
             },
-            "custom_css": "/* Vidrio claro arriba; vidrio Carbon Black al hacer scroll */\nselector{pointer-events:auto;--width:auto;width:auto;flex:0 0 auto;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);transition:background-color .3s,border-color .3s;}\nbody.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border-color:rgba(246,247,242,.12) !important;}\n\n/* Botón Contáctanos: borde blanco arriba, sin borde al hacer scroll */\nselector .elementor-icon-wrapper{display:flex;line-height:0;}\nselector .elementor-icon{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;}\nselector .elementor-icon svg{width:20px;height:20px;}\n/* Rinter: +2px arriba / -2px abajo para centrar el texto */\nselector .elementor-button{height:40px;padding:2px 22px 0;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}\nbody.dmv-scrolled selector .elementor-button{border-color:transparent;}"
+            "custom_css": "/* Vidrio claro arriba; vidrio Carbon Black al hacer scroll */\nselector{pointer-events:auto;--width:auto;width:auto;flex:0 0 auto;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);transition:background-color .3s,border-color .3s;}\nbody.dmv-scrolled selector{background-color:rgba(28,27,23,.84) !important;border-color:rgba(246,247,242,.12) !important;}\n\n/* Botón Contáctanos: borde blanco arriba, sin borde al hacer scroll */\nselector .elementor-icon-wrapper{display:flex;line-height:0;}\nselector .elementor-icon{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;}\nselector .elementor-icon svg{width:20px;height:20px;}\n/* Botón Contáctanos: Archivo 14, alto 40px */\nselector .elementor-button{height:40px;padding:0 22px;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}\nbody.dmv-scrolled selector .elementor-button{border-color:transparent;}"
           },
           "elements": [
             {
@@ -310,9 +310,9 @@
                 },
                 "text_padding": {
                   "unit": "px",
-                  "top": "13",
+                  "top": "11",
                   "right": "20",
-                  "bottom": "9",
+                  "bottom": "11",
                   "left": "20",
                   "isLinked": false
                 },
@@ -320,7 +320,7 @@
                 "button_background_hover_background": "classic",
                 "button_background_hover_color": "#1450C6",
                 "typography_typography": "custom",
-                "typography_font_family": "Rinter",
+                "typography_font_family": "Archivo",
                 "typography_font_weight": "400",
                 "typography_font_size": {
                   "unit": "px",

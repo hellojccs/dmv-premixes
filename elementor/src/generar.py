@@ -35,10 +35,11 @@ def widget(kind, settings): return {"id": rid(kind), "elType": "widget", "widget
 def container(settings, elements, inner=False):
     return {"id": rid("con"), "elType": "container", "isInner": inner, "settings": settings, "elements": elements}
 
-RINTER_SHIFT = 0.143   # em: Rinter se ve 0.143em arriba del centro; se compensa con padding (sin tocar la fuente)
+# Botones: Archivo 14 / 400, igual que el menú del header (decisión del cliente).
+# (Si algún día vuelven a Rinter: compensar 0.143em con +2px arriba / -2px abajo.)
 
 def button(text, url, *, outline_white=False, size=15, pad=(14, 40), extra=None):
-    d = round(size * RINTER_SHIFT)
+    d = 0
     s = {"text": text, "link": {"url": url, "is_external": "", "nofollow": "", "custom_attributes": ""},
          "button_text_color": WS, "background_color": RB,
          "button_background_background": "classic", "button_background_color": RB,
@@ -48,7 +49,7 @@ def button(text, url, *, outline_white=False, size=15, pad=(14, 40), extra=None)
                   "border_border": "solid", "border_width": radius(1), "border_color": WS})
     else:
         s.update({"hover_color": WS, "button_background_hover_background": "classic", "button_background_hover_color": "#1450C6"})
-    s.update(typo("typography", "Rinter", size))
+    s.update(typo("typography", "Archivo", 14))
     if extra: s.update(extra)
     return widget("button", s)
 
@@ -196,8 +197,8 @@ RIGHT_CSS = GLASS_CSS + """
 selector .elementor-icon-wrapper{display:flex;line-height:0;}
 selector .elementor-icon{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;font-size:20px;}
 selector .elementor-icon svg{width:20px;height:20px;}
-/* Rinter: +2px arriba / -2px abajo para centrar el texto */
-selector .elementor-button{height:40px;padding:2px 22px 0;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}
+/* Botón Contáctanos: Archivo 14, alto 40px */
+selector .elementor-button{height:40px;padding:0 22px;display:inline-flex;align-items:center;box-sizing:border-box;border:1px solid #F6F7F2;}
 body.dmv-scrolled selector .elementor-button{border-color:transparent;}"""
 
 def glass(title, pad, css, elements):
@@ -307,8 +308,8 @@ def footer():
             "button_background_color": RB, "button_text_color": WS,
             "button_background_hover_color": "#1450C6", "button_hover_color": WS,
             "button_border_radius": radius(999),
-            "button_text_padding": box(11 + 2, 22, 11 - 2, 22),   # +2/-2: centra Rinter
-            **typo("button_typography", "Rinter", 14),
+            "button_text_padding": box(11, 22, 11, 22),
+            **typo("button_typography", "Archivo", 14),
             "_element_width": "initial", "_element_custom_width": px(380), "_element_custom_width_mobile": px(100, "%"),
             "_margin": box(26, 0, 0, 0),
             "custom_css": FORM_CSS,

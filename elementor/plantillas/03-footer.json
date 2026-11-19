@@ -299,14 +299,14 @@
                         },
                         "button_text_padding": {
                           "unit": "px",
-                          "top": "13",
+                          "top": "11",
                           "right": "22",
-                          "bottom": "9",
+                          "bottom": "11",
                           "left": "22",
                           "isLinked": false
                         },
                         "button_typography_typography": "custom",
-                        "button_typography_font_family": "Rinter",
+                        "button_typography_font_family": "Archivo",
                         "button_typography_font_weight": "400",
                         "button_typography_font_size": {
                           "unit": "px",
