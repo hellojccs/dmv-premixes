@@ -4,12 +4,14 @@
      El color se elige solo según el botón y su fondo:
        · header, o botón azul sobre fondo oscuro  → relleno White Sand, texto Royal Blue
        · botón azul sobre fondo claro             → relleno Carbon Black, texto White Sand
-       · botón suave o claro                       → relleno Royal Blue, texto White Sand
+       · botón suave o claro sobre fondo claro     → relleno Royal Blue, texto White Sand
+       · botón suave o claro sobre fondo oscuro    → relleno Carbon Black, texto White Sand
      Uso en Elementor: Elementor → Código personalizado → pegar todo → Ubicación: Fin del <body> → Todo el sitio. -->
 <style>
-.dmv-fill{position:relative;overflow:hidden;isolation:isolate;}
+.dmv-fill{position:relative;overflow:visible;isolation:isolate;}
 /* Capa del relleno: dibuja el texto en el color final (sin duplicarlo en el HTML) */
-.dmv-fill::after{content:attr(data-dmv-label);position:absolute;inset:0;z-index:2;pointer-events:none;box-sizing:border-box;
+/* La capa cubre también el borde del botón (así no queda una línea en las orillas) */
+.dmv-fill::after{content:attr(data-dmv-label);position:absolute;inset:calc(var(--dmv-bw,0px) * -1);z-index:2;pointer-events:none;box-sizing:border-box;
   display:flex;align-items:center;justify-content:center;padding:var(--dmv-pad,0);border-radius:inherit;white-space:nowrap;
   background:var(--dmv-fill);color:var(--dmv-text);
   clip-path:circle(0px at var(--dmv-x,50%) var(--dmv-y,50%));
@@ -31,12 +33,14 @@
     if(btn.classList.contains('dmv-fill')) return;
     var st=getComputedStyle(btn), bg=rgba(st.backgroundColor), fill, text;
     if(btn.closest('.elementor-location-header, .nav-wrap')){ fill=WS; text=RB; }
-    else if(bg.a<.5 || lum(bg)>.6){ fill=RB; text=WS; }
+    else if(bg.a<.5 || lum(bg)>.6){ var a2=areaBg(btn.parentElement); fill=(lum(a2)<.35)?CB:RB; text=WS; }
     else { var area=areaBg(btn.parentElement); if(lum(area)<.35){ fill=WS; text=RB; } else { fill=CB; text=WS; } }
 
     // La capa del relleno usa el mismo texto y relleno interno del botón
     btn.setAttribute('data-dmv-label',(btn.innerText||btn.textContent||'').trim().replace(/\s+/g,' '));
-    btn.style.setProperty('--dmv-pad',st.padding);
+    var bw=parseFloat(st.borderTopWidth)||0;
+    btn.style.setProperty('--dmv-bw',bw+'px');
+    btn.style.setProperty('--dmv-pad',[st.paddingTop,st.paddingRight,st.paddingBottom,st.paddingLeft].map(function(v){return (parseFloat(v)+bw)+'px';}).join(' '));
     btn.style.setProperty('--dmv-fill',fill); btn.style.setProperty('--dmv-text',text);
     btn.classList.add('dmv-fill');
 
@@ -45,7 +49,7 @@
     function pos(e){ var r=btn.getBoundingClientRect();
       var x=(e&&e.clientX!=null)?e.clientX-r.left:r.width/2, y=(e&&e.clientY!=null)?e.clientY-r.top:r.height/2;
       btn.style.setProperty('--dmv-x',x+'px'); btn.style.setProperty('--dmv-y',y+'px');
-      btn.style.setProperty('--dmv-r',Math.ceil(Math.hypot(Math.max(x,r.width-x),Math.max(y,r.height-y)))+2+'px'); }
+      btn.style.setProperty('--dmv-r',Math.ceil(Math.hypot(Math.max(x,r.width-x),Math.max(y,r.height-y)))+4+'px'); }
     function lock(){ btn.style.setProperty('background-color',base.bg,'important'); btn.style.setProperty('border-color',base.border,'important');
       btn.style.setProperty('color',base.color,'important'); btn.style.setProperty('box-shadow','none','important'); }
     function unlock(){ ['background-color','border-color','color','box-shadow'].forEach(function(p){btn.style.removeProperty(p);}); }
