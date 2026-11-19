@@ -195,3 +195,39 @@ Archivo: `fragmentos/flechas-carrusel.css`
 - Computadora: flechas a los lados, fuera de las tarjetas.
 - Tablet y celular: centradas debajo de las tarjetas.
 - La flecha se ve más clara cuando no hay más tarjetas en esa dirección.
+
+---
+
+# Sección ¿Por qué DMV Premixes? (`plantillas/06-por-que.json`)
+
+Va en **Inicio**, debajo de **Industrias**.
+
+## 1. Importa
+*Plantillas → Plantillas guardadas → Importar plantillas* → `06-por-que.json` → **Importar ahora**.
+Aparece como **"DMV - Por qué DMV Premixes"**.
+
+## 2. Insértala en Inicio
+1. **Inicio → Editar con Elementor** → abre el **Navegador** (Ctrl/Cmd + I).
+2. Debajo de la sección **Industrias**: ícono de **carpeta** → *Mis plantillas* → **DMV - Por qué DMV Premixes** → **Insertar**.
+   Si pregunta por la configuración del documento → **No**.
+3. Si quedó en otro lugar, arrástrala en el Navegador para que quede justo después de Industrias.
+4. **Actualizar**.
+
+## 3. Qué trae
+- Etiqueta con línea arriba, igual que las otras secciones.
+- **Computadora:** foto a la izquierda (cuadrada) y texto a la derecha.
+- **Celular:** foto arriba (4:3) y texto abajo.
+- Título "Más que ingredientes, acompañamiento al proceso" (H2, Rinter) y texto de apoyo.
+- Tarjeta con la **cita del director**: iniciales, nombre y puesto, y firma.
+- Botones **Ver Soluciones** (lleva a `#soluciones`) y **Solicita Asesoría** (`/contactanos/`).
+  El hover "relleno desde el cursor" se aplica solo.
+
+## 4. Lo que es provisional (cámbialo cuando llegue el material)
+- **Foto:** hoy es un degradado con un ícono de matraz. Para poner la foto real: selecciona el contenedor
+  *"Foto (provisional…)"* → *Estilo → Fondo* → **Clásico** → *Imagen* → elige la foto → *Posición:* centro · *Tamaño:* **Cubrir**.
+  Después borra el ícono del matraz.
+- **Cita, nombre y puesto:** de ejemplo. Edita los textos directamente.
+- **Iniciales "NA":** cámbialas por las del director, o borra ese elemento y pon un widget de *Imagen* con su foto (44 × 44, radio 999).
+- **Firma:** es un trazo de ejemplo. Si el director nos manda su firma escaneada, la convierto en SVG.
+
+> "Ver Soluciones" necesita que la sección del portafolio tenga el ID CSS `soluciones` (ver `ARREGLOS-RAPIDOS.md`).

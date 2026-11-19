@@ -521,12 +521,109 @@ def soluciones():
         "background_gradient_type": "radial", "background_gradient_position": "center center",
     })]
 
+# ------------------------------------------------------------------ ¿POR QUÉ DMV PREMIXES?
+SIGNATURE_HTML = """<svg class="dmv-firma" viewBox="0 0 120 40" fill="none" stroke="#195DE4" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" style="width:96px;height:auto;display:block"><path d="M6 28c6-14 12-22 14-18s-6 22-2 22 10-16 14-16-2 14 2 14 8-10 12-10 0 8 4 8 10-14 16-14-4 16 2 16 14-10 20-12 10 2 16-2"/><path d="M40 34c20-3 44-4 70-6"/></svg>"""
+
+PHOTO_CSS = """/* Foto provisional: cuadrada en computadora, 4:3 en celular */
+selector{aspect-ratio:1/1;}
+@media (max-width:767px){selector{aspect-ratio:4/3;}}"""
+
+def por_que():
+    foto = container({
+        "_title": "Foto (provisional: cambiar por la fotografía de laboratorio)",
+        "content_width": "full", "width": px(48, "%"), "width_mobile": px(100, "%"),
+        "flex_direction": "column", "flex_justify_content": "center", "flex_align_items": "center",
+        "padding": box(16, 16, 16, 16), "min_height_mobile": px(240),
+        "border_radius": radius(24), "overflow": "hidden",
+        "background_background": "gradient",
+        "background_color": SG, "background_color_stop": px(0, "%"),
+        "background_color_b": TG, "background_color_b_stop": px(100, "%"),
+        "background_gradient_type": "linear", "background_gradient_angle": px(150, "deg"),
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {"horizontal": 0, "vertical": 8, "blur": 24, "spread": 0, "color": "rgba(28,27,23,0.06)"},
+        "custom_css": PHOTO_CSS,
+    }, [
+        widget("icon", {"selected_icon": {"value": "fas fa-flask", "library": "fa-solid"},
+                        "primary_color": WS, "size": px(80), "size_mobile": px(56), "align": "center"}),
+    ], inner=True)
+
+    cita = container({
+        "_title": "Cita del director", "content_width": "full", "width": px(100, "%"),
+        "flex_direction": "column",
+        "flex_gap": {"column": "0", "row": "18", "isLinked": False, "unit": "px", "size": 18},
+        "padding": box(22, 22, 22, 22), "margin": box(26, 0, 28, 0),
+        "background_background": "classic", "background_color": "#FFFFFF",
+        "border_border": "solid", "border_width": radius(1), "border_color": SG, "border_radius": radius(18),
+    }, [
+        widget("text-editor", {
+            "_title": "Cita (texto de ejemplo)",
+            "editor": "<p>“Construimos relaciones de largo plazo, acompañando a nuestros clientes en la selección, aplicación y seguimiento de las soluciones que forman parte de sus procesos.”</p>",
+            "text_color": TG, **typo("typography", "Archivo", 14, None, 1.6)}),
+        container({
+            "_title": "Autor", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_align_items": "center", "flex_wrap": "nowrap",
+            "flex_gap": {"column": "12", "row": "12", "isLinked": True, "unit": "px", "size": 12},
+            "padding": box(0, 0, 0, 0)}, [
+            widget("heading", {
+                "_title": "Iniciales (o cambia por una foto)", "title": "NA", "header_size": "div",
+                "align": "center", "title_color": TG, **typo("typography", "Rinter", 14, None, 1),
+                "_element_width": "initial", "_element_custom_width": px(44), "_flex_size": "none",
+                "_padding": box(15, 0, 15, 0),
+                "_background_background": "classic", "_background_color": SG,
+                "_border_radius": radius(999)}),
+            widget("text-editor", {
+                "_title": "Nombre y puesto (de ejemplo)",
+                "editor": '<p><strong style="color:#1C1B17">Nombre Apellido</strong><br><span style="color:#8798B2">Director General, DMV Premixes</span></p>',
+                "text_color": TG, "_flex_size": "grow", **typo("typography", "Archivo", 13, None, 1.35),
+                "custom_css": "selector p{margin:0;}"}),
+            widget("html", {"_title": "Firma", "html": SIGNATURE_HTML, "_flex_size": "none"}),
+        ], inner=True),
+    ], inner=True)
+
+    texto = container({
+        "_title": "Texto", "content_width": "full", "width": px(48, "%"), "width_mobile": px(100, "%"),
+        "flex_direction": "column", "flex_justify_content": "center",
+        "flex_gap": {"column": "0", "row": "0", "isLinked": True, "unit": "px", "size": 0},
+        "padding": box(0, 0, 0, 0)}, [
+        widget("heading", {"title": "Más que ingredientes, acompañamiento al proceso", "header_size": "h2",
+                           "title_color": CB, "_margin": box(0, 0, 16, 0),
+                           **typo("typography", "Rinter", 38, 28, 1.12, -0.5)}),
+        widget("text-editor", {
+            "editor": "<p>Nos aseguramos de que cada solución se use correctamente, con capacitación constante para tu equipo.</p>",
+            "text_color": TG, **typo("typography", "Archivo", 16, 15, 1.6), "custom_css": "selector p{margin:0;}"}),
+        cita,
+        container({
+            "_title": "Botones", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_wrap": "wrap",
+            "flex_gap": {"column": "12", "row": "12", "isLinked": True, "unit": "px", "size": 12},
+            "padding": box(0, 0, 0, 0)}, [
+            button("Ver Soluciones", "#soluciones", pad=(13, 24)),
+            button("Solicita Asesoría", "/contactanos/", pad=(13, 24), extra={
+                "button_text_color": CB, "background_color": "rgba(255,255,255,0.6)",
+                "button_background_color": "rgba(255,255,255,0.6)",
+                "border_border": "solid", "border_width": radius(1), "border_color": CS,
+                "hover_color": WS, "button_background_hover_color": RB, "button_hover_border_color": RB}),
+        ], inner=True),
+    ], inner=True)
+
+    return [section("¿Por qué DMV Premixes?", "por-que", [
+        eyebrow("¿Por qué DMV Premixes?"),
+        container({
+            "_title": "Foto + texto", "content_width": "full", "width": px(100, "%"),
+            "flex_direction": "row", "flex_direction_mobile": "column",
+            "flex_justify_content": "space-between", "flex_align_items": "center",
+            "flex_align_items_mobile": "stretch", "flex_wrap": "nowrap",
+            "flex_gap": {"column": "48", "row": "36", "isLinked": False, "unit": "px", "size": 48},
+            "padding": box(0, 0, 0, 0)}, [foto, texto], inner=True),
+    ])]
+
 if __name__ == "__main__":
     save("01-hero.json", "DMV - Hero", "container", hero())
     save("02-header.json", "DMV - Header", "header", header())
     save("03-footer.json", "DMV - Footer", "footer", footer())
     save("04-nosotros.json", "DMV - Nosotros", "container", nosotros())
     save("05-soluciones.json", "DMV - Soluciones", "container", soluciones())
+    save("06-por-que.json", "DMV - Por qué DMV Premixes", "container", por_que())
     # Fragmento suelto: código de la franja de logos para pegar en un widget HTML
     frag = ROOT / "elementor/fragmentos"; frag.mkdir(parents=True, exist_ok=True)
     (frag / "franja-logos.html").write_text(marquee_html() + "\n")
