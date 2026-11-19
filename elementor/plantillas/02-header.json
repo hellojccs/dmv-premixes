@@ -296,9 +296,9 @@
                 },
                 "view": "stacked",
                 "shape": "circle",
-                "primary_color": "#F6F7F2",
-                "secondary_color": "#195DE4",
-                "hover_primary_color": "#195DE4",
+                "primary_color": "#8798B2",
+                "secondary_color": "#F6F7F2",
+                "hover_primary_color": "#5A5154",
                 "hover_secondary_color": "#F6F7F2",
                 "size": {
                   "unit": "px",
@@ -311,7 +311,7 @@
                   "sizes": []
                 },
                 "link": {
-                  "url": "/tienda/",
+                  "url": "#",
                   "is_external": "",
                   "nofollow": "",
                   "custom_attributes": "aria-label|Tienda"
