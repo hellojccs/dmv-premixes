@@ -1,0 +1,3 @@
+/* Sin "rebote" al llegar arriba o abajo de la página:
+   evita que se vea el fondo del sitio detrás del hero (arriba) y del footer (abajo). */
+html, body { overscroll-behavior-y: none; }
