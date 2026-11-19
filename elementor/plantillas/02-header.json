@@ -1,7 +1,7 @@
 {
   "content": [
     {
-      "id": "f79b76e",
+      "id": "c8ef143",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -192,7 +192,7 @@
           ]
         },
         {
-          "id": "8daba44",
+          "id": "f79b76e",
           "elType": "container",
           "isInner": true,
           "settings": {
@@ -285,7 +285,44 @@
               "isInner": false
             },
             {
-              "id": "d0f2001",
+              "id": "c2f9d9d",
+              "elType": "widget",
+              "widgetType": "icon",
+              "settings": {
+                "_title": "Carrito (tienda)",
+                "selected_icon": {
+                  "value": "fas fa-shopping-cart",
+                  "library": "fa-solid"
+                },
+                "view": "stacked",
+                "shape": "circle",
+                "primary_color": "#F6F7F2",
+                "secondary_color": "#195DE4",
+                "hover_primary_color": "#195DE4",
+                "hover_secondary_color": "#F6F7F2",
+                "size": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                },
+                "icon_padding": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "link": {
+                  "url": "/tienda/",
+                  "is_external": "",
+                  "nofollow": "",
+                  "custom_attributes": "aria-label|Tienda"
+                },
+                "custom_css": "selector .elementor-icon{transition:background-color .2s,box-shadow .2s;}\nselector .elementor-icon:hover{box-shadow:0 0 0 1px #F6F7F2;}"
+              },
+              "elements": [],
+              "isInner": false
+            },
+            {
+              "id": "0ca8ccc",
               "elType": "widget",
               "widgetType": "button",
               "settings": {

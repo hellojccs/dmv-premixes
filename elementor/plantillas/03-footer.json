@@ -1,7 +1,7 @@
 {
   "content": [
     {
-      "id": "db86fca",
+      "id": "9209651",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -29,7 +29,7 @@
       },
       "elements": [
         {
-          "id": "0f223df",
+          "id": "db86fca",
           "elType": "container",
           "isInner": true,
           "settings": {
@@ -82,7 +82,7 @@
           },
           "elements": [
             {
-              "id": "badd10e",
+              "id": "717461c",
               "elType": "container",
               "isInner": true,
               "settings": {
@@ -123,7 +123,7 @@
               },
               "elements": [
                 {
-                  "id": "3c71a48",
+                  "id": "7aacb27",
                   "elType": "container",
                   "isInner": true,
                   "settings": {
@@ -158,7 +158,7 @@
                   },
                   "elements": [
                     {
-                      "id": "70f5b07",
+                      "id": "3d022de",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -191,7 +191,7 @@
                       "isInner": false
                     },
                     {
-                      "id": "eb77908",
+                      "id": "c2b2b38",
                       "elType": "widget",
                       "widgetType": "text-editor",
                       "settings": {
@@ -226,7 +226,7 @@
                       "isInner": false
                     },
                     {
-                      "id": "f42021a",
+                      "id": "d8ec177",
                       "elType": "widget",
                       "widgetType": "form",
                       "settings": {
@@ -234,7 +234,7 @@
                         "form_name": "Newsletter",
                         "form_fields": [
                           {
-                            "_id": "1e0f8e2",
+                            "_id": "35639d6",
                             "custom_id": "email",
                             "field_type": "email",
                             "field_label": "Correo",
@@ -340,7 +340,7 @@
                   ]
                 },
                 {
-                  "id": "5a203bc",
+                  "id": "28d1707",
                   "elType": "container",
                   "isInner": true,
                   "settings": {
@@ -368,7 +368,7 @@
                   },
                   "elements": [
                     {
-                      "id": "bc051eb",
+                      "id": "af723dc",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -401,14 +401,14 @@
                       "isInner": false
                     },
                     {
-                      "id": "4df1e06",
+                      "id": "3da032e",
                       "elType": "widget",
                       "widgetType": "icon-list",
                       "settings": {
                         "view": "traditional",
                         "icon_list": [
                           {
-                            "_id": "30f1e04",
+                            "_id": "4bdcf69",
                             "text": "Nosotros",
                             "selected_icon": {
                               "value": "",
@@ -422,7 +422,7 @@
                             }
                           },
                           {
-                            "_id": "4bdcf69",
+                            "_id": "2a53f19",
                             "text": "Soluciones",
                             "selected_icon": {
                               "value": "",
@@ -436,7 +436,7 @@
                             }
                           },
                           {
-                            "_id": "2a53f19",
+                            "_id": "7d9eec3",
                             "text": "Industrias",
                             "selected_icon": {
                               "value": "",
@@ -450,7 +450,7 @@
                             }
                           },
                           {
-                            "_id": "7d9eec3",
+                            "_id": "0562b53",
                             "text": "Calidad",
                             "selected_icon": {
                               "value": "",
@@ -464,7 +464,7 @@
                             }
                           },
                           {
-                            "_id": "0562b53",
+                            "_id": "2a57a72",
                             "text": "Blog",
                             "selected_icon": {
                               "value": "",
@@ -478,7 +478,7 @@
                             }
                           },
                           {
-                            "_id": "2a57a72",
+                            "_id": "14dbe51",
                             "text": "Certificaciones",
                             "selected_icon": {
                               "value": "",
@@ -492,7 +492,7 @@
                             }
                           },
                           {
-                            "_id": "14dbe51",
+                            "_id": "ed76578",
                             "text": "Política de Privacidad",
                             "selected_icon": {
                               "value": "",
@@ -506,7 +506,7 @@
                             }
                           },
                           {
-                            "_id": "ed76578",
+                            "_id": "5bbca74",
                             "text": "Ubicación",
                             "selected_icon": {
                               "value": "",
@@ -548,7 +548,7 @@
                   ]
                 },
                 {
-                  "id": "e01dec9",
+                  "id": "badd10e",
                   "elType": "container",
                   "isInner": true,
                   "settings": {
@@ -576,7 +576,7 @@
                   },
                   "elements": [
                     {
-                      "id": "c40bda2",
+                      "id": "da34683",
                       "elType": "widget",
                       "widgetType": "heading",
                       "settings": {
@@ -609,14 +609,14 @@
                       "isInner": false
                     },
                     {
-                      "id": "b6dba39",
+                      "id": "30997e5",
                       "elType": "widget",
                       "widgetType": "icon-list",
                       "settings": {
                         "view": "traditional",
                         "icon_list": [
                           {
-                            "_id": "c29274e",
+                            "_id": "5d9dbea",
                             "text": "contacto@dmvpremixes.com",
                             "selected_icon": {
                               "value": "",
@@ -630,7 +630,7 @@
                             }
                           },
                           {
-                            "_id": "5d9dbea",
+                            "_id": "85ba387",
                             "text": "WhatsApp +52 55 4357 7104",
                             "selected_icon": {
                               "value": "",
@@ -644,7 +644,7 @@
                             }
                           },
                           {
-                            "_id": "85ba387",
+                            "_id": "9dc20af",
                             "text": "Solicitar Asesoría",
                             "selected_icon": {
                               "value": "",
@@ -688,7 +688,7 @@
               ]
             },
             {
-              "id": "b5b85c8",
+              "id": "0f223df",
               "elType": "container",
               "isInner": true,
               "settings": {
@@ -730,7 +730,7 @@
               },
               "elements": [
                 {
-                  "id": "65ab683",
+                  "id": "cbffcf5",
                   "elType": "container",
                   "isInner": true,
                   "settings": {
@@ -757,7 +757,7 @@
                   },
                   "elements": [
                     {
-                      "id": "ae23842",
+                      "id": "4156055",
                       "elType": "widget",
                       "widgetType": "image",
                       "settings": {
@@ -782,7 +782,7 @@
                   ]
                 },
                 {
-                  "id": "a41f301",
+                  "id": "7b40c0b",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {

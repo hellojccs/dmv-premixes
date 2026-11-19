@@ -253,6 +253,16 @@ def header():
             "size": px(20), "icon_padding": px(10),
             "link": {"url": WHATSAPP, "is_external": "on", "nofollow": "", "custom_attributes": ""},
         }),
+        widget("icon", {
+            "_title": "Carrito (tienda)",
+            "selected_icon": {"value": "fas fa-shopping-cart", "library": "fa-solid"},
+            "view": "stacked", "shape": "circle",
+            "primary_color": WS, "secondary_color": RB,
+            "hover_primary_color": RB, "hover_secondary_color": WS,
+            "size": px(20), "icon_padding": px(10),
+            "link": {"url": "/tienda/", "is_external": "", "nofollow": "", "custom_attributes": "aria-label|Tienda"},
+            "custom_css": "selector .elementor-icon{transition:background-color .2s,box-shadow .2s;}\nselector .elementor-icon:hover{box-shadow:0 0 0 1px #F6F7F2;}",
+        }),
         button("Contáctanos", "/contactanos/", size=14, pad=(11, 20), extra={"hide_mobile": "hidden-mobile"}),
     ])
     return [container({

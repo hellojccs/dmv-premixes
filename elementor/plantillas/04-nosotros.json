@@ -1,7 +1,7 @@
 {
   "content": [
     {
-      "id": "59a8a0d",
+      "id": "5c0bf8b",
       "elType": "container",
       "isInner": false,
       "settings": {
@@ -43,7 +43,7 @@
       },
       "elements": [
         {
-          "id": "1baeb25",
+          "id": "5db328c",
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
@@ -104,7 +104,7 @@
           "isInner": false
         },
         {
-          "id": "5db328c",
+          "id": "7e9648a",
           "elType": "widget",
           "widgetType": "heading",
           "settings": {
@@ -159,7 +159,7 @@
           "isInner": false
         },
         {
-          "id": "ffcef34",
+          "id": "0ed8ec2",
           "elType": "container",
           "isInner": true,
           "settings": {
@@ -216,7 +216,7 @@
           },
           "elements": [
             {
-              "id": "f12da31",
+              "id": "18b4e6d",
               "elType": "widget",
               "widgetType": "icon-box",
               "settings": {
@@ -277,7 +277,7 @@
               "isInner": false
             },
             {
-              "id": "18b4e6d",
+              "id": "a7762c4",
               "elType": "widget",
               "widgetType": "icon-box",
               "settings": {
@@ -338,7 +338,7 @@
               "isInner": false
             },
             {
-              "id": "a7762c4",
+              "id": "5140ac7",
               "elType": "widget",
               "widgetType": "icon-box",
               "settings": {
@@ -399,7 +399,7 @@
               "isInner": false
             },
             {
-              "id": "5140ac7",
+              "id": "f31dce1",
               "elType": "widget",
               "widgetType": "icon-box",
               "settings": {
@@ -462,7 +462,7 @@
           ]
         },
         {
-          "id": "e4a471e",
+          "id": "59a8a0d",
           "elType": "container",
           "isInner": true,
           "settings": {
@@ -486,7 +486,7 @@
           },
           "elements": [
             {
-              "id": "918759f",
+              "id": "5279bd2",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
