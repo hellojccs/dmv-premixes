@@ -82,17 +82,17 @@ p{margin:0;text-wrap:pretty}
 .nav-wrap.scrolled .nav-brand{width:40px}
 .nav-wrap.scrolled .nav-logo-full{opacity:0;transform:translateY(-50%) scale(.92)}
 .nav-wrap.scrolled .nav-mark{opacity:1;transform:none}
-/* Enlaces: blancos; hover con fondo Royal Blue al 50% */
+/* Enlaces: blancos; hover encerrado en una píldora con borde White Sand (como "Contáctanos") */
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;margin:0 0 0 10px;padding:0;font-size:14px;max-width:640px;white-space:nowrap;transition:max-width .4s ease,opacity .25s,margin .4s ease}
 /* Al hacer scroll los enlaces se ocultan y aparece el botón ⋮ (referencia Butter) */
 .nav-wrap.scrolled .nav-links{max-width:0;opacity:0;margin-left:0;overflow:hidden;pointer-events:none}
-.nav-links a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:12px;color:var(--white-sand);transition:background-color .2s}
-.nav-links a:hover,.nav-dd:focus-within>a{background:rgba(25,93,228,.5);color:var(--white-sand)}
+.nav-links a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border:1px solid transparent;border-radius:999px;color:var(--white-sand);transition:border-color .2s,background-color .2s}
+.nav-links a:hover,.nav-dd:focus-within>a{border-color:var(--white-sand);background:rgba(246,247,242,.10);color:var(--white-sand)}
 .nav-links .icon{font-size:12px}
 .nav-dd{position:relative}
 .nav-dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:200px;padding:8px;border-radius:var(--radius-sm);background:var(--white);box-shadow:var(--shadow-lg);list-style:none;margin:0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s}
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:none}
-.nav-dd-menu a{display:block;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
+.nav-dd-menu a{display:block;height:auto;padding:9px 14px;border:0;border-radius:8px;color:var(--carbon-black);white-space:nowrap}
 .nav-dd-menu a:hover{background:rgba(25,93,228,.12);color:var(--carbon-black)}
 .nav-cta{height:40px;padding:0 22px;border-color:var(--white-sand)}
 .nav-wrap.scrolled .nav-cta{border-color:transparent}

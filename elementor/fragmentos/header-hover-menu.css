@@ -1,0 +1,5 @@
+/* Menú: texto blanco; hover encerrado en una píldora con borde White Sand (como "Contáctanos") */
+selector .elementor-nav-menu--main .elementor-item{height:40px;display:flex;align-items:center;padding-top:0;padding-bottom:0;border:1px solid transparent;border-radius:999px;transition:border-color .2s,background-color .2s;}
+selector .elementor-nav-menu--main .elementor-item:hover,
+selector .elementor-nav-menu--main .elementor-item:focus,
+selector .elementor-nav-menu--main .elementor-item.highlighted{border-color:#F6F7F2;background-color:rgba(246,247,242,.10);color:#F6F7F2;}

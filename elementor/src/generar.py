@@ -160,11 +160,11 @@ body.dmv-scrolled selector .dmv-logo-full{opacity:0;transform:translateY(-50%) s
 body.dmv-scrolled selector .dmv-mark{opacity:1;transform:none;}
 @media (max-width:767px){selector .dmv-brand{width:140px;}selector .dmv-logo-full{width:124px;}}
 
-/* Menú: texto blanco; hover con fondo Royal Blue al 50% */
-selector .elementor-nav-menu--main .elementor-item{height:40px;display:flex;align-items:center;padding-top:0;padding-bottom:0;border-radius:12px;transition:background-color .2s;}
+/* Menú: texto blanco; hover encerrado en una píldora con borde White Sand (como "Contáctanos") */
+selector .elementor-nav-menu--main .elementor-item{height:40px;display:flex;align-items:center;padding-top:0;padding-bottom:0;border:1px solid transparent;border-radius:999px;transition:border-color .2s,background-color .2s;}
 selector .elementor-nav-menu--main .elementor-item:hover,
 selector .elementor-nav-menu--main .elementor-item:focus,
-selector .elementor-nav-menu--main .elementor-item.highlighted{background-color:rgba(25,93,228,.5);color:#F6F7F2;}
+selector .elementor-nav-menu--main .elementor-item.highlighted{border-color:#F6F7F2;background-color:rgba(246,247,242,.10);color:#F6F7F2;}
 selector .elementor-nav-menu--dropdown{min-width:220px;border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(28,27,23,.12);}
 selector .elementor-nav-menu--dropdown a{white-space:nowrap;}
 
