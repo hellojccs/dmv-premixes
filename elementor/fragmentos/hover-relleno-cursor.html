@@ -15,6 +15,8 @@
   clip-path:circle(0px at var(--dmv-x,50%) var(--dmv-y,50%));
   transition:clip-path .55s cubic-bezier(.65,0,.35,1);}
 .dmv-fill.dmv-on::after{clip-path:circle(var(--dmv-r,200px) at var(--dmv-x,50%) var(--dmv-y,50%));}
+/* Sin movimiento: anula las animaciones de Elementor al pasar el cursor (Bob, Float, Grow, Shrink, etc.). Solo se ve el relleno. */
+.elementor-button[class*="elementor-animation-"]:hover,.elementor-button[class*="elementor-animation-"]:focus,.elementor-button[class*="elementor-animation-"]:active{animation:none !important;transform:none !important;}
 @media (prefers-reduced-motion:reduce){.dmv-fill::after{transition:none;}}
 </style>
 <script>
