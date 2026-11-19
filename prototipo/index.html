@@ -177,7 +177,38 @@ p{margin:0;text-wrap:pretty}
 @media (max-width:900px){.card{flex-basis:calc((100% - 22px)/2)}}
 @media (max-width:640px){.sol-head{grid-template-columns:1fr;gap:16px}.card{flex-basis:84%}.arrow{display:none}}
 
-/* ---------- Split (Industrias / Por qué) ---------- */
+/* ---------- Industrias: tarjetas apiladas (referencia Rezon Bio) ---------- */
+.ind-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.ind-head .lead{margin-top:14px}
+.dmv-stack{display:flex;flex-direction:column;gap:180px;--dmv-stack-top:112px}
+.ind-card{display:grid;grid-template-columns:1.25fr 1fr;height:540px;padding:14px;border-radius:32px;background:var(--white);border:1px solid var(--soft-grey);box-shadow:var(--shadow)}
+.ind-card.ind-reverse{grid-template-columns:1fr 1.25fr}
+.ind-card.ind-reverse .ind-media{order:2}
+.ind-card.dmv-dark{background:var(--royal-blue);border-color:var(--royal-blue);color:var(--white-sand)}
+.ind-media{position:relative;border-radius:24px;background:var(--white-sand);display:grid;place-items:center;overflow:hidden}
+.dmv-dark .ind-media{background:rgba(246,247,242,.14)}
+.ind-media .dmv-shape{width:min(78%,440px);aspect-ratio:248.1/207.64}
+.ind-media .dmv-shape-fill{width:100%;height:100%}
+.ind-content{display:flex;flex-direction:column;padding:56px 44px 36px}
+.ind-content h3{font-size:clamp(30px,3.2vw,44px);color:var(--royal-blue);margin-bottom:16px}
+.ind-content p{color:var(--taupe-grey);font-size:16px;max-width:380px}
+.dmv-dark .ind-content h3{color:var(--white-sand)}
+.dmv-dark .ind-content p{color:rgba(246,247,242,.86)}
+.btn-soft{align-self:flex-start;margin-top:28px;background:rgba(25,93,228,.08);color:var(--royal-blue)}
+.btn-soft:hover{background:rgba(25,93,228,.16)}
+.dmv-dark .btn-soft{background:var(--white-sand);color:var(--royal-blue)}
+.dmv-dark .btn-soft:hover{background:var(--white)}
+@media (max-width:767px){
+  .ind-head{margin-bottom:32px}
+  .dmv-stack{gap:16px}
+  .ind-card,.ind-card.ind-reverse{grid-template-columns:1fr;height:auto;padding:10px;border-radius:24px}
+  .ind-card.ind-reverse .ind-media{order:0}
+  .ind-media{height:240px;border-radius:18px}
+  .ind-media .dmv-shape{width:auto;height:76%}
+  .ind-content{padding:24px 18px 20px}
+}
+
+/* ---------- Split (Por qué) ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .split .h2{margin-bottom:16px}
 .industries{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;max-width:420px}
@@ -478,43 +509,39 @@ p{margin:0;text-wrap:pretty}
   </div>
 </section>
 
-<!-- ============ INDUSTRIAS ============ -->
+<!-- ============ INDUSTRIAS (tarjetas apiladas · referencia Rezon Bio) ============ -->
 <section class="section" id="industrias">
   <div class="container">
     <div class="eyebrow">Industrias y Aplicaciones</div>
-    <div class="split">
-      <div>
-        <h2 class="h2">Soluciones para cada<br>industria</h2>
-        <p class="lead">Cada proceso productivo tiene requerimientos específicos. Te ayudamos a elegir los ingredientes y las soluciones técnicas que mejor se adaptan a tu aplicación.</p>
-        <div class="industries">
-          <div class="industry"><svg class="icon"><use href="#i-wheat"/></svg>Alimentos y<br>Panificación</div>
-          <div class="industry"><svg class="icon"><use href="#i-bottle"/></svg>Bebidas</div>
-          <div class="industry"><svg class="icon"><use href="#i-paw"/></svg>Nutrición<br>Animal</div>
+    <div class="ind-head">
+      <h2 class="h2">Soluciones para cada industria</h2>
+      <p class="lead">Cada proceso productivo tiene requerimientos específicos. Te ayudamos a elegir los ingredientes y las soluciones técnicas que mejor se adaptan a tu aplicación.</p>
+    </div>
+    <div class="dmv-stack">
+      <article class="ind-card dmv-stack-card">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(140deg,#e9e6df 0%,#c9b99a 45%,#8798b2 100%)"></div></div><span class="media-label">Foto: panificación (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Alimentos y<br>Panificación</h3>
+          <p>Premezclas, enzimas y mejorantes que aportan consistencia, volumen y vida de anaquel a harinas, pan y productos de panificación.</p>
+          <a href="#contacto" class="btn btn-soft">Conoce más</a>
         </div>
-      </div>
-      <div class="media" aria-hidden="true">
-        <!-- Ilustración provisional (reemplazar por fotografía final) -->
-        <svg viewBox="-40 -30 680 680" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f7f2"/><stop offset=".55" stop-color="#dfe6f5"/><stop offset="1" stop-color="#b9c8ea"/></linearGradient>
-            <radialGradient id="sph" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".25" stop-color="#cfdcf8"/><stop offset=".65" stop-color="#195de4"/><stop offset="1" stop-color="#0d2f78"/></radialGradient>
-            <radialGradient id="sph2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#d7def0"/><stop offset="1" stop-color="#8798b2"/></radialGradient>
-            <linearGradient id="bond" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset="1" stop-color="#8798b2" stop-opacity=".9"/></linearGradient>
-            <filter id="blur"><feGaussianBlur stdDeviation="6"/></filter>
-          </defs>
-          <rect x="-40" y="-30" width="680" height="680" fill="url(#bg)"/>
-          <g filter="url(#blur)" opacity=".5"><circle cx="70" cy="110" r="34" fill="url(#sph2)"/><circle cx="560" cy="520" r="44" fill="url(#sph2)"/><circle cx="520" cy="80" r="26" fill="url(#sph2)"/></g>
-          <g stroke="url(#bond)" stroke-width="22" stroke-linecap="round">
-            <line x1="215" y1="200" x2="420" y2="120"/><line x1="420" y1="120" x2="455" y2="330"/><line x1="455" y1="330" x2="300" y2="455"/><line x1="300" y1="455" x2="215" y2="200"/><line x1="300" y1="455" x2="190" y2="560"/><line x1="420" y1="120" x2="560" y2="40"/>
-          </g>
-          <circle cx="215" cy="200" r="98" fill="url(#sph)"/>
-          <circle cx="420" cy="120" r="62" fill="url(#sph)"/>
-          <circle cx="455" cy="330" r="78" fill="url(#sph)"/>
-          <circle cx="300" cy="455" r="70" fill="url(#sph)"/>
-          <circle cx="190" cy="560" r="44" fill="url(#sph)"/>
-          <g fill="#fff" opacity=".85"><ellipse cx="180" cy="160" rx="26" ry="14" transform="rotate(-30 180 160)"/><ellipse cx="400" cy="98" rx="16" ry="9" transform="rotate(-30 400 98)"/><ellipse cx="430" cy="300" rx="20" ry="11" transform="rotate(-30 430 300)"/><ellipse cx="278" cy="428" rx="18" ry="10" transform="rotate(-30 278 428)"/></g>
-        </svg>
-      </div>
+      </article>
+      <article class="ind-card dmv-stack-card dmv-dark ind-reverse">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(150deg,#f6f7f2 0%,#8798b2 50%,#195de4 100%)"></div></div><span class="media-label">Foto: bebidas (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Bebidas</h3>
+          <p>Fortificación con vitaminas y minerales estables y de fácil dispersión para bebidas listas para tomar, polvos y concentrados.</p>
+          <a href="#contacto" class="btn btn-soft">Conoce más</a>
+        </div>
+      </article>
+      <article class="ind-card dmv-stack-card">
+        <div class="ind-media"><div class="dmv-shape"><div class="dmv-shape-fill" style="background:linear-gradient(140deg,#e9e6df 0%,#8798b2 55%,#5a5154 100%)"></div></div><span class="media-label">Foto: nutrición animal (provisional)</span></div>
+        <div class="ind-content dmv-stack-content">
+          <h3>Nutrición<br>Animal</h3>
+          <p>Premezclas vitamínicas y minerales a la medida para alimento balanceado de aves, cerdos, rumiantes y mascotas.</p>
+          <a href="#contacto" class="btn btn-soft">Conoce más</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -748,6 +775,71 @@ p{margin:0;text-wrap:pretty}
     update();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+<!-- Tarjetas apiladas (elementor/fragmentos/tarjetas-apiladas.html) -->
+<!-- DMV Premixes — Tarjetas apiladas (referencia: Rezon Bio "Capabilities")
+     Clases:
+       dmv-stack          → contenedor que agrupa las tarjetas
+       dmv-stack-card     → cada tarjeta (se queda fija arriba; la siguiente la cubre al hacer scroll)
+       dmv-dark           → (opcional) tarjeta oscura: el indicador se pinta en White Sand
+       dmv-stack-content  → contenedor del texto de la tarjeta (ahí se agrega el indicador automáticamente)
+       dmv-shape          → imagen recortada con la forma del símbolo DMV
+     Uso en Elementor: Elementor → Código personalizado → pegar todo → Ubicación: Fin del <body>. -->
+<style>
+.dmv-shape img,.dmv-shape .dmv-shape-fill{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 248.1 207.64%22%3E%3Cpath d=%22M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z%22/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 248.1 207.64%22%3E%3Cpath d=%22M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z%22/%3E%3C/svg%3E") center/contain no-repeat;}
+.dmv-shape img{aspect-ratio:248.1/207.64;object-fit:cover;width:100%;height:auto;}
+.dmv-stack-card{--dmv-dot:#195DE4;}
+.dmv-stack-card.dmv-dark{--dmv-dot:#F6F7F2;}
+.dmv-stack-dots{display:flex;gap:14px;margin-top:auto;padding-top:24px;}
+.dmv-stack-dots span{display:block;width:24px;height:20px;background:var(--dmv-dot);opacity:.25;transition:opacity .3s;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 248.1 207.64%22%3E%3Cpath d=%22M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z%22/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 248.1 207.64%22%3E%3Cpath d=%22M212.31,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v49.7c-.35,3.11-.31,6.25.15,9.32,1.5,9.72,7.07,18.76,16.06,24.39,1.75,1.09,3.57,2.02,5.42,2.76,14.14,5.75,30.54,1.59,40.25-10.36,1-1.2,1.95-2.45,2.8-3.81,3.38-5.42,5.11-11.39,5.31-17.33v-63.28c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M123.15,5.32c-9.87-6.17-21.63-6.81-31.67-2.74-6.61,2.66-12.48,7.37-16.55,13.88-2.59,4.15-4.22,8.66-4.93,13.22v21.67c-.2,5.94-1.93,11.91-5.31,17.33-.3.47-.61.92-.91,1.38-6.31,9.1-16.25,14.35-26.63,15-.71.05-1.41.07-2.12.07h-.07c-11.64.02-23.01,5.85-29.64,16.47-3.38,5.42-5.11,11.39-5.32,17.33v54.5c.16,5.07,1.42,10.05,3.69,14.59.19.39.4.77.61,1.16.18.34.38.67.57,1,2.77,4.79,6.68,9.02,11.71,12.16,1.75,1.09,3.57,2.02,5.42,2.76,15.46,6.29,33.66.76,42.81-13.89,2.96-4.74,4.66-9.92,5.16-15.16.2-2.11.2-4.23.02-6.34v-59.39c-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02,11.39-.24,22.44-6.06,28.93-16.43,2.96-4.74,4.66-9.94,5.16-15.16v-6.8c-1.03-10.43-6.71-20.3-16.3-26.29Z%22/%3E%3Cpath d=%22M247.93,176.03c-.5,5.23-2.2,10.41-5.16,15.16-9.15,14.65-27.35,20.19-42.81,13.89-1.85-.74-3.67-1.67-5.42-2.76-9-5.64-14.57-14.67-16.06-24.39-.52-3.5-.54-7.08,0-10.61.71-4.56,2.34-9.07,4.93-13.22.3-.49.61-.96.94-1.41,4-5.79,9.49-10.01,15.61-12.48,3.62-1.48,7.45-2.32,11.34-2.52.4-.02.82-.03,1.23-.03.44,0,.87,0,1.31-.02.35.02.71.02,1.06.05,5.75.29,11.51,2.02,16.74,5.28,4.15,2.61,7.59,5.94,10.21,9.72,3.43,4.95,5.52,10.66,6.09,16.57.22,2.25.22,4.53,0,6.78Z%22/%3E%3C/svg%3E") center/contain no-repeat;}
+.dmv-stack-dots span.on{opacity:1;}
+@media (min-width:768px){
+  .dmv-stack-card{position:sticky;top:var(--dmv-stack-top,112px);transform-origin:50% 0;will-change:transform,filter;}
+}
+</style>
+<script>
+(function(){
+  if (window.__dmvStack) return; window.__dmvStack = true;
+  function init(){
+    var groups=[].slice.call(document.querySelectorAll('.dmv-stack'));
+    if(!groups.length) return;
+    var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sets=groups.map(function(g){
+      var cards=[].slice.call(g.querySelectorAll('.dmv-stack-card')).filter(function(c){return c.closest('.dmv-stack')===g;});
+      cards.forEach(function(card,i){
+        var slot=card.querySelector('.dmv-stack-content')||card;
+        if(slot.querySelector('.dmv-stack-dots')) return;
+        var d=document.createElement('div'); d.className='dmv-stack-dots'; d.setAttribute('aria-hidden','true');
+        for(var k=0;k<cards.length;k++){ var s=document.createElement('span'); if(k===i) s.className='on'; d.appendChild(s); }
+        slot.appendChild(d);
+      });
+      return cards;
+    });
+    if(reduce) return;
+    var ticking=false;
+    function update(){
+      ticking=false;
+      var desktop=window.innerWidth>=768;
+      sets.forEach(function(cards){
+        cards.forEach(function(card,i){
+          var next=cards[i+1];
+          if(!desktop||!next){ card.style.transform=''; card.style.filter=''; return; }
+          var top=parseFloat(getComputedStyle(card).top)||0, h=card.offsetHeight;
+          // 0 cuando la siguiente tarjeta aún está debajo · 1 cuando ya la cubrió por completo
+          var p=Math.min(1,Math.max(0,(top+h-next.getBoundingClientRect().top)/h));
+          card.style.transform=p?'scale('+(1-0.06*p).toFixed(4)+')':'';
+          card.style.filter=p?'blur('+(p*3).toFixed(2)+'px)':'';
+        });
+      });
+    }
+    function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    update();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
 </script>
 
