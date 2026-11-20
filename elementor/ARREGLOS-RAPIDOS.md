@@ -36,3 +36,36 @@ Clic en el botón → *Contenido → Enlace*:
 Abre la página publicada (o la vista previa) y haz clic en cada botón:
 - *Ver Soluciones* baja suavemente hasta **Nuestro portafolio** (el header flotante no debe tapar el título).
 - Los demás abren su página.
+
+---
+
+# Espaciado único en Inicio (`fragmentos/espaciado-inicio.css`)
+
+## Qué estaba pasando (valores leídos del CSS publicado)
+| Sección | Arriba / abajo (compu · celular) | Lados | Otros |
+|---|---|---|---|
+| Nosotros (frase + pilares) | 20 · 20, con altura mínima 60 % de la pantalla | 20 | la frase tenía 60 extra arriba |
+| Portafolio | 20 · 60, con altura mínima 80 % de la pantalla | 20 | tarjetas del carrusel con 30 extra arriba y abajo |
+| Industrias | 72 · 56 | 24 · 16 | 72 extra debajo de las tarjetas en celular |
+| Más que ingredientes | 72 · 56 | 24 · 16 | cita con 26 / 28 |
+| Hero (tablet) | relleno 65 = lo que sube el hero → el contenido queda bajo el header | | en celular solo 20 abajo |
+
+Además, el espacio entre título, texto y contenido dependía del espacio automático de Elementor, distinto en cada sección.
+
+## Escala nueva (computadora · tablet · celular)
+- Sección, arriba y abajo: **72 · 64 · 56**. A los lados: **24 · 24 · 16**. Sin altura mínima.
+- Título → texto: **16 · 16 · 12**
+- Encabezado → contenido (pilares, carrusel, tarjetas): **48 · 40 · 32**
+- Contenido → botones: **32 · 32 · 24** · entre botones **12**
+
+## Cómo aplicarlo
+1. **Inicio → Editar con Elementor** → ⚙️ (Configuración de página) → **Avanzado → CSS personalizado**.
+2. Pega todo `espaciado-inicio.css` → **Actualizar**.
+3. *Elementor → Herramientas → Regenerar archivos y datos* si no ves el cambio, y recarga sin caché.
+
+> No hace falta tocar los rellenos sección por sección: el CSS manda sobre lo que diga el panel.
+> Si borras y vuelves a crear una sección, cambia su ID y hay que actualizar el archivo (avísame).
+
+## Ajuste a mano recomendado
+En **Más que ingredientes**, los botones están **fuera** de la columna de texto (quedan debajo de todo, también de la foto).
+Navegador → arrastra el contenedor de los botones **dentro** de la columna del texto, debajo de la cita.

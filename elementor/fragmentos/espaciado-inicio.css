@@ -1,0 +1,105 @@
+/* DMV Premixes — Espaciado único para la página de Inicio
+   Dónde pegarlo: Inicio → Editar con Elementor → ⚙️ Configuración de página → Avanzado → CSS personalizado
+   (o Elementor → Código personalizado, dentro de <style>…</style>, condición: solo Inicio).
+
+   ESCALA (computadora · tablet · celular)
+   - Sección, arriba y abajo ......... 72 · 64 · 56
+   - Sección, a los lados ............ 24 · 24 · 16
+   - Título → texto .................. 16 · 16 · 12
+   - Encabezado → contenido .......... 48 · 40 · 32
+   - Contenido → botones ............. 32 · 32 · 24
+   - Entre botones ................... 12
+   Las secciones ya no usan altura mínima en % de pantalla (60vh / 80vh): esa altura cambiaba
+   el espacio según el tamaño de la ventana. Ahora el espacio lo da solo el relleno.
+
+   Usa los IDs de los elementos de tu página. Si borras y vuelves a crear una sección, su ID cambia
+   y hay que actualizar este archivo. */
+
+/* ---------- 1. Secciones: mismo relleno, sin altura mínima, sin separación automática ---------- */
+.elementor-10 .elementor-element.elementor-element-a37e73f.e-con,
+.elementor-10 .elementor-element.elementor-element-b420814.e-con,
+.elementor-10 .elementor-element.elementor-element-73b5763.e-con,
+.elementor-10 .elementor-element.elementor-element-4c45795.e-con{
+  --min-height:0px; min-height:0;
+  --padding-top:72px; --padding-bottom:72px; --padding-left:24px; --padding-right:24px;
+  --gap:0px; --row-gap:0px; --column-gap:0px;
+}
+
+/* Los widgets dentro de las secciones ya no suman el espacio automático de Elementor:
+   el espacio entre ellos lo define esta hoja, y nada más. */
+.elementor-10 .elementor-element-a37e73f > .elementor-element,
+.elementor-10 .elementor-element-b420814 > .elementor-element,
+.elementor-10 .elementor-element-73b5763 > .elementor-element,
+.elementor-10 .elementor-element-4c45795 > .elementor-element,
+.elementor-10 .elementor-element-757f4469 > .elementor-element{
+  margin-top:0 !important; margin-bottom:0 !important;
+}
+
+/* ---------- 2. Título → texto (16) ---------- */
+.elementor-10 .elementor-element.elementor-element-4d11510,   /* Nuestro portafolio */
+.elementor-10 .elementor-element.elementor-element-35bf3cb,   /* Industrias que atendemos */
+.elementor-10 .elementor-element.elementor-element-7399ea49{  /* Más que ingredientes… */
+  margin-bottom:16px !important;
+}
+
+/* ---------- 3. Encabezado → contenido (48) ---------- */
+.elementor-10 .elementor-element.elementor-element-df2a92a,   /* frase de Nosotros → pilares */
+.elementor-10 .elementor-element.elementor-element-1eeb816,   /* intro portafolio → carrusel */
+.elementor-10 .elementor-element.elementor-element-9601838{   /* intro industrias → tarjetas */
+  margin-bottom:48px !important;
+}
+/* Carrusel del portafolio: cada tarjeta tenía 30 px de relleno arriba y abajo, que se sumaban
+   a la escala. Se deja en 8 (espacio para la sombra y el hover) y se descuenta del encabezado. */
+.elementor-10 .elementor-element.elementor-element-2b194e3.e-con,
+.elementor-10 .elementor-element.elementor-element-1e2172f.e-con,
+.elementor-10 .elementor-element.elementor-element-1422f92.e-con,
+.elementor-10 .elementor-element.elementor-element-780c73b.e-con,
+.elementor-10 .elementor-element.elementor-element-4ddbdf4.e-con{ --padding-top:8px; --padding-bottom:8px; }
+.elementor-10 .elementor-element.elementor-element-1eeb816{ margin-bottom:40px !important; } /* 40 + 8 = 48 */
+
+/* La frase de Nosotros tenía 60 px extra arriba: fuera */
+.elementor-10 .elementor-element.elementor-element-df2a92a{ margin-top:0 !important; }
+
+/* ---------- 4. ¿Por qué DMV Premixes? ---------- */
+/* Tarjeta de la cita: 24 arriba, 32 abajo (antes 26 / 28) */
+.elementor-10 .elementor-element.elementor-element-2b1e33b4{ margin:24px 0 32px 0 !important; }
+/* Botones: 32 arriba (si están fuera de la columna de texto) y 12 entre ellos */
+.elementor-10 .elementor-element.elementor-element-f8943a{ margin-top:32px !important; --gap:12px; --row-gap:12px; --column-gap:12px; }
+
+/* ---------- Tablet ---------- */
+@media (max-width:1024px){
+  .elementor-10 .elementor-element.elementor-element-a37e73f.e-con,
+  .elementor-10 .elementor-element.elementor-element-b420814.e-con,
+  .elementor-10 .elementor-element.elementor-element-73b5763.e-con,
+  .elementor-10 .elementor-element.elementor-element-4c45795.e-con{
+    --padding-top:64px; --padding-bottom:64px; --padding-left:24px; --padding-right:24px;
+  }
+  .elementor-10 .elementor-element.elementor-element-df2a92a,
+  .elementor-10 .elementor-element.elementor-element-1eeb816,
+  .elementor-10 .elementor-element.elementor-element-9601838{ margin-bottom:40px !important; }
+  .elementor-10 .elementor-element.elementor-element-1eeb816{ margin-bottom:32px !important; } /* 32 + 8 = 40 */
+  /* Hero en tablet: el contenido quedaba debajo del header (relleno 65 = lo que sube el hero) */
+  .elementor-10 .elementor-element.elementor-element-810f8f4.e-con{ --padding-top:160px; --padding-bottom:56px; }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width:767px){
+  .elementor-10 .elementor-element.elementor-element-a37e73f.e-con,
+  .elementor-10 .elementor-element.elementor-element-b420814.e-con,
+  .elementor-10 .elementor-element.elementor-element-73b5763.e-con,
+  .elementor-10 .elementor-element.elementor-element-4c45795.e-con{
+    --padding-top:56px; --padding-bottom:56px; --padding-left:16px; --padding-right:16px;
+  }
+  .elementor-10 .elementor-element.elementor-element-4d11510,
+  .elementor-10 .elementor-element.elementor-element-35bf3cb,
+  .elementor-10 .elementor-element.elementor-element-7399ea49{ margin-bottom:12px !important; }
+  .elementor-10 .elementor-element.elementor-element-df2a92a,
+  .elementor-10 .elementor-element.elementor-element-1eeb816,
+  .elementor-10 .elementor-element.elementor-element-9601838{ margin-bottom:32px !important; }
+  .elementor-10 .elementor-element.elementor-element-1eeb816{ margin-bottom:24px !important; } /* 24 + 8 = 32 */
+  .elementor-10 .elementor-element.elementor-element-f8943a{ margin-top:24px !important; }
+  /* Industrias: quitaba 72 px extra debajo de las tarjetas */
+  .elementor-10 .elementor-element.elementor-element-c7d5a20.e-con{ --padding-bottom:0px; }
+  /* Hero: 20 px abajo era muy poco antes de Nosotros */
+  .elementor-10 .elementor-element.elementor-element-810f8f4.e-con{ --padding-bottom:48px; }
+}
