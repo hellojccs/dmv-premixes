@@ -60,7 +60,8 @@ Fecha: 19 nov 2026 · Revisado en computadora (1440 px), tablet (1024 px) y celu
 - Industrias: tarjetas apiladas con máscara del símbolo DMV.
 
 ### Siguiente
-- [ ] Sección **¿Por qué DMV Premixes?**
+- [ ] Arreglos rápidos: H1 y botones con `#` → pasos en `elementor/ARREGLOS-RAPIDOS.md`.
+- [ ] Sección **¿Por qué DMV Premixes?** → plantilla `elementor/plantillas/06-por-que.json` (lista para importar).
 - [ ] Tienda con WooCommerce (carrito real con contador).
 - [ ] Botones con destino (`#`), pilares repetidos, páginas de prueba publicadas, alt de imágenes, SEO.
 - [ ] Contenido del cliente: fotos, logos reales, correo, textos.
