@@ -9,6 +9,7 @@
    - Encabezado → contenido .......... 48 · 40 · 32
    - Contenido → botones ............. 32 · 32 · 24
    - Entre botones ................... 12
+   - Sección destacada (Nosotros) .... 120 · 96 · 72 arriba y abajo; frase → pilares 64 · 48 · 40
    Las secciones ya no usan altura mínima en % de pantalla (60vh / 80vh): esa altura cambiaba
    el espacio según el tamaño de la ventana. Ahora el espacio lo da solo el relleno.
 
@@ -102,4 +103,19 @@
   .elementor-10 .elementor-element.elementor-element-c7d5a20.e-con{ --padding-bottom:0px; }
   /* Hero: 20 px abajo era muy poco antes de Nosotros */
   .elementor-10 .elementor-element.elementor-element-810f8f4.e-con{ --padding-bottom:48px; }
+}
+
+/* ---------- Sección destacada: Nosotros (la frase grande + pilares) ----------
+   Es la sección "manifiesto": usa el escalón grande de la escala para darle aire.
+   Arriba y abajo: 120 · 96 · 72  ·  Frase → pilares: 64 · 48 · 40
+   (Va al final del archivo para que mande sobre las reglas generales.) */
+.elementor-10 .elementor-element.elementor-element-a37e73f.e-con{ --padding-top:120px; --padding-bottom:120px; }
+.elementor-10 .elementor-element.elementor-element-df2a92a{ margin-bottom:64px !important; }
+@media (max-width:1024px){
+  .elementor-10 .elementor-element.elementor-element-a37e73f.e-con{ --padding-top:96px; --padding-bottom:96px; }
+  .elementor-10 .elementor-element.elementor-element-df2a92a{ margin-bottom:48px !important; }
+}
+@media (max-width:767px){
+  .elementor-10 .elementor-element.elementor-element-a37e73f.e-con{ --padding-top:72px; --padding-bottom:72px; }
+  .elementor-10 .elementor-element.elementor-element-df2a92a{ margin-bottom:40px !important; }
 }
